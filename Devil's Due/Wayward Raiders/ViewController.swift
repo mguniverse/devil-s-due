@@ -483,6 +483,7 @@ class ViewController: UIViewController {
             newStairs()
         }
         
+        checkObstacles()
         loadSprites()
             
     }
@@ -2126,7 +2127,7 @@ class ViewController: UIViewController {
                     canMoveUp = false
                 }
                 if (b1o == true) {
-                    canMoveRight = false
+                    canMoveLeft = false
                 }
                 if (b3o == true) {
                     canMoveRight = false
@@ -2140,7 +2141,7 @@ class ViewController: UIViewController {
                     canMoveUp = false
                 }
                 if (b2o == true) {
-                    canMoveRight = false
+                    canMoveLeft = false
                 }
                 if (b4o == true) {
                     canMoveRight = false
@@ -2154,7 +2155,7 @@ class ViewController: UIViewController {
                     canMoveUp = false
                 }
                 if (b3o == true) {
-                    canMoveRight = false
+                    canMoveLeft = false
                 }
                 if (b5o == true) {
                     canMoveRight = false
@@ -2168,7 +2169,7 @@ class ViewController: UIViewController {
                     canMoveUp = false
                 }
                 if (b4o == true) {
-                    canMoveRight = false
+                    canMoveLeft = false
                 }
                 if (b6o == true) {
                     canMoveRight = false
@@ -2182,7 +2183,7 @@ class ViewController: UIViewController {
                     canMoveUp = false
                 }
                 if (b5o == true) {
-                    canMoveRight = false
+                    canMoveLeft = false
                 }
                 if (b7o == true) {
                     canMoveRight = false
@@ -2196,7 +2197,7 @@ class ViewController: UIViewController {
                     canMoveUp = false
                 }
                 if (b6o == true) {
-                    canMoveRight = false
+                    canMoveLeft = false
                 }
                 if (b8o == true) {
                     canMoveRight = false
@@ -2206,11 +2207,11 @@ class ViewController: UIViewController {
                 }
             }
             else if (playerX == 8) {
-                if (a9o == true) {
+                if (a8o == true) {
                     canMoveUp = false
                 }
                 if (b7o == true) {
-                    canMoveRight = false
+                    canMoveLeft = false
                 }
                 if (b9o == true) {
                     canMoveRight = false
@@ -2220,16 +2221,13 @@ class ViewController: UIViewController {
                 }
             }
             else if (playerX == 9) {
-                if (a7o == true) {
+                if (a9o == true) {
                     canMoveUp = false
                 }
-                if (b6o == true) {
-                    canMoveRight = false
-                }
                 if (b8o == true) {
-                    canMoveRight = false
+                    canMoveLeft = false
                 }
-                if (c7o == true) {
+                if (c9o == true) {
                     canMoveDown = false
                 }
             }
@@ -2440,7 +2438,7 @@ class ViewController: UIViewController {
     func moveDown() {
         checkForWalls()
         if (playerY < boundsY && canMoveDown == true) {
-            playerY++
+            playerY += 1
             UIView.animateWithDuration(animationSpeed) {
                 self.player.center = CGPoint(x: self.player.center.x, y: self.player.center.y + 44)
             }
@@ -2450,7 +2448,7 @@ class ViewController: UIViewController {
     func moveUp() {
         checkForWalls()
         if (playerY > 1 && canMoveUp == true) {
-            playerY--
+            playerY -= 1
             UIView.animateWithDuration(animationSpeed) {
                 self.player.center = CGPoint(x: self.player.center.x, y: self.player.center.y - 44)
             }
@@ -2460,7 +2458,7 @@ class ViewController: UIViewController {
     func moveLeft() {
         checkForWalls()
         if (playerX > 1 && canMoveLeft == true) {
-            playerX--
+            playerX -= 1
             UIView.animateWithDuration(animationSpeed) {
                 self.player.center = CGPoint(x: self.player.center.x - 28, y: self.player.center.y)
             }
@@ -2470,7 +2468,7 @@ class ViewController: UIViewController {
     func moveRight() {
         checkForWalls()
         if (playerX < boundsX && canMoveRight == true) {
-            playerX++
+            playerX += 1
             UIView.animateWithDuration(animationSpeed) {
                 self.player.center = CGPoint(x: self.player.center.x + 28, y: self.player.center.y)
             }
