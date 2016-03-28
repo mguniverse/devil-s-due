@@ -1,0 +1,712 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D4B0A4241C97DBD6002ED642 /* web-upper-left.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B0A4221C97DBD6002ED642 /* web-upper-left.png */; };
+		D4B0A4251C97DBD6002ED642 /* web-upper-right.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B0A4231C97DBD6002ED642 /* web-upper-right.png */; };
+		D4B0A4281C97F000002ED642 /* chest-open.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B0A4261C97F000002ED642 /* chest-open.png */; };
+		D4B0A4291C97F000002ED642 /* chest.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B0A4271C97F000002ED642 /* chest.png */; };
+		D4EBCE0F1C950EEB003C69A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EBCE0E1C950EEB003C69A2 /* AppDelegate.swift */; };
+		D4EBCE111C950EEB003C69A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EBCE101C950EEB003C69A2 /* ViewController.swift */; };
+		D4EBCE141C950EEB003C69A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE121C950EEB003C69A2 /* Main.storyboard */; };
+		D4EBCE161C950EEB003C69A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE151C950EEB003C69A2 /* Assets.xcassets */; };
+		D4EBCE191C950EEB003C69A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE171C950EEB003C69A2 /* LaunchScreen.storyboard */; };
+		D4EBCE241C950EEC003C69A2 /* Wayward_RaidersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EBCE231C950EEC003C69A2 /* Wayward_RaidersTests.swift */; };
+		D4EBCE2F1C950EEC003C69A2 /* Wayward_RaidersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EBCE2E1C950EEC003C69A2 /* Wayward_RaidersUITests.swift */; };
+		D4EBCE451C9519E1003C69A2 /* door.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE3E1C9519E1003C69A2 /* door.png */; };
+		D4EBCE461C9519E1003C69A2 /* wall-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE3F1C9519E1003C69A2 /* wall-1.png */; };
+		D4EBCE471C9519E1003C69A2 /* wall-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE401C9519E1003C69A2 /* wall-2.png */; };
+		D4EBCE481C9519E1003C69A2 /* wall-3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE411C9519E1003C69A2 /* wall-3.png */; };
+		D4EBCE491C9519E1003C69A2 /* wall-4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE421C9519E1003C69A2 /* wall-4.png */; };
+		D4EBCE4A1C9519E1003C69A2 /* wall-5.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE431C9519E1003C69A2 /* wall-5.png */; };
+		D4EBCE4B1C9519E1003C69A2 /* wall-6.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE441C9519E1003C69A2 /* wall-6.png */; };
+		D4EBCE501C951D16003C69A2 /* door-gate.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE4C1C951D16003C69A2 /* door-gate.png */; };
+		D4EBCE511C951D16003C69A2 /* door-open.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE4D1C951D16003C69A2 /* door-open.png */; };
+		D4EBCE521C951D16003C69A2 /* down-stairs.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE4E1C951D16003C69A2 /* down-stairs.png */; };
+		D4EBCE531C951D16003C69A2 /* stones.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE4F1C951D16003C69A2 /* stones.png */; };
+		D4EBCE551C951ED2003C69A2 /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE541C951ED2003C69A2 /* blank.png */; };
+		D4EBCE581C952013003C69A2 /* web-lower-left.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE561C952013003C69A2 /* web-lower-left.png */; };
+		D4EBCE591C952013003C69A2 /* web-lower-right.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE571C952013003C69A2 /* web-lower-right.png */; };
+		D4EBCE611C952203003C69A2 /* hero-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE5B1C952203003C69A2 /* hero-1.png */; };
+		D4EBCE621C952203003C69A2 /* hero-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE5C1C952203003C69A2 /* hero-2.png */; };
+		D4EBCE631C952203003C69A2 /* hero-3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE5D1C952203003C69A2 /* hero-3.png */; };
+		D4EBCE641C952203003C69A2 /* hero-4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE5E1C952203003C69A2 /* hero-4.png */; };
+		D4EBCE651C952203003C69A2 /* hero-5.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE5F1C952203003C69A2 /* hero-5.png */; };
+		D4EBCE661C952203003C69A2 /* hero-6.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE601C952203003C69A2 /* hero-6.png */; };
+		D4EBCE691C9523A2003C69A2 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE681C9523A2003C69A2 /* heart.png */; };
+		D4EBCE6B1C954F5F003C69A2 /* container.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE6A1C954F5F003C69A2 /* container.png */; };
+		D4EBCE701C955141003C69A2 /* bricks-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE6C1C955141003C69A2 /* bricks-1.png */; };
+		D4EBCE711C955141003C69A2 /* bricks-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE6D1C955141003C69A2 /* bricks-2.png */; };
+		D4EBCE721C955141003C69A2 /* bricks-3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE6E1C955141003C69A2 /* bricks-3.png */; };
+		D4EBCE731C955141003C69A2 /* bricks-4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE6F1C955141003C69A2 /* bricks-4.png */; };
+		D4EBCE771C96049F003C69A2 /* cobra-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE751C96049F003C69A2 /* cobra-1.png */; };
+		D4EBCE781C96049F003C69A2 /* cobra-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE761C96049F003C69A2 /* cobra-2.png */; };
+		D4EBCE7C1C9604D1003C69A2 /* floor-cracks.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE791C9604D1003C69A2 /* floor-cracks.png */; };
+		D4EBCE7D1C9604D1003C69A2 /* pillar-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE7A1C9604D1003C69A2 /* pillar-1.png */; };
+		D4EBCE7E1C9604D1003C69A2 /* pillar-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE7B1C9604D1003C69A2 /* pillar-2.png */; };
+		D4EBCE811C9605F1003C69A2 /* portrait-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE801C9605F1003C69A2 /* portrait-1.png */; };
+		D4EBCE831C9629DB003C69A2 /* pot.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE821C9629DB003C69A2 /* pot.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D4EBCE201C950EEC003C69A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4EBCE031C950EEB003C69A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4EBCE0A1C950EEB003C69A2;
+			remoteInfo = "Wayward Raiders";
+		};
+		D4EBCE2B1C950EEC003C69A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4EBCE031C950EEB003C69A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4EBCE0A1C950EEB003C69A2;
+			remoteInfo = "Wayward Raiders";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D4B0A4221C97DBD6002ED642 /* web-upper-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web-upper-left.png"; sourceTree = "<group>"; };
+		D4B0A4231C97DBD6002ED642 /* web-upper-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web-upper-right.png"; sourceTree = "<group>"; };
+		D4B0A4261C97F000002ED642 /* chest-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chest-open.png"; sourceTree = "<group>"; };
+		D4B0A4271C97F000002ED642 /* chest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chest.png; sourceTree = "<group>"; };
+		D4EBCE0B1C950EEB003C69A2 /* Devil's Due.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Devil's Due.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4EBCE0E1C950EEB003C69A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D4EBCE101C950EEB003C69A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D4EBCE131C950EEB003C69A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D4EBCE151C950EEB003C69A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D4EBCE181C950EEB003C69A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D4EBCE1A1C950EEB003C69A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4EBCE1F1C950EEC003C69A2 /* Devil's Due.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Devil's Due.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4EBCE231C950EEC003C69A2 /* Wayward_RaidersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wayward_RaidersTests.swift; sourceTree = "<group>"; };
+		D4EBCE251C950EEC003C69A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4EBCE2A1C950EEC003C69A2 /* Devil's Due.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Devil's Due.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4EBCE2E1C950EEC003C69A2 /* Wayward_RaidersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wayward_RaidersUITests.swift; sourceTree = "<group>"; };
+		D4EBCE301C950EEC003C69A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4EBCE3E1C9519E1003C69A2 /* door.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = door.png; sourceTree = "<group>"; };
+		D4EBCE3F1C9519E1003C69A2 /* wall-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wall-1.png"; sourceTree = "<group>"; };
+		D4EBCE401C9519E1003C69A2 /* wall-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wall-2.png"; sourceTree = "<group>"; };
+		D4EBCE411C9519E1003C69A2 /* wall-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wall-3.png"; sourceTree = "<group>"; };
+		D4EBCE421C9519E1003C69A2 /* wall-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wall-4.png"; sourceTree = "<group>"; };
+		D4EBCE431C9519E1003C69A2 /* wall-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wall-5.png"; sourceTree = "<group>"; };
+		D4EBCE441C9519E1003C69A2 /* wall-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wall-6.png"; sourceTree = "<group>"; };
+		D4EBCE4C1C951D16003C69A2 /* door-gate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "door-gate.png"; sourceTree = "<group>"; };
+		D4EBCE4D1C951D16003C69A2 /* door-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "door-open.png"; sourceTree = "<group>"; };
+		D4EBCE4E1C951D16003C69A2 /* down-stairs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down-stairs.png"; sourceTree = "<group>"; };
+		D4EBCE4F1C951D16003C69A2 /* stones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stones.png; sourceTree = "<group>"; };
+		D4EBCE541C951ED2003C69A2 /* blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank.png; sourceTree = "<group>"; };
+		D4EBCE561C952013003C69A2 /* web-lower-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web-lower-left.png"; sourceTree = "<group>"; };
+		D4EBCE571C952013003C69A2 /* web-lower-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web-lower-right.png"; sourceTree = "<group>"; };
+		D4EBCE5B1C952203003C69A2 /* hero-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hero-1.png"; sourceTree = "<group>"; };
+		D4EBCE5C1C952203003C69A2 /* hero-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hero-2.png"; sourceTree = "<group>"; };
+		D4EBCE5D1C952203003C69A2 /* hero-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hero-3.png"; sourceTree = "<group>"; };
+		D4EBCE5E1C952203003C69A2 /* hero-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hero-4.png"; sourceTree = "<group>"; };
+		D4EBCE5F1C952203003C69A2 /* hero-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hero-5.png"; sourceTree = "<group>"; };
+		D4EBCE601C952203003C69A2 /* hero-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hero-6.png"; sourceTree = "<group>"; };
+		D4EBCE681C9523A2003C69A2 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		D4EBCE6A1C954F5F003C69A2 /* container.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container.png; sourceTree = "<group>"; };
+		D4EBCE6C1C955141003C69A2 /* bricks-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bricks-1.png"; sourceTree = "<group>"; };
+		D4EBCE6D1C955141003C69A2 /* bricks-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bricks-2.png"; sourceTree = "<group>"; };
+		D4EBCE6E1C955141003C69A2 /* bricks-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bricks-3.png"; sourceTree = "<group>"; };
+		D4EBCE6F1C955141003C69A2 /* bricks-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bricks-4.png"; sourceTree = "<group>"; };
+		D4EBCE751C96049F003C69A2 /* cobra-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cobra-1.png"; sourceTree = "<group>"; };
+		D4EBCE761C96049F003C69A2 /* cobra-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cobra-2.png"; sourceTree = "<group>"; };
+		D4EBCE791C9604D1003C69A2 /* floor-cracks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "floor-cracks.png"; sourceTree = "<group>"; };
+		D4EBCE7A1C9604D1003C69A2 /* pillar-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pillar-1.png"; sourceTree = "<group>"; };
+		D4EBCE7B1C9604D1003C69A2 /* pillar-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pillar-2.png"; sourceTree = "<group>"; };
+		D4EBCE801C9605F1003C69A2 /* portrait-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "portrait-1.png"; sourceTree = "<group>"; };
+		D4EBCE821C9629DB003C69A2 /* pot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pot.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D4EBCE081C950EEB003C69A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4EBCE1C1C950EEC003C69A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4EBCE271C950EEC003C69A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D4EBCE021C950EEB003C69A2 = {
+			isa = PBXGroup;
+			children = (
+				D4EBCE3C1C9519E1003C69A2 /* Resources */,
+				D4EBCE0D1C950EEB003C69A2 /* Devil's Due */,
+				D4EBCE221C950EEC003C69A2 /* Devil's DueTests */,
+				D4EBCE2D1C950EEC003C69A2 /* Devil's DueUITests */,
+				D4EBCE0C1C950EEB003C69A2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D4EBCE0C1C950EEB003C69A2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4EBCE0B1C950EEB003C69A2 /* Devil's Due.app */,
+				D4EBCE1F1C950EEC003C69A2 /* Devil's Due.xctest */,
+				D4EBCE2A1C950EEC003C69A2 /* Devil's Due.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4EBCE0D1C950EEB003C69A2 /* Devil's Due */ = {
+			isa = PBXGroup;
+			children = (
+				D4EBCE0E1C950EEB003C69A2 /* AppDelegate.swift */,
+				D4EBCE101C950EEB003C69A2 /* ViewController.swift */,
+				D4EBCE121C950EEB003C69A2 /* Main.storyboard */,
+				D4EBCE151C950EEB003C69A2 /* Assets.xcassets */,
+				D4EBCE171C950EEB003C69A2 /* LaunchScreen.storyboard */,
+				D4EBCE1A1C950EEB003C69A2 /* Info.plist */,
+			);
+			name = "Devil's Due";
+			path = "Wayward Raiders";
+			sourceTree = "<group>";
+		};
+		D4EBCE221C950EEC003C69A2 /* Devil's DueTests */ = {
+			isa = PBXGroup;
+			children = (
+				D4EBCE231C950EEC003C69A2 /* Wayward_RaidersTests.swift */,
+				D4EBCE251C950EEC003C69A2 /* Info.plist */,
+			);
+			name = "Devil's DueTests";
+			path = "Wayward RaidersTests";
+			sourceTree = "<group>";
+		};
+		D4EBCE2D1C950EEC003C69A2 /* Devil's DueUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D4EBCE2E1C950EEC003C69A2 /* Wayward_RaidersUITests.swift */,
+				D4EBCE301C950EEC003C69A2 /* Info.plist */,
+			);
+			name = "Devil's DueUITests";
+			path = "Wayward RaidersUITests";
+			sourceTree = "<group>";
+		};
+		D4EBCE3C1C9519E1003C69A2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D4EBCE7F1C9605F1003C69A2 /* Portraits */,
+				D4EBCE741C96049F003C69A2 /* Enemies */,
+				D4EBCE671C9523A2003C69A2 /* Interface */,
+				D4EBCE5A1C952203003C69A2 /* Player */,
+				D4EBCE3D1C9519E1003C69A2 /* Terrain */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D4EBCE3D1C9519E1003C69A2 /* Terrain */ = {
+			isa = PBXGroup;
+			children = (
+				D4B0A4261C97F000002ED642 /* chest-open.png */,
+				D4B0A4271C97F000002ED642 /* chest.png */,
+				D4EBCE821C9629DB003C69A2 /* pot.png */,
+				D4EBCE791C9604D1003C69A2 /* floor-cracks.png */,
+				D4EBCE7A1C9604D1003C69A2 /* pillar-1.png */,
+				D4EBCE7B1C9604D1003C69A2 /* pillar-2.png */,
+				D4EBCE6C1C955141003C69A2 /* bricks-1.png */,
+				D4EBCE6D1C955141003C69A2 /* bricks-2.png */,
+				D4EBCE6E1C955141003C69A2 /* bricks-3.png */,
+				D4EBCE6F1C955141003C69A2 /* bricks-4.png */,
+				D4EBCE561C952013003C69A2 /* web-lower-left.png */,
+				D4EBCE571C952013003C69A2 /* web-lower-right.png */,
+				D4B0A4221C97DBD6002ED642 /* web-upper-left.png */,
+				D4B0A4231C97DBD6002ED642 /* web-upper-right.png */,
+				D4EBCE541C951ED2003C69A2 /* blank.png */,
+				D4EBCE4C1C951D16003C69A2 /* door-gate.png */,
+				D4EBCE4D1C951D16003C69A2 /* door-open.png */,
+				D4EBCE4E1C951D16003C69A2 /* down-stairs.png */,
+				D4EBCE4F1C951D16003C69A2 /* stones.png */,
+				D4EBCE3E1C9519E1003C69A2 /* door.png */,
+				D4EBCE3F1C9519E1003C69A2 /* wall-1.png */,
+				D4EBCE401C9519E1003C69A2 /* wall-2.png */,
+				D4EBCE411C9519E1003C69A2 /* wall-3.png */,
+				D4EBCE421C9519E1003C69A2 /* wall-4.png */,
+				D4EBCE431C9519E1003C69A2 /* wall-5.png */,
+				D4EBCE441C9519E1003C69A2 /* wall-6.png */,
+			);
+			path = Terrain;
+			sourceTree = "<group>";
+		};
+		D4EBCE5A1C952203003C69A2 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				D4EBCE5B1C952203003C69A2 /* hero-1.png */,
+				D4EBCE5C1C952203003C69A2 /* hero-2.png */,
+				D4EBCE5D1C952203003C69A2 /* hero-3.png */,
+				D4EBCE5E1C952203003C69A2 /* hero-4.png */,
+				D4EBCE5F1C952203003C69A2 /* hero-5.png */,
+				D4EBCE601C952203003C69A2 /* hero-6.png */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		D4EBCE671C9523A2003C69A2 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				D4EBCE6A1C954F5F003C69A2 /* container.png */,
+				D4EBCE681C9523A2003C69A2 /* heart.png */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		D4EBCE741C96049F003C69A2 /* Enemies */ = {
+			isa = PBXGroup;
+			children = (
+				D4EBCE751C96049F003C69A2 /* cobra-1.png */,
+				D4EBCE761C96049F003C69A2 /* cobra-2.png */,
+			);
+			path = Enemies;
+			sourceTree = "<group>";
+		};
+		D4EBCE7F1C9605F1003C69A2 /* Portraits */ = {
+			isa = PBXGroup;
+			children = (
+				D4EBCE801C9605F1003C69A2 /* portrait-1.png */,
+			);
+			path = Portraits;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D4EBCE0A1C950EEB003C69A2 /* Devil's Due */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4EBCE331C950EEC003C69A2 /* Build configuration list for PBXNativeTarget "Devil's Due" */;
+			buildPhases = (
+				D4EBCE071C950EEB003C69A2 /* Sources */,
+				D4EBCE081C950EEB003C69A2 /* Frameworks */,
+				D4EBCE091C950EEB003C69A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Devil's Due";
+			productName = "Wayward Raiders";
+			productReference = D4EBCE0B1C950EEB003C69A2 /* Devil's Due.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D4EBCE1E1C950EEC003C69A2 /* Devil's DueTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4EBCE361C950EEC003C69A2 /* Build configuration list for PBXNativeTarget "Devil's DueTests" */;
+			buildPhases = (
+				D4EBCE1B1C950EEC003C69A2 /* Sources */,
+				D4EBCE1C1C950EEC003C69A2 /* Frameworks */,
+				D4EBCE1D1C950EEC003C69A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4EBCE211C950EEC003C69A2 /* PBXTargetDependency */,
+			);
+			name = "Devil's DueTests";
+			productName = "Wayward RaidersTests";
+			productReference = D4EBCE1F1C950EEC003C69A2 /* Devil's Due.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D4EBCE291C950EEC003C69A2 /* Devil's DueUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4EBCE391C950EEC003C69A2 /* Build configuration list for PBXNativeTarget "Devil's DueUITests" */;
+			buildPhases = (
+				D4EBCE261C950EEC003C69A2 /* Sources */,
+				D4EBCE271C950EEC003C69A2 /* Frameworks */,
+				D4EBCE281C950EEC003C69A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4EBCE2C1C950EEC003C69A2 /* PBXTargetDependency */,
+			);
+			name = "Devil's DueUITests";
+			productName = "Wayward RaidersUITests";
+			productReference = D4EBCE2A1C950EEC003C69A2 /* Devil's Due.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D4EBCE031C950EEB003C69A2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Danny Perski";
+				TargetAttributes = {
+					D4EBCE0A1C950EEB003C69A2 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = CL35ZTCQNT;
+					};
+					D4EBCE1E1C950EEC003C69A2 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = D4EBCE0A1C950EEB003C69A2;
+					};
+					D4EBCE291C950EEC003C69A2 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = D4EBCE0A1C950EEB003C69A2;
+					};
+				};
+			};
+			buildConfigurationList = D4EBCE061C950EEB003C69A2 /* Build configuration list for PBXProject "Devil's Due" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D4EBCE021C950EEB003C69A2;
+			productRefGroup = D4EBCE0C1C950EEB003C69A2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D4EBCE0A1C950EEB003C69A2 /* Devil's Due */,
+				D4EBCE1E1C950EEC003C69A2 /* Devil's DueTests */,
+				D4EBCE291C950EEC003C69A2 /* Devil's DueUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D4EBCE091C950EEB003C69A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4EBCE191C950EEB003C69A2 /* LaunchScreen.storyboard in Resources */,
+				D4EBCE711C955141003C69A2 /* bricks-2.png in Resources */,
+				D4EBCE581C952013003C69A2 /* web-lower-left.png in Resources */,
+				D4B0A4291C97F000002ED642 /* chest.png in Resources */,
+				D4EBCE521C951D16003C69A2 /* down-stairs.png in Resources */,
+				D4EBCE7E1C9604D1003C69A2 /* pillar-2.png in Resources */,
+				D4EBCE161C950EEB003C69A2 /* Assets.xcassets in Resources */,
+				D4EBCE641C952203003C69A2 /* hero-4.png in Resources */,
+				D4EBCE811C9605F1003C69A2 /* portrait-1.png in Resources */,
+				D4EBCE471C9519E1003C69A2 /* wall-2.png in Resources */,
+				D4EBCE481C9519E1003C69A2 /* wall-3.png in Resources */,
+				D4EBCE141C950EEB003C69A2 /* Main.storyboard in Resources */,
+				D4B0A4241C97DBD6002ED642 /* web-upper-left.png in Resources */,
+				D4EBCE7C1C9604D1003C69A2 /* floor-cracks.png in Resources */,
+				D4EBCE771C96049F003C69A2 /* cobra-1.png in Resources */,
+				D4EBCE781C96049F003C69A2 /* cobra-2.png in Resources */,
+				D4EBCE4A1C9519E1003C69A2 /* wall-5.png in Resources */,
+				D4B0A4281C97F000002ED642 /* chest-open.png in Resources */,
+				D4EBCE461C9519E1003C69A2 /* wall-1.png in Resources */,
+				D4EBCE501C951D16003C69A2 /* door-gate.png in Resources */,
+				D4EBCE701C955141003C69A2 /* bricks-1.png in Resources */,
+				D4EBCE591C952013003C69A2 /* web-lower-right.png in Resources */,
+				D4EBCE731C955141003C69A2 /* bricks-4.png in Resources */,
+				D4EBCE631C952203003C69A2 /* hero-3.png in Resources */,
+				D4EBCE6B1C954F5F003C69A2 /* container.png in Resources */,
+				D4EBCE491C9519E1003C69A2 /* wall-4.png in Resources */,
+				D4EBCE4B1C9519E1003C69A2 /* wall-6.png in Resources */,
+				D4EBCE651C952203003C69A2 /* hero-5.png in Resources */,
+				D4EBCE691C9523A2003C69A2 /* heart.png in Resources */,
+				D4EBCE611C952203003C69A2 /* hero-1.png in Resources */,
+				D4B0A4251C97DBD6002ED642 /* web-upper-right.png in Resources */,
+				D4EBCE661C952203003C69A2 /* hero-6.png in Resources */,
+				D4EBCE451C9519E1003C69A2 /* door.png in Resources */,
+				D4EBCE511C951D16003C69A2 /* door-open.png in Resources */,
+				D4EBCE531C951D16003C69A2 /* stones.png in Resources */,
+				D4EBCE7D1C9604D1003C69A2 /* pillar-1.png in Resources */,
+				D4EBCE721C955141003C69A2 /* bricks-3.png in Resources */,
+				D4EBCE831C9629DB003C69A2 /* pot.png in Resources */,
+				D4EBCE621C952203003C69A2 /* hero-2.png in Resources */,
+				D4EBCE551C951ED2003C69A2 /* blank.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4EBCE1D1C950EEC003C69A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4EBCE281C950EEC003C69A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D4EBCE071C950EEB003C69A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4EBCE111C950EEB003C69A2 /* ViewController.swift in Sources */,
+				D4EBCE0F1C950EEB003C69A2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4EBCE1B1C950EEC003C69A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4EBCE241C950EEC003C69A2 /* Wayward_RaidersTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4EBCE261C950EEC003C69A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4EBCE2F1C950EEC003C69A2 /* Wayward_RaidersUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D4EBCE211C950EEC003C69A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4EBCE0A1C950EEB003C69A2 /* Devil's Due */;
+			targetProxy = D4EBCE201C950EEC003C69A2 /* PBXContainerItemProxy */;
+		};
+		D4EBCE2C1C950EEC003C69A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4EBCE0A1C950EEB003C69A2 /* Devil's Due */;
+			targetProxy = D4EBCE2B1C950EEC003C69A2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D4EBCE121C950EEB003C69A2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4EBCE131C950EEB003C69A2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D4EBCE171C950EEB003C69A2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4EBCE181C950EEB003C69A2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D4EBCE311C950EEC003C69A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D4EBCE321C950EEC003C69A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D4EBCE341C950EEC003C69A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "Wayward Raiders/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mguniverse.Devil-s-Due";
+				PRODUCT_NAME = "Devil's Due";
+			};
+			name = Debug;
+		};
+		D4EBCE351C950EEC003C69A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "Wayward Raiders/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mguniverse.Devil-s-Due";
+				PRODUCT_NAME = "Devil's Due";
+			};
+			name = Release;
+		};
+		D4EBCE371C950EEC003C69A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Wayward RaidersTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mguniverse.Wayward-RaidersTests";
+				PRODUCT_NAME = "Devil's Due";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Devil's Due.app/Devil's Due";
+			};
+			name = Debug;
+		};
+		D4EBCE381C950EEC003C69A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Wayward RaidersTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mguniverse.Wayward-RaidersTests";
+				PRODUCT_NAME = "Devil's Due";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Devil's Due.app/Devil's Due";
+			};
+			name = Release;
+		};
+		D4EBCE3A1C950EEC003C69A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Wayward RaidersUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mguniverse.Wayward-RaidersUITests";
+				PRODUCT_NAME = "Devil's Due";
+				TEST_TARGET_NAME = "Wayward Raiders";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		D4EBCE3B1C950EEC003C69A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Wayward RaidersUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mguniverse.Wayward-RaidersUITests";
+				PRODUCT_NAME = "Devil's Due";
+				TEST_TARGET_NAME = "Wayward Raiders";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D4EBCE061C950EEB003C69A2 /* Build configuration list for PBXProject "Devil's Due" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4EBCE311C950EEC003C69A2 /* Debug */,
+				D4EBCE321C950EEC003C69A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4EBCE331C950EEC003C69A2 /* Build configuration list for PBXNativeTarget "Devil's Due" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4EBCE341C950EEC003C69A2 /* Debug */,
+				D4EBCE351C950EEC003C69A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4EBCE361C950EEC003C69A2 /* Build configuration list for PBXNativeTarget "Devil's DueTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4EBCE371C950EEC003C69A2 /* Debug */,
+				D4EBCE381C950EEC003C69A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4EBCE391C950EEC003C69A2 /* Build configuration list for PBXNativeTarget "Devil's DueUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4EBCE3A1C950EEC003C69A2 /* Debug */,
+				D4EBCE3B1C950EEC003C69A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D4EBCE031C950EEB003C69A2 /* Project object */;
+}
