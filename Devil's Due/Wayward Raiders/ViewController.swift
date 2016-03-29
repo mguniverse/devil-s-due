@@ -2234,176 +2234,708 @@ class ViewController: UIViewController {
         }
         if (playerY == 3) {
             if (playerX == 1) {
-                
+                if (b1o == true) {
+                    canMoveUp = false
+                }
+                if (c2o == true) {
+                    canMoveRight = false
+                }
+                if (d1o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 2) {
-                
+                if (b2o == true) {
+                    canMoveUp = false
+                }
+                if (c1o == true) {
+                    canMoveLeft = false
+                }
+                if (c3o == true) {
+                    canMoveRight = false
+                }
+                if (d2o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 3) {
-                
+                if (b3o == true) {
+                    canMoveUp = false
+                }
+                if (c2o == true) {
+                    canMoveLeft = false
+                }
+                if (c4o == true) {
+                    canMoveRight = false
+                }
+                if (d3o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 4) {
-                
+                if (b4o == true) {
+                    canMoveUp = false
+                }
+                if (c3o == true) {
+                    canMoveLeft = false
+                }
+                if (c5o == true) {
+                    canMoveRight = false
+                }
+                if (d4o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 5) {
-                
+                if (b5o == true) {
+                    canMoveUp = false
+                }
+                if (c4o == true) {
+                    canMoveLeft = false
+                }
+                if (c6o == true) {
+                    canMoveRight = false
+                }
+                if (d5o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 6) {
-                
+                if (b6o == true) {
+                    canMoveUp = false
+                }
+                if (c5o == true) {
+                    canMoveLeft = false
+                }
+                if (c7o == true) {
+                    canMoveRight = false
+                }
+                if (d6o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 7) {
-                
+                if (b7o == true) {
+                    canMoveUp = false
+                }
+                if (c6o == true) {
+                    canMoveLeft = false
+                }
+                if (c8o == true) {
+                    canMoveRight = false
+                }
+                if (d7o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 8) {
-                
+                if (b8o == true) {
+                    canMoveUp = false
+                }
+                if (c7o == true) {
+                    canMoveLeft = false
+                }
+                if (c9o == true) {
+                    canMoveRight = false
+                }
+                if (d8o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 9) {
-                
+                if (b9o == true) {
+                    canMoveUp = false
+                }
+                if (c8o == true) {
+                    canMoveLeft = false
+                }
+                if (d9o == true) {
+                    canMoveDown = false
+                }
             }
         }
         if (playerY == 4) {
             if (playerX == 1) {
-                
+                if (c1o == true) {
+                    canMoveUp = false
+                }
+                if (d2o == true) {
+                    canMoveRight = false
+                }
+                if (e1o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 2) {
-                
+                if (c2o == true) {
+                    canMoveUp = false
+                }
+                if (d1o == true) {
+                    canMoveLeft = false
+                }
+                if (d3o == true) {
+                    canMoveRight = false
+                }
+                if (e2o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 3) {
-                
+                if (c3o == true) {
+                    canMoveUp = false
+                }
+                if (d2o == true) {
+                    canMoveLeft = false
+                }
+                if (d4o == true) {
+                    canMoveRight = false
+                }
+                if (e3o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 4) {
-                
+                if (c4o == true) {
+                    canMoveUp = false
+                }
+                if (d3o == true) {
+                    canMoveLeft = false
+                }
+                if (d5o == true) {
+                    canMoveRight = false
+                }
+                if (e4o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 5) {
-                
+                if (c5o == true) {
+                    canMoveUp = false
+                }
+                if (d4o == true) {
+                    canMoveLeft = false
+                }
+                if (d6o == true) {
+                    canMoveRight = false
+                }
+                if (e5o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 6) {
-                
+                if (c6o == true) {
+                    canMoveUp = false
+                }
+                if (d5o == true) {
+                    canMoveLeft = false
+                }
+                if (d7o == true) {
+                    canMoveRight = false
+                }
+                if (e6o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 7) {
-                
+                if (c7o == true) {
+                    canMoveUp = false
+                }
+                if (d6o == true) {
+                    canMoveLeft = false
+                }
+                if (d8o == true) {
+                    canMoveRight = false
+                }
+                if (e7o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 8) {
-                
+                if (c8o == true) {
+                    canMoveUp = false
+                }
+                if (d7o == true) {
+                    canMoveLeft = false
+                }
+                if (d9o == true) {
+                    canMoveRight = false
+                }
+                if (e8o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 9) {
-                
+                if (c9o == true) {
+                    canMoveUp = false
+                }
+                if (d8o == true) {
+                    canMoveLeft = false
+                }
+                if (e9o == true) {
+                    canMoveDown = false
+                }
             }
         }
         if (playerY == 5) {
             if (playerX == 1) {
-                
+                if (d1o == true) {
+                    canMoveUp = false
+                }
+                if (e2o == true) {
+                    canMoveRight = false
+                }
+                if (f1o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 2) {
-                
+                if (d2o == true) {
+                    canMoveUp = false
+                }
+                if (e1o == true) {
+                    canMoveLeft = false
+                }
+                if (e3o == true) {
+                    canMoveRight = false
+                }
+                if (f2o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 3) {
-                
+                if (d3o == true) {
+                    canMoveUp = false
+                }
+                if (e2o == true) {
+                    canMoveLeft = false
+                }
+                if (e4o == true) {
+                    canMoveRight = false
+                }
+                if (f3o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 4) {
-                
+                if (d4o == true) {
+                    canMoveUp = false
+                }
+                if (e3o == true) {
+                    canMoveLeft = false
+                }
+                if (e5o == true) {
+                    canMoveRight = false
+                }
+                if (f4o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 5) {
-                
+                if (d5o == true) {
+                    canMoveUp = false
+                }
+                if (e4o == true) {
+                    canMoveLeft = false
+                }
+                if (e6o == true) {
+                    canMoveRight = false
+                }
+                if (f5o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 6) {
-                
+                if (d6o == true) {
+                    canMoveUp = false
+                }
+                if (e5o == true) {
+                    canMoveLeft = false
+                }
+                if (e7o == true) {
+                    canMoveRight = false
+                }
+                if (f6o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 7) {
-                
+                if (d7o == true) {
+                    canMoveUp = false
+                }
+                if (e6o == true) {
+                    canMoveLeft = false
+                }
+                if (e8o == true) {
+                    canMoveRight = false
+                }
+                if (f7o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 8) {
-                
+                if (d8o == true) {
+                    canMoveUp = false
+                }
+                if (e7o == true) {
+                    canMoveLeft = false
+                }
+                if (e9o == true) {
+                    canMoveRight = false
+                }
+                if (f8o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 9) {
-                
+                if (d9o == true) {
+                    canMoveUp = false
+                }
+                if (e8o == true) {
+                    canMoveLeft = false
+                }
+                if (f9o == true) {
+                    canMoveDown = false
+                }
             }
         }
         if (playerY == 6) {
             if (playerX == 1) {
-                
+                if (e1o == true) {
+                    canMoveUp = false
+                }
+                if (f2o == true) {
+                    canMoveRight = false
+                }
+                if (g1o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 2) {
-                
+                if (e2o == true) {
+                    canMoveUp = false
+                }
+                if (f1o == true) {
+                    canMoveLeft = false
+                }
+                if (f3o == true) {
+                    canMoveRight = false
+                }
+                if (g2o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 3) {
-                
+                if (e3o == true) {
+                    canMoveUp = false
+                }
+                if (f2o == true) {
+                    canMoveLeft = false
+                }
+                if (f4o == true) {
+                    canMoveRight = false
+                }
+                if (g3o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 4) {
-                
+                if (e4o == true) {
+                    canMoveUp = false
+                }
+                if (f3o == true) {
+                    canMoveLeft = false
+                }
+                if (f5o == true) {
+                    canMoveRight = false
+                }
+                if (g4o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 5) {
-                
+                if (e5o == true) {
+                    canMoveUp = false
+                }
+                if (f4o == true) {
+                    canMoveLeft = false
+                }
+                if (f6o == true) {
+                    canMoveRight = false
+                }
+                if (g5o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 6) {
-                
+                if (e6o == true) {
+                    canMoveUp = false
+                }
+                if (f5o == true) {
+                    canMoveLeft = false
+                }
+                if (f7o == true) {
+                    canMoveRight = false
+                }
+                if (g6o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 7) {
-                
+                if (e7o == true) {
+                    canMoveUp = false
+                }
+                if (f6o == true) {
+                    canMoveLeft = false
+                }
+                if (f8o == true) {
+                    canMoveRight = false
+                }
+                if (g7o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 8) {
-                
+                if (e8o == true) {
+                    canMoveUp = false
+                }
+                if (f7o == true) {
+                    canMoveLeft = false
+                }
+                if (f9o == true) {
+                    canMoveRight = false
+                }
+                if (g8o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 9) {
-                
+                if (e9o == true) {
+                    canMoveUp = false
+                }
+                if (f8o == true) {
+                    canMoveLeft = false
+                }
+                if (g9o == true) {
+                    canMoveDown = false
+                }
             }
         }
         if (playerY == 7) {
             if (playerX == 1) {
-                
+                if (f1o == true) {
+                    canMoveUp = false
+                }
+                if (g2o == true) {
+                    canMoveRight = false
+                }
+                if (h1o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 2) {
-                
+                if (f2o == true) {
+                    canMoveUp = false
+                }
+                if (g1o == true) {
+                    canMoveLeft = false
+                }
+                if (g3o == true) {
+                    canMoveRight = false
+                }
+                if (h2o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 3) {
-                
+                if (f3o == true) {
+                    canMoveUp = false
+                }
+                if (g2o == true) {
+                    canMoveLeft = false
+                }
+                if (g4o == true) {
+                    canMoveRight = false
+                }
+                if (h3o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 4) {
-                
+                if (f4o == true) {
+                    canMoveUp = false
+                }
+                if (g3o == true) {
+                    canMoveLeft = false
+                }
+                if (g5o == true) {
+                    canMoveRight = false
+                }
+                if (h4o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 5) {
-                
+                if (f5o == true) {
+                    canMoveUp = false
+                }
+                if (g4o == true) {
+                    canMoveLeft = false
+                }
+                if (g6o == true) {
+                    canMoveRight = false
+                }
+                if (h5o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 6) {
-                
+                if (f6o == true) {
+                    canMoveUp = false
+                }
+                if (g5o == true) {
+                    canMoveLeft = false
+                }
+                if (g7o == true) {
+                    canMoveRight = false
+                }
+                if (h6o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 7) {
-                
+                if (f7o == true) {
+                    canMoveUp = false
+                }
+                if (g6o == true) {
+                    canMoveLeft = false
+                }
+                if (g8o == true) {
+                    canMoveRight = false
+                }
+                if (h7o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 8) {
-                
+                if (f8o == true) {
+                    canMoveUp = false
+                }
+                if (g7o == true) {
+                    canMoveLeft = false
+                }
+                if (g9o == true) {
+                    canMoveRight = false
+                }
+                if (h8o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 9) {
-                
+                if (f9o == true) {
+                    canMoveUp = false
+                }
+                if (g8o == true) {
+                    canMoveLeft = false
+                }
+                if (h9o == true) {
+                    canMoveDown = false
+                }
             }
         }
         if (playerY == 8) {
             if (playerX == 1) {
-                
+                if (h2o == true) {
+                    canMoveRight = false
+                }
+                if (g1o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 2) {
+                if (h1o == true) {
+                    canMoveLeft = false
+                }
+                if (h3o == true) {
+                    canMoveRight = false
+                }
+                if (g2o == true) {
+                    canMoveDown = false
+                }
                 
             }
             else if (playerX == 3) {
-                
+                if (h2o == true) {
+                    canMoveLeft = false
+                }
+                if (h4o == true) {
+                    canMoveRight = false
+                }
+                if (g3o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 4) {
-                
+                if (h3o == true) {
+                    canMoveLeft = false
+                }
+                if (h5o == true) {
+                    canMoveRight = false
+                }
+                if (g4o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 5) {
-                
+                if (h4o == true) {
+                    canMoveLeft = false
+                }
+                if (h6o == true) {
+                    canMoveRight = false
+                }
+                if (g5o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 6) {
-                
+                if (h5o == true) {
+                    canMoveLeft = false
+                }
+                if (h7o == true) {
+                    canMoveRight = false
+                }
+                if (g6o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 7) {
-                
+                if (h6o == true) {
+                    canMoveLeft = false
+                }
+                if (h8o == true) {
+                    canMoveRight = false
+                }
+                if (g7o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 8) {
-                
+                if (h7o == true) {
+                    canMoveLeft = false
+                }
+                if (h9o == true) {
+                    canMoveRight = false
+                }
+                if (g8o == true) {
+                    canMoveDown = false
+                }
             }
             else if (playerX == 9) {
-                
+                if (h8o == true) {
+                    canMoveLeft = false
+                }
+                if (g9o == true) {
+                    canMoveDown = false
+                }
             }
         }
         
