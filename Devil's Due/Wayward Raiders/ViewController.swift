@@ -19,13 +19,24 @@ class ViewController: UIViewController {
     //5 : webs
     
     //this array defines which objects cannot be moved onto
-    var obs = [1,2]
+    var obs = [1,2,4]
+    
+    //this array will tell the game logic which objects can be interacted with when the player moves onto them
+    var interactions = [3]
     
     //setting the player dimensions
     var pwidth:Int = 28
     var pheight:Int = 44
     var playerX:Int = 5
     var playerY:Int = 7
+    
+    var exitDoorX:Int = 0
+    var exitDoorY:Int = 0
+    var secretDoorX:Int = 0
+    var secretDoorY:Int = 0
+    
+    var stairsX:Int = 0
+    var stairsY:Int = 0
     
     //setting the map size
     var boundsX:Int = 9
@@ -113,6 +124,80 @@ class ViewController: UIViewController {
     var h7o:Bool = false
     var h8o:Bool = false
     var h9o:Bool = false
+    
+    //these tell the game which pieces can be interacted with
+    var a1x:Bool = false
+    var a2x:Bool = false
+    var a3x:Bool = false
+    var a4x:Bool = false
+    var a5x:Bool = false
+    var a6x:Bool = false
+    var a7x:Bool = false
+    var a8x:Bool = false
+    var a9x:Bool = false
+    var b1x:Bool = false
+    var b2x:Bool = false
+    var b3x:Bool = false
+    var b4x:Bool = false
+    var b5x:Bool = false
+    var b6x:Bool = false
+    var b7x:Bool = false
+    var b8x:Bool = false
+    var b9x:Bool = false
+    var c1x:Bool = false
+    var c2x:Bool = false
+    var c3x:Bool = false
+    var c4x:Bool = false
+    var c5x:Bool = false
+    var c6x:Bool = false
+    var c7x:Bool = false
+    var c8x:Bool = false
+    var c9x:Bool = false
+    var d1x:Bool = false
+    var d2x:Bool = false
+    var d3x:Bool = false
+    var d4x:Bool = false
+    var d5x:Bool = false
+    var d6x:Bool = false
+    var d7x:Bool = false
+    var d8x:Bool = false
+    var d9x:Bool = false
+    var e1x:Bool = false
+    var e2x:Bool = false
+    var e3x:Bool = false
+    var e4x:Bool = false
+    var e5x:Bool = false
+    var e6x:Bool = false
+    var e7x:Bool = false
+    var e8x:Bool = false
+    var e9x:Bool = false
+    var f1x:Bool = false
+    var f2x:Bool = false
+    var f3x:Bool = false
+    var f4x:Bool = false
+    var f5x:Bool = false
+    var f6x:Bool = false
+    var f7x:Bool = false
+    var f8x:Bool = false
+    var f9x:Bool = false
+    var g1x:Bool = false
+    var g2x:Bool = false
+    var g3x:Bool = false
+    var g4x:Bool = false
+    var g5x:Bool = false
+    var g6x:Bool = false
+    var g7x:Bool = false
+    var g8x:Bool = false
+    var g9x:Bool = false
+    var h1x:Bool = false
+    var h2x:Bool = false
+    var h3x:Bool = false
+    var h4x:Bool = false
+    var h5x:Bool = false
+    var h6x:Bool = false
+    var h7x:Bool = false
+    var h8x:Bool = false
+    var h9x:Bool = false
     
     //these tell the game what kind of piece goes where
     var a1p:Int = 0
@@ -266,6 +351,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var h9i: UIImageView!
     
     @IBOutlet weak var tileImage: UIImage!
+    
+    func endTurn() {
+        if (playerX == exitDoorX && playerY == exitDoorY) {
+            generateNew()
+        }
+    }
     
     func generateNew() {
         reset()
@@ -663,55 +754,93 @@ class ViewController: UIViewController {
     }
     
     func newDoor() {
+        //setting door coordinates, assuming only specific axis for Y
+        exitDoorY = 1
+        
         //basic door spawning code, will change later
         let doorloc = arc4random() % 7
         if (doorloc == 0) {
             a2p = 3
+            exitDoorX = 2
         }
         if (doorloc == 1) {
             a3p = 3
+            exitDoorX = 3
         }
         if (doorloc == 2) {
             a4p = 3
+            exitDoorX = 4
         }
         if (doorloc == 3) {
             a5p = 3
+            exitDoorX = 5
         }
         if (doorloc == 4) {
             a6p = 3
+            exitDoorX = 6
         }
         if (doorloc == 5) {
             a7p = 3
+            exitDoorX = 7
         }
         if (doorloc == 6) {
             a8p = 3
+            exitDoorX = 8
         }
     }
     
     func newStairs() {
+        //setting door coordinates, assuming only specific axis for Y
+        stairsY = 8
+        
         //basic stairs spawning code, will change later
         let stairsloc = arc4random() % 7
         if (stairsloc == 0) {
             h2p = 4
+            stairsX = 2
+            
+            self.player.center = CGPoint(x: self.h2i.center.x, y: self.h2i.center.y - 44)
         }
         if (stairsloc == 1) {
             h3p = 4
+            stairsX = 3
+            
+            self.player.center = CGPoint(x: self.h3i.center.x, y: self.h3i.center.y - 44)
         }
         if (stairsloc == 2) {
             h4p = 4
+            stairsX = 4
+            
+            self.player.center = CGPoint(x: self.h4i.center.x, y: self.h4i.center.y - 44)
         }
         if (stairsloc == 3) {
             h5p = 4
+            stairsX = 5
+            
+            self.player.center = CGPoint(x: self.h5i.center.x, y: self.h5i.center.y - 44)
         }
         if (stairsloc == 4) {
             h6p = 4
+            stairsX = 6
+            
+            self.player.center = CGPoint(x: self.h6i.center.x, y: self.h6i.center.y - 44)
         }
         if (stairsloc == 5) {
             h7p = 4
+            stairsX = 7
+            
+            self.player.center = CGPoint(x: self.h7i.center.x, y: self.h7i.center.y - 44)
         }
         if (stairsloc == 6) {
             h8p = 4
+            stairsX = 8
+            
+            self.player.center = CGPoint(x: self.h8i.center.x, y: self.h8i.center.y - 44)
         }
+        
+        //set player location to just above the stairs spawn
+        playerY = stairsY - 1
+        playerX = stairsX
     }
     
     func randomizeWalls() {
@@ -1786,6 +1915,80 @@ class ViewController: UIViewController {
     }
     
     func checkObstacles() {
+        //set to false initially
+        a1o = false
+        a2o = false
+        a3o = false
+        a4o = false
+        a5o = false
+        a6o = false
+        a7o = false
+        a8o = false
+        a9o = false
+        b1o = false
+        b2o = false
+        b3o = false
+        b4o = false
+        b5o = false
+        b6o = false
+        b7o = false
+        b8o = false
+        b9o = false
+        c1o = false
+        c2o = false
+        c3o = false
+        c4o = false
+        c5o = false
+        c6o = false
+        c7o = false
+        c8o = false
+        c9o = false
+        d1o = false
+        d2o = false
+        d3o = false
+        d4o = false
+        d5o = false
+        d6o = false
+        d7o = false
+        d8o = false
+        d9o = false
+        e1o = false
+        e2o = false
+        e3o = false
+        e4o = false
+        e5o = false
+        e6o = false
+        e7o = false
+        e8o = false
+        e9o = false
+        f1o = false
+        f2o = false
+        f3o = false
+        f4o = false
+        f5o = false
+        f6o = false
+        f7o = false
+        f8o = false
+        f9o = false
+        g1o = false
+        g2o = false
+        g3o = false
+        g4o = false
+        g5o = false
+        g6o = false
+        g7o = false
+        g8o = false
+        g9o = false
+        h1o = false
+        h2o = false
+        h3o = false
+        h4o = false
+        h5o = false
+        h6o = false
+        h7o = false
+        h8o = false
+        h9o = false
+        
         if (obs.contains(a1p)) {
             a1o = true
         }
@@ -2004,7 +2207,228 @@ class ViewController: UIViewController {
         }
     }
     
-    func checkForWalls() {
+    func checkLocation() {
+        //this is going to check the player's current x and y location to determine if they can interact with anything
+        
+        if (interactions.contains(a1p)) {
+            a1x = true
+        }
+        if (interactions.contains(a2p)) {
+            a2x = true
+        }
+        if (interactions.contains(a3p)) {
+            a3x = true
+        }
+        if (interactions.contains(a4p)) {
+            a4x = true
+        }
+        if (interactions.contains(a5p)) {
+            a5x = true
+        }
+        if (interactions.contains(a6p)) {
+            a6x = true
+        }
+        if (interactions.contains(a7p)) {
+            a7x = true
+        }
+        if (interactions.contains(a8p)) {
+            a8x = true
+        }
+        if (interactions.contains(a9p)) {
+            a9x = true
+        }
+        if (interactions.contains(b1p)) {
+            b1x = true
+        }
+        if (interactions.contains(b2p)) {
+            b2x = true
+        }
+        if (interactions.contains(b3p)) {
+            b3x = true
+        }
+        if (interactions.contains(b4p)) {
+            b4x = true
+        }
+        if (interactions.contains(b5p)) {
+            b5x = true
+        }
+        if (interactions.contains(b6p)) {
+            b6x = true
+        }
+        if (interactions.contains(b7p)) {
+            b7x = true
+        }
+        if (interactions.contains(b8p)) {
+            b8x = true
+        }
+        if (interactions.contains(b9p)) {
+            b9x = true
+        }
+        if (interactions.contains(c1p)) {
+            c1x = true
+        }
+        if (interactions.contains(c2p)) {
+            c2x = true
+        }
+        if (interactions.contains(c3p)) {
+            c3x = true
+        }
+        if (interactions.contains(c4p)) {
+            c4x = true
+        }
+        if (interactions.contains(c5p)) {
+            c5x = true
+        }
+        if (interactions.contains(c6p)) {
+            c6x = true
+        }
+        if (interactions.contains(c7p)) {
+            c7x = true
+        }
+        if (interactions.contains(c8p)) {
+            c8x = true
+        }
+        if (interactions.contains(c9p)) {
+            c9x = true
+        }
+        if (interactions.contains(d1p)) {
+            d1x = true
+        }
+        if (interactions.contains(d2p)) {
+            d2x = true
+        }
+        if (interactions.contains(d3p)) {
+            d3x = true
+        }
+        if (interactions.contains(d4p)) {
+            d4x = true
+        }
+        if (interactions.contains(d5p)) {
+            d5x = true
+        }
+        if (interactions.contains(d6p)) {
+            d6x = true
+        }
+        if (interactions.contains(d7p)) {
+            d7x = true
+        }
+        if (interactions.contains(d8p)) {
+            d8x = true
+        }
+        if (interactions.contains(d9p)) {
+            d9x = true
+        }
+        if (interactions.contains(e1p)) {
+            e1x = true
+        }
+        if (interactions.contains(e2p)) {
+            e2x = true
+        }
+        if (interactions.contains(e3p)) {
+            e3x = true
+        }
+        if (interactions.contains(e4p)) {
+            e4x = true
+        }
+        if (interactions.contains(e5p)) {
+            e5x = true
+        }
+        if (interactions.contains(e6p)) {
+            e6x = true
+        }
+        if (interactions.contains(e7p)) {
+            e7x = true
+        }
+        if (interactions.contains(e8p)) {
+            e8x = true
+        }
+        if (interactions.contains(e9p)) {
+            e9x = true
+        }
+        if (interactions.contains(f1p)) {
+            f1x = true
+        }
+        if (interactions.contains(f2p)) {
+            f2x = true
+        }
+        if (interactions.contains(f3p)) {
+            f3x = true
+        }
+        if (interactions.contains(f4p)) {
+            f4x = true
+        }
+        if (interactions.contains(f5p)) {
+            f5x = true
+        }
+        if (interactions.contains(f6p)) {
+            f6x = true
+        }
+        if (interactions.contains(f7p)) {
+            f7x = true
+        }
+        if (interactions.contains(f8p)) {
+            f8x = true
+        }
+        if (interactions.contains(f9p)) {
+            f9x = true
+        }
+        if (interactions.contains(g1p)) {
+            g1x = true
+        }
+        if (interactions.contains(g2p)) {
+            g2x = true
+        }
+        if (interactions.contains(g3p)) {
+            g3x = true
+        }
+        if (interactions.contains(g4p)) {
+            g4x = true
+        }
+        if (interactions.contains(g5p)) {
+            g5x = true
+        }
+        if (interactions.contains(g6p)) {
+            g6x = true
+        }
+        if (interactions.contains(g7p)) {
+            g7x = true
+        }
+        if (interactions.contains(g8p)) {
+            g8x = true
+        }
+        if (interactions.contains(g9p)) {
+            g9x = true
+        }
+        if (interactions.contains(h1p)) {
+            h1x = true
+        }
+        if (interactions.contains(h2p)) {
+            h2x = true
+        }
+        if (interactions.contains(h3p)) {
+            h3x = true
+        }
+        if (interactions.contains(h4p)) {
+            h4x = true
+        }
+        if (interactions.contains(h5p)) {
+            h5x = true
+        }
+        if (interactions.contains(h6p)) {
+            h6x = true
+        }
+        if (interactions.contains(h7p)) {
+            h7x = true
+        }
+        if (interactions.contains(h8p)) {
+            h8x = true
+        }
+        if (interactions.contains(h9p)) {
+            h9x = true
+        }
+    }
+    
+    func checkConstraints() {
         //Ok so here's the deal
         //This doesn't need to do a whole lot, it just needs to check if there are walls nearby 
         //and disable movement in that direction
@@ -2968,42 +3392,50 @@ class ViewController: UIViewController {
     }
     
     func moveDown() {
-        checkForWalls()
+        checkConstraints()
         if (playerY < boundsY && canMoveDown == true) {
             playerY += 1
             UIView.animateWithDuration(animationSpeed) {
                 self.player.center = CGPoint(x: self.player.center.x, y: self.player.center.y + 44)
             }
+            
+            endTurn()
         }
     }
     
     func moveUp() {
-        checkForWalls()
+        checkConstraints()
         if (playerY > 1 && canMoveUp == true) {
             playerY -= 1
             UIView.animateWithDuration(animationSpeed) {
                 self.player.center = CGPoint(x: self.player.center.x, y: self.player.center.y - 44)
             }
+            
+            endTurn()
         }
     }
     
     func moveLeft() {
-        checkForWalls()
+        checkConstraints()
         if (playerX > 1 && canMoveLeft == true) {
             playerX -= 1
             UIView.animateWithDuration(animationSpeed) {
                 self.player.center = CGPoint(x: self.player.center.x - 28, y: self.player.center.y)
             }
+            
+            endTurn()
         }
     }
     
     func moveRight() {
-        checkForWalls()
+        checkConstraints()
         if (playerX < boundsX && canMoveRight == true) {
             playerX += 1
             UIView.animateWithDuration(animationSpeed) {
                 self.player.center = CGPoint(x: self.player.center.x + 28, y: self.player.center.y)
             }
+            
+            endTurn()
         }
     }
 
