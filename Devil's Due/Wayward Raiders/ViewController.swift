@@ -17,18 +17,30 @@ class ViewController: UIViewController {
     //3 : doors
     //4 : stairs
     //5 : webs
+    //6 : temp terrain object, will convert to various terrain objects
+    //7 : chest
+    //8 : body
+    //9 : candles
+    //10 : fallen angel
+    //11 : shrub
+    //12 : weeds
+    //13 : stockade
+    //14 : pot
+    
     
     //this array defines which objects cannot be moved onto
-    var obs = [1,2,4]
+    var obs = [1,2,4,7,9,10,13,14]
     
     //this array will tell the game logic which objects can be interacted with when the player moves onto them
     var interactions = [3]
     
     //setting the player dimensions
-    var pwidth:Int = 28
-    var pheight:Int = 44
+    var pwidth:Int = 32
+    var pheight:Int = 48
     var playerX:Int = 5
     var playerY:Int = 7
+    
+    var temp:Int = 0
     
     var exitDoorX:Int = 0
     var exitDoorY:Int = 0
@@ -376,12 +388,14 @@ class ViewController: UIViewController {
             b1p = 1
             b9p = 1
             c1p = 1
+            c5p = 6
             c9p = 1
             d1p = 1
             d9p = 1
             e1p = 1
             e9p = 1
             f1p = 1
+            f5p = 6
             f9p = 1
             g1p = 1
             g9p = 1
@@ -413,6 +427,7 @@ class ViewController: UIViewController {
             b1p = 1
             b9p = 1
             c1p = 1
+            c5p = 6
             c9p = 1
             d1p = 1
             d4p = 1
@@ -425,6 +440,7 @@ class ViewController: UIViewController {
             e6p = 2
             e9p = 1
             f1p = 1
+            f5p = 6
             f9p = 1
             g1p = 1
             g9p = 1
@@ -456,7 +472,9 @@ class ViewController: UIViewController {
             b1p = 1
             b9p = 1
             c1p = 1
+            c2p = 6
             c5p = 1
+            c8p = 6
             c9p = 1
             d1p = 1
             d5p = 1
@@ -465,7 +483,9 @@ class ViewController: UIViewController {
             e5p = 1
             e9p = 1
             f1p = 1
+            f2p = 6
             f5p = 2
+            f8p = 6
             f9p = 1
             g1p = 1
             g9p = 1
@@ -497,6 +517,7 @@ class ViewController: UIViewController {
             b1p = 1
             b9p = 1
             c1p = 1
+            c2p = 6
             c9p = 1
             d1p = 1
             d2p = 1
@@ -511,6 +532,7 @@ class ViewController: UIViewController {
             e5p = 2
             e9p = 1
             f1p = 1
+            f2p = 6
             f9p = 1
             g1p = 1
             g9p = 1
@@ -542,6 +564,7 @@ class ViewController: UIViewController {
             b1p = 1
             b9p = 1
             c1p = 1
+            c8p = 6
             c9p = 1
             d1p = 1
             d5p = 1
@@ -556,6 +579,7 @@ class ViewController: UIViewController {
             e8p = 2
             e9p = 1
             f1p = 1
+            c8p = 6
             f9p = 1
             g1p = 1
             g9p = 1
@@ -574,9 +598,9 @@ class ViewController: UIViewController {
             newStairs()
         }
         
+        populateTempObjects()
         checkObstacles()
         loadSprites()
-            
     }
     
     func reset() {
@@ -729,6 +753,316 @@ class ViewController: UIViewController {
         self.h9i.image = tileImage
     }
     
+    func populateTempObjects() {
+        if (a1p == 6) {
+            pickRandomTemp()
+            a1p = temp
+        }
+        if (a2p == 6) {
+            pickRandomTemp()
+            a2p = temp
+        }
+        if (a3p == 6) {
+            pickRandomTemp()
+            a3p = temp
+        }
+        if (a4p == 6) {
+            pickRandomTemp()
+            a4p = temp
+        }
+        if (a5p == 6) {
+            pickRandomTemp()
+            a5p = temp
+        }
+        if (a6p == 6) {
+            pickRandomTemp()
+            a6p = temp
+        }
+        if (a7p == 6) {
+            pickRandomTemp()
+            a7p = temp
+        }
+        if (a8p == 6) {
+            pickRandomTemp()
+            a8p = temp
+        }
+        if (a9p == 6) {
+            pickRandomTemp()
+            a9p = temp
+        }
+        if (b1p == 6) {
+            pickRandomTemp()
+            b1p = temp
+        }
+        if (b2p == 6) {
+            pickRandomTemp()
+            b2p = temp
+        }
+        if (b3p == 6) {
+            pickRandomTemp()
+            b3p = temp
+        }
+        if (b4p == 6) {
+            pickRandomTemp()
+            b4p = temp
+        }
+        if (b5p == 6) {
+            pickRandomTemp()
+            b5p = temp
+        }
+        if (b6p == 6) {
+            pickRandomTemp()
+            b6p = temp
+        }
+        if (b7p == 6) {
+            pickRandomTemp()
+            b7p = temp
+        }
+        if (b8p == 6) {
+            pickRandomTemp()
+            b8p = temp
+        }
+        if (b9p == 6) {
+            pickRandomTemp()
+            b9p = temp
+        }
+        if (c1p == 6) {
+            pickRandomTemp()
+            c1p = temp
+        }
+        if (c2p == 6) {
+            pickRandomTemp()
+            c2p = temp
+        }
+        if (c3p == 6) {
+            pickRandomTemp()
+            c3p = temp
+        }
+        if (c4p == 6) {
+            pickRandomTemp()
+            c4p = temp
+        }
+        if (c5p == 6) {
+            pickRandomTemp()
+            c5p = temp
+        }
+        if (c6p == 6) {
+            pickRandomTemp()
+            c6p = temp
+        }
+        if (c7p == 6) {
+            pickRandomTemp()
+            c7p = temp
+        }
+        if (c8p == 6) {
+            pickRandomTemp()
+            c8p = temp
+        }
+        if (c9p == 6) {
+            pickRandomTemp()
+            c9p = temp
+        }
+        if (d1p == 6) {
+            pickRandomTemp()
+            d1p = temp
+        }
+        if (d2p == 6) {
+            pickRandomTemp()
+            d2p = temp
+        }
+        if (d3p == 6) {
+            pickRandomTemp()
+            d3p = temp
+        }
+        if (d4p == 6) {
+            pickRandomTemp()
+            d4p = temp
+        }
+        if (d5p == 6) {
+            pickRandomTemp()
+            d5p = temp
+        }
+        if (d6p == 6) {
+            pickRandomTemp()
+            d6p = temp
+        }
+        if (d7p == 6) {
+            pickRandomTemp()
+            d7p = temp
+        }
+        if (d8p == 6) {
+            pickRandomTemp()
+            d8p = temp
+        }
+        if (d9p == 6) {
+            pickRandomTemp()
+            d9p = temp
+        }
+        if (e1p == 6) {
+            pickRandomTemp()
+            e1p = temp
+        }
+        if (e2p == 6) {
+            pickRandomTemp()
+            e2p = temp
+        }
+        if (e3p == 6) {
+            pickRandomTemp()
+            e3p = temp
+        }
+        if (e4p == 6) {
+            pickRandomTemp()
+            e4p = temp
+        }
+        if (e5p == 6) {
+            pickRandomTemp()
+            e5p = temp
+        }
+        if (e6p == 6) {
+            pickRandomTemp()
+            e6p = temp
+        }
+        if (e7p == 6) {
+            pickRandomTemp()
+            e7p = temp
+        }
+        if (e8p == 6) {
+            pickRandomTemp()
+            e8p = temp
+        }
+        if (e9p == 6) {
+            pickRandomTemp()
+            e9p = temp
+        }
+        if (f1p == 6) {
+            pickRandomTemp()
+            f1p = temp
+        }
+        if (f2p == 6) {
+            pickRandomTemp()
+            f2p = temp
+        }
+        if (f3p == 6) {
+            pickRandomTemp()
+            f3p = temp
+        }
+        if (f4p == 6) {
+            pickRandomTemp()
+            f4p = temp
+        }
+        if (f5p == 6) {
+            pickRandomTemp()
+            f5p = temp
+        }
+        if (f6p == 6) {
+            pickRandomTemp()
+            f6p = temp
+        }
+        if (f7p == 6) {
+            pickRandomTemp()
+            f7p = temp
+        }
+        if (f8p == 6) {
+            pickRandomTemp()
+            f8p = temp
+        }
+        if (f9p == 6) {
+            pickRandomTemp()
+            f9p = temp
+        }
+        if (g1p == 6) {
+            pickRandomTemp()
+            g1p = temp
+        }
+        if (g2p == 6) {
+            pickRandomTemp()
+            g2p = temp
+        }
+        if (g3p == 6) {
+            pickRandomTemp()
+            g3p = temp
+        }
+        if (g4p == 6) {
+            pickRandomTemp()
+            g4p = temp
+        }
+        if (g5p == 6) {
+            pickRandomTemp()
+            g5p = temp
+        }
+        if (g6p == 6) {
+            pickRandomTemp()
+            g6p = temp
+        }
+        if (g7p == 6) {
+            pickRandomTemp()
+            g7p = temp
+        }
+        if (g8p == 6) {
+            pickRandomTemp()
+            g8p = temp
+        }
+        if (g9p == 6) {
+            pickRandomTemp()
+            g9p = temp
+        }
+        if (h1p == 6) {
+            pickRandomTemp()
+            h1p = temp
+        }
+        if (h2p == 6) {
+            pickRandomTemp()
+            h2p = temp
+        }
+        if (h3p == 6) {
+            pickRandomTemp()
+            h3p = temp
+        }
+        if (h4p == 6) {
+            pickRandomTemp()
+            h4p = temp
+        }
+        if (h5p == 6) {
+            pickRandomTemp()
+            h5p = temp
+        }
+        if (h6p == 6) {
+            pickRandomTemp()
+            h6p = temp
+        }
+        if (h7p == 6) {
+            pickRandomTemp()
+            h7p = temp
+        }
+        if (h8p == 6) {
+            pickRandomTemp()
+            h8p = temp
+        }
+        if (h9p == 6) {
+            pickRandomTemp()
+            h9p = temp
+        }
+    }
+    
+    func pickRandomTemp() {
+        let tempspec = arc4random() % 10
+        if (tempspec == 0) {
+            temp = 7
+        }
+        else if (tempspec == 1) {
+            temp = 9
+        }
+        else if (tempspec == 2) {
+            temp = 10
+        }
+        else if (tempspec == 3) {
+            temp = 13
+        }
+        else {
+            temp = 0
+        }
+    }
+    
     func newWebs() {
         //basic web spawning code, will change later
         let webspec = arc4random() % 2
@@ -752,6 +1086,8 @@ class ViewController: UIViewController {
             //if this method is used, a set of edge webs will generate
         }
     }
+    
+    
     
     func newDoor() {
         //setting door coordinates, assuming only specific axis for Y
@@ -799,43 +1135,43 @@ class ViewController: UIViewController {
             h2p = 4
             stairsX = 2
             
-            self.player.center = CGPoint(x: self.h2i.center.x, y: self.h2i.center.y - 44)
+            self.player.center = CGPoint(x: self.h2i.center.x, y: self.h2i.center.y - 48)
         }
         if (stairsloc == 1) {
             h3p = 4
             stairsX = 3
             
-            self.player.center = CGPoint(x: self.h3i.center.x, y: self.h3i.center.y - 44)
+            self.player.center = CGPoint(x: self.h3i.center.x, y: self.h3i.center.y - 48)
         }
         if (stairsloc == 2) {
             h4p = 4
             stairsX = 4
             
-            self.player.center = CGPoint(x: self.h4i.center.x, y: self.h4i.center.y - 44)
+            self.player.center = CGPoint(x: self.h4i.center.x, y: self.h4i.center.y - 48)
         }
         if (stairsloc == 3) {
             h5p = 4
             stairsX = 5
             
-            self.player.center = CGPoint(x: self.h5i.center.x, y: self.h5i.center.y - 44)
+            self.player.center = CGPoint(x: self.h5i.center.x, y: self.h5i.center.y - 48)
         }
         if (stairsloc == 4) {
             h6p = 4
             stairsX = 6
             
-            self.player.center = CGPoint(x: self.h6i.center.x, y: self.h6i.center.y - 44)
+            self.player.center = CGPoint(x: self.h6i.center.x, y: self.h6i.center.y - 48)
         }
         if (stairsloc == 5) {
             h7p = 4
             stairsX = 7
             
-            self.player.center = CGPoint(x: self.h7i.center.x, y: self.h7i.center.y - 44)
+            self.player.center = CGPoint(x: self.h7i.center.x, y: self.h7i.center.y - 48)
         }
         if (stairsloc == 6) {
             h8p = 4
             stairsX = 8
             
-            self.player.center = CGPoint(x: self.h8i.center.x, y: self.h8i.center.y - 44)
+            self.player.center = CGPoint(x: self.h8i.center.x, y: self.h8i.center.y - 48)
         }
         
         //set player location to just above the stairs spawn
@@ -845,41 +1181,41 @@ class ViewController: UIViewController {
     
     func randomizeWalls() {
         //oh shit
-        let wallrand = arc4random() % 6
+        let wallrand = arc4random() % 12
         if (wallrand == 0) {
-            tileImage = UIImage(named: "wall-1.png")
-        }
-        if (wallrand == 1) {
             tileImage = UIImage(named: "wall-2.png")
         }
-        if (wallrand == 2) {
+        else if (wallrand == 1) {
             tileImage = UIImage(named: "wall-3.png")
         }
-        if (wallrand == 3) {
+        else if (wallrand == 2) {
             tileImage = UIImage(named: "wall-4.png")
         }
-        if (wallrand == 4) {
+        else if (wallrand == 3) {
             tileImage = UIImage(named: "wall-5.png")
         }
-        if (wallrand == 5) {
+        else if (wallrand == 4) {
             tileImage = UIImage(named: "wall-6.png")
+        }
+        else {
+            tileImage = UIImage(named: "wall-1.png")
         }
     }
     
     func randomizeEdges() {
         //oh shit
-        let edgerand = arc4random() % 4
+        let edgerand = arc4random() % 8
         if (edgerand == 0) {
-            tileImage = UIImage(named: "bricks-1.png")
-        }
-        if (edgerand == 1) {
             tileImage = UIImage(named: "bricks-2.png")
         }
-        if (edgerand == 2) {
+        else if (edgerand == 1) {
             tileImage = UIImage(named: "bricks-3.png")
         }
-        if (edgerand == 3) {
+        else if (edgerand == 2) {
             tileImage = UIImage(named: "bricks-4.png")
+        }
+        else {
+            tileImage = UIImage(named: "bricks-1.png")
         }
     }
     
@@ -899,6 +1235,18 @@ class ViewController: UIViewController {
         else if (a1p == 4) {
             self.a1i.image = UIImage(named: "down-stairs.png")
         }
+        else if (a1p == 7) {
+            self.a1i.image = UIImage(named: "chest.png")
+        }
+        else if (a1p == 9) {
+            self.a1i.image = UIImage(named: "candles.png")
+        }
+        else if (a1p == 10) {
+            self.a1i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (a1p == 13) {
+            self.a1i.image = UIImage(named: "stockade.png")
+        }
         if (a2p == 1) {
             randomizeWalls()
             self.a2i.image = tileImage
@@ -912,6 +1260,18 @@ class ViewController: UIViewController {
         }
         else if (a2p == 4) {
             self.a2i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (a2p == 7) {
+            self.a2i.image = UIImage(named: "chest.png")
+        }
+        else if (a2p == 9) {
+            self.a2i.image = UIImage(named: "candles.png")
+        }
+        else if (a2p == 10) {
+            self.a2i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (a2p == 13) {
+            self.a2i.image = UIImage(named: "stockade.png")
         }
         if (a3p == 1) {
             randomizeWalls()
@@ -927,6 +1287,18 @@ class ViewController: UIViewController {
         else if (a3p == 4) {
             self.a3i.image = UIImage(named: "down-stairs.png")
         }
+        else if (a3p == 7) {
+            self.a3i.image = UIImage(named: "chest.png")
+        }
+        else if (a3p == 9) {
+            self.a3i.image = UIImage(named: "candles.png")
+        }
+        else if (a3p == 10) {
+            self.a3i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (a3p == 13) {
+            self.a3i.image = UIImage(named: "stockade.png")
+        }
         if (a4p == 1) {
             randomizeWalls()
             self.a4i.image = tileImage
@@ -940,6 +1312,18 @@ class ViewController: UIViewController {
         }
         else if (a4p == 4) {
             self.a4i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (a4p == 7) {
+            self.a4i.image = UIImage(named: "chest.png")
+        }
+        else if (a4p == 9) {
+            self.a4i.image = UIImage(named: "candles.png")
+        }
+        else if (a4p == 10) {
+            self.a4i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (a4p == 13) {
+            self.a4i.image = UIImage(named: "stockade.png")
         }
         if (a5p == 1) {
             randomizeWalls()
@@ -955,6 +1339,18 @@ class ViewController: UIViewController {
         else if (a5p == 4) {
             self.a5i.image = UIImage(named: "down-stairs.png")
         }
+        else if (a5p == 7) {
+            self.a5i.image = UIImage(named: "chest.png")
+        }
+        else if (a5p == 9) {
+            self.a5i.image = UIImage(named: "candles.png")
+        }
+        else if (a5p == 10) {
+            self.a5i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (a5p == 13) {
+            self.a5i.image = UIImage(named: "stockade.png")
+        }
         if (a6p == 1) {
             randomizeWalls()
             self.a6i.image = tileImage
@@ -968,6 +1364,18 @@ class ViewController: UIViewController {
         }
         else if (a6p == 4) {
             self.a6i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (a6p == 7) {
+            self.a6i.image = UIImage(named: "chest.png")
+        }
+        else if (a6p == 9) {
+            self.a6i.image = UIImage(named: "candles.png")
+        }
+        else if (a6p == 10) {
+            self.a6i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (a6p == 13) {
+            self.a6i.image = UIImage(named: "stockade.png")
         }
         if (a7p == 1) {
             randomizeWalls()
@@ -983,6 +1391,18 @@ class ViewController: UIViewController {
         else if (a7p == 4) {
             self.a7i.image = UIImage(named: "down-stairs.png")
         }
+        else if (a7p == 7) {
+            self.a7i.image = UIImage(named: "chest.png")
+        }
+        else if (a7p == 9) {
+            self.a7i.image = UIImage(named: "candles.png")
+        }
+        else if (a7p == 10) {
+            self.a7i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (a7p == 13) {
+            self.a7i.image = UIImage(named: "stockade.png")
+        }
         if (a8p == 1) {
             randomizeWalls()
             self.a8i.image = tileImage
@@ -996,6 +1416,18 @@ class ViewController: UIViewController {
         }
         else if (a8p == 4) {
             self.a8i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (a8p == 7) {
+            self.a8i.image = UIImage(named: "chest.png")
+        }
+        else if (a8p == 9) {
+            self.a8i.image = UIImage(named: "candles.png")
+        }
+        else if (a8p == 10) {
+            self.a8i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (a8p == 13) {
+            self.a8i.image = UIImage(named: "stockade.png")
         }
         if (a9p == 1) {
             randomizeWalls()
@@ -1011,6 +1443,18 @@ class ViewController: UIViewController {
         else if (a9p == 4) {
             self.a9i.image = UIImage(named: "down-stairs.png")
         }
+        else if (a9p == 7) {
+            self.a9i.image = UIImage(named: "chest.png")
+        }
+        else if (a9p == 9) {
+            self.a9i.image = UIImage(named: "candles.png")
+        }
+        else if (a9p == 10) {
+            self.a9i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (a9p == 13) {
+            self.a9i.image = UIImage(named: "stockade.png")
+        }
         
         if (b1p == 1) {
             randomizeWalls()
@@ -1025,6 +1469,18 @@ class ViewController: UIViewController {
         }
         else if (b1p == 4) {
             self.b1i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (b1p == 7) {
+            self.b1i.image = UIImage(named: "chest.png")
+        }
+        else if (b1p == 9) {
+            self.b1i.image = UIImage(named: "candles.png")
+        }
+        else if (b1p == 10) {
+            self.b1i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (b1p == 13) {
+            self.b1i.image = UIImage(named: "stockade.png")
         }
         if (b2p == 1) {
             randomizeWalls()
@@ -1043,6 +1499,18 @@ class ViewController: UIViewController {
         else if (b2p == 5) {
             self.b2i.image = UIImage(named: "web-upper-left.png")
         }
+        else if (b2p == 7) {
+            self.b2i.image = UIImage(named: "chest.png")
+        }
+        else if (b2p == 9) {
+            self.b2i.image = UIImage(named: "candles.png")
+        }
+        else if (b2p == 10) {
+            self.b2i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (b2p == 13) {
+            self.b2i.image = UIImage(named: "stockade.png")
+        }
         if (b3p == 1) {
             randomizeWalls()
             self.b3i.image = tileImage
@@ -1056,6 +1524,18 @@ class ViewController: UIViewController {
         }
         else if (b3p == 4) {
             self.b3i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (b3p == 7) {
+            self.b3i.image = UIImage(named: "chest.png")
+        }
+        else if (b3p == 9) {
+            self.b3i.image = UIImage(named: "candles.png")
+        }
+        else if (b3p == 10) {
+            self.b3i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (b3p == 13) {
+            self.b3i.image = UIImage(named: "stockade.png")
         }
         if (b4p == 1) {
             randomizeWalls()
@@ -1071,6 +1551,18 @@ class ViewController: UIViewController {
         else if (b4p == 4) {
             self.b4i.image = UIImage(named: "down-stairs.png")
         }
+        else if (b4p == 7) {
+            self.b4i.image = UIImage(named: "chest.png")
+        }
+        else if (b4p == 9) {
+            self.b4i.image = UIImage(named: "candles.png")
+        }
+        else if (b4p == 10) {
+            self.b4i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (b4p == 13) {
+            self.b4i.image = UIImage(named: "stockade.png")
+        }
         if (b5p == 1) {
             randomizeWalls()
             self.b5i.image = tileImage
@@ -1084,6 +1576,18 @@ class ViewController: UIViewController {
         }
         else if (b5p == 4) {
             self.b5i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (b5p == 7) {
+            self.b5i.image = UIImage(named: "chest.png")
+        }
+        else if (b5p == 9) {
+            self.b5i.image = UIImage(named: "candles.png")
+        }
+        else if (b5p == 10) {
+            self.b5i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (b5p == 13) {
+            self.b5i.image = UIImage(named: "stockade.png")
         }
         if (b6p == 1) {
             randomizeWalls()
@@ -1099,6 +1603,18 @@ class ViewController: UIViewController {
         else if (b6p == 4) {
             self.b6i.image = UIImage(named: "down-stairs.png")
         }
+        else if (b6p == 7) {
+            self.b6i.image = UIImage(named: "chest.png")
+        }
+        else if (b6p == 9) {
+            self.b6i.image = UIImage(named: "candles.png")
+        }
+        else if (b6p == 10) {
+            self.b6i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (b6p == 13) {
+            self.b6i.image = UIImage(named: "stockade.png")
+        }
         if (b7p == 1) {
             randomizeWalls()
             self.b7i.image = tileImage
@@ -1112,6 +1628,18 @@ class ViewController: UIViewController {
         }
         else if (b7p == 4) {
             self.b7i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (b7p == 7) {
+            self.b7i.image = UIImage(named: "chest.png")
+        }
+        else if (b7p == 9) {
+            self.b7i.image = UIImage(named: "candles.png")
+        }
+        else if (b7p == 10) {
+            self.b7i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (b7p == 13) {
+            self.b7i.image = UIImage(named: "stockade.png")
         }
         if (b8p == 1) {
             randomizeWalls()
@@ -1130,6 +1658,18 @@ class ViewController: UIViewController {
         else if (b8p == 5) {
             self.b8i.image = UIImage(named: "web-upper-right.png")
         }
+        else if (b8p == 7) {
+            self.b8i.image = UIImage(named: "chest.png")
+        }
+        else if (b8p == 9) {
+            self.b8i.image = UIImage(named: "candles.png")
+        }
+        else if (b8p == 10) {
+            self.b8i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (b8p == 13) {
+            self.b8i.image = UIImage(named: "stockade.png")
+        }
         if (b9p == 1) {
             randomizeWalls()
             self.b9i.image = tileImage
@@ -1143,6 +1683,18 @@ class ViewController: UIViewController {
         }
         else if (b9p == 4) {
             self.b9i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (b9p == 7) {
+            self.b9i.image = UIImage(named: "chest.png")
+        }
+        else if (b9p == 9) {
+            self.b9i.image = UIImage(named: "candles.png")
+        }
+        else if (b9p == 10) {
+            self.b9i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (b9p == 13) {
+            self.b9i.image = UIImage(named: "stockade.png")
         }
         
         if (c1p == 1) {
@@ -1159,6 +1711,18 @@ class ViewController: UIViewController {
         else if (c1p == 4) {
             self.c1i.image = UIImage(named: "down-stairs.png")
         }
+        else if (c1p == 7) {
+            self.c1i.image = UIImage(named: "chest.png")
+        }
+        else if (c1p == 9) {
+            self.c1i.image = UIImage(named: "candles.png")
+        }
+        else if (c1p == 10) {
+            self.c1i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (c1p == 13) {
+            self.c1i.image = UIImage(named: "stockade.png")
+        }
         if (c2p == 1) {
             randomizeWalls()
             self.c2i.image = tileImage
@@ -1172,6 +1736,21 @@ class ViewController: UIViewController {
         }
         else if (c2p == 4) {
             self.c2i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (c2p == 5) {
+            self.c2i.image = UIImage(named: "web-upper-left.png")
+        }
+        else if (c2p == 7) {
+            self.c2i.image = UIImage(named: "chest.png")
+        }
+        else if (c2p == 9) {
+            self.c2i.image = UIImage(named: "candles.png")
+        }
+        else if (c2p == 10) {
+            self.c2i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (c2p == 13) {
+            self.c2i.image = UIImage(named: "stockade.png")
         }
         if (c3p == 1) {
             randomizeWalls()
@@ -1187,6 +1766,18 @@ class ViewController: UIViewController {
         else if (c3p == 4) {
             self.c3i.image = UIImage(named: "down-stairs.png")
         }
+        else if (c3p == 7) {
+            self.c3i.image = UIImage(named: "chest.png")
+        }
+        else if (c3p == 9) {
+            self.c3i.image = UIImage(named: "candles.png")
+        }
+        else if (c3p == 10) {
+            self.c3i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (c3p == 13) {
+            self.c3i.image = UIImage(named: "stockade.png")
+        }
         if (c4p == 1) {
             randomizeWalls()
             self.c4i.image = tileImage
@@ -1200,6 +1791,18 @@ class ViewController: UIViewController {
         }
         else if (c4p == 4) {
             self.c4i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (c4p == 7) {
+            self.c4i.image = UIImage(named: "chest.png")
+        }
+        else if (c4p == 9) {
+            self.c4i.image = UIImage(named: "candles.png")
+        }
+        else if (c4p == 10) {
+            self.c4i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (c4p == 13) {
+            self.c4i.image = UIImage(named: "stockade.png")
         }
         if (c5p == 1) {
             randomizeWalls()
@@ -1215,6 +1818,18 @@ class ViewController: UIViewController {
         else if (c5p == 4) {
             self.c5i.image = UIImage(named: "down-stairs.png")
         }
+        else if (c5p == 7) {
+            self.c5i.image = UIImage(named: "chest.png")
+        }
+        else if (c5p == 9) {
+            self.c5i.image = UIImage(named: "candles.png")
+        }
+        else if (c5p == 10) {
+            self.c5i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (c5p == 13) {
+            self.c5i.image = UIImage(named: "stockade.png")
+        }
         if (c6p == 1) {
             randomizeWalls()
             self.c6i.image = tileImage
@@ -1228,6 +1843,18 @@ class ViewController: UIViewController {
         }
         else if (c6p == 4) {
             self.c6i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (c6p == 7) {
+            self.c6i.image = UIImage(named: "chest.png")
+        }
+        else if (c6p == 9) {
+            self.c6i.image = UIImage(named: "candles.png")
+        }
+        else if (c6p == 10) {
+            self.c6i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (c6p == 13) {
+            self.c6i.image = UIImage(named: "stockade.png")
         }
         if (c7p == 1) {
             randomizeWalls()
@@ -1243,6 +1870,18 @@ class ViewController: UIViewController {
         else if (c7p == 4) {
             self.c7i.image = UIImage(named: "down-stairs.png")
         }
+        else if (c7p == 7) {
+            self.c7i.image = UIImage(named: "chest.png")
+        }
+        else if (c7p == 9) {
+            self.c7i.image = UIImage(named: "candles.png")
+        }
+        else if (c7p == 10) {
+            self.c7i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (c7p == 13) {
+            self.c7i.image = UIImage(named: "stockade.png")
+        }
         if (c8p == 1) {
             randomizeWalls()
             self.c8i.image = tileImage
@@ -1257,6 +1896,21 @@ class ViewController: UIViewController {
         else if (c8p == 4) {
             self.c8i.image = UIImage(named: "down-stairs.png")
         }
+        else if (c8p == 5) {
+            self.c8i.image = UIImage(named: "web-upper-right.png")
+        }
+        else if (c8p == 7) {
+            self.c8i.image = UIImage(named: "chest.png")
+        }
+        else if (c8p == 9) {
+            self.c8i.image = UIImage(named: "candles.png")
+        }
+        else if (c8p == 10) {
+            self.c8i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (c8p == 13) {
+            self.c8i.image = UIImage(named: "stockade.png")
+        }
         if (c9p == 1) {
             randomizeWalls()
             self.c9i.image = tileImage
@@ -1270,6 +1924,18 @@ class ViewController: UIViewController {
         }
         else if (c9p == 4) {
             self.c9i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (c9p == 7) {
+            self.c9i.image = UIImage(named: "chest.png")
+        }
+        else if (c9p == 9) {
+            self.c9i.image = UIImage(named: "candles.png")
+        }
+        else if (c9p == 10) {
+            self.c9i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (c9p == 13) {
+            self.c9i.image = UIImage(named: "stockade.png")
         }
         
         if (d1p == 1) {
@@ -1286,6 +1952,18 @@ class ViewController: UIViewController {
         else if (d1p == 4) {
             self.d1i.image = UIImage(named: "down-stairs.png")
         }
+        else if (d1p == 7) {
+            self.d1i.image = UIImage(named: "chest.png")
+        }
+        else if (d1p == 9) {
+            self.d1i.image = UIImage(named: "candles.png")
+        }
+        else if (d1p == 10) {
+            self.d1i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (d1p == 13) {
+            self.d1i.image = UIImage(named: "stockade.png")
+        }
         if (d2p == 1) {
             randomizeWalls()
             self.d2i.image = tileImage
@@ -1299,6 +1977,21 @@ class ViewController: UIViewController {
         }
         else if (d2p == 4) {
             self.d2i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (d2p == 5) {
+            self.d2i.image = UIImage(named: "web-upper-left.png")
+        }
+        else if (d2p == 7) {
+            self.d2i.image = UIImage(named: "chest.png")
+        }
+        else if (d2p == 9) {
+            self.d2i.image = UIImage(named: "candles.png")
+        }
+        else if (d2p == 10) {
+            self.d2i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (d2p == 13) {
+            self.d2i.image = UIImage(named: "stockade.png")
         }
         if (d3p == 1) {
             randomizeWalls()
@@ -1314,6 +2007,18 @@ class ViewController: UIViewController {
         else if (d3p == 4) {
             self.d3i.image = UIImage(named: "down-stairs.png")
         }
+        else if (d3p == 7) {
+            self.d3i.image = UIImage(named: "chest.png")
+        }
+        else if (d3p == 9) {
+            self.d3i.image = UIImage(named: "candles.png")
+        }
+        else if (d3p == 10) {
+            self.d3i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (d3p == 13) {
+            self.d3i.image = UIImage(named: "stockade.png")
+        }
         if (d4p == 1) {
             randomizeWalls()
             self.d4i.image = tileImage
@@ -1327,6 +2032,18 @@ class ViewController: UIViewController {
         }
         else if (d4p == 4) {
             self.d4i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (d4p == 7) {
+            self.d4i.image = UIImage(named: "chest.png")
+        }
+        else if (d4p == 9) {
+            self.d4i.image = UIImage(named: "candles.png")
+        }
+        else if (d4p == 10) {
+            self.d4i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (d4p == 13) {
+            self.d4i.image = UIImage(named: "stockade.png")
         }
         if (d5p == 1) {
             randomizeWalls()
@@ -1342,6 +2059,18 @@ class ViewController: UIViewController {
         else if (d5p == 4) {
             self.d5i.image = UIImage(named: "down-stairs.png")
         }
+        else if (d5p == 7) {
+            self.d5i.image = UIImage(named: "chest.png")
+        }
+        else if (d5p == 9) {
+            self.d5i.image = UIImage(named: "candles.png")
+        }
+        else if (d5p == 10) {
+            self.d5i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (d5p == 13) {
+            self.d5i.image = UIImage(named: "stockade.png")
+        }
         if (d6p == 1) {
             randomizeWalls()
             self.d6i.image = tileImage
@@ -1355,6 +2084,18 @@ class ViewController: UIViewController {
         }
         else if (d6p == 4) {
             self.d6i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (d6p == 7) {
+            self.d6i.image = UIImage(named: "chest.png")
+        }
+        else if (d6p == 9) {
+            self.d6i.image = UIImage(named: "candles.png")
+        }
+        else if (d6p == 10) {
+            self.d6i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (d6p == 13) {
+            self.d6i.image = UIImage(named: "stockade.png")
         }
         if (d7p == 1) {
             randomizeWalls()
@@ -1370,6 +2111,18 @@ class ViewController: UIViewController {
         else if (d7p == 4) {
             self.d7i.image = UIImage(named: "down-stairs.png")
         }
+        else if (d7p == 7) {
+            self.d7i.image = UIImage(named: "chest.png")
+        }
+        else if (d7p == 9) {
+            self.d7i.image = UIImage(named: "candles.png")
+        }
+        else if (d7p == 10) {
+            self.d7i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (d7p == 13) {
+            self.d7i.image = UIImage(named: "stockade.png")
+        }
         if (d8p == 1) {
             randomizeWalls()
             self.d8i.image = tileImage
@@ -1384,6 +2137,21 @@ class ViewController: UIViewController {
         else if (d8p == 4) {
             self.d8i.image = UIImage(named: "down-stairs.png")
         }
+        else if (d8p == 5) {
+            self.d8i.image = UIImage(named: "web-upper-right.png")
+        }
+        else if (d8p == 7) {
+            self.d8i.image = UIImage(named: "chest.png")
+        }
+        else if (d8p == 9) {
+            self.d8i.image = UIImage(named: "candles.png")
+        }
+        else if (d8p == 10) {
+            self.d8i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (d8p == 13) {
+            self.d8i.image = UIImage(named: "stockade.png")
+        }
         if (d9p == 1) {
             randomizeWalls()
             self.d9i.image = tileImage
@@ -1397,6 +2165,18 @@ class ViewController: UIViewController {
         }
         else if (d9p == 4) {
             self.d9i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (d9p == 7) {
+            self.d9i.image = UIImage(named: "chest.png")
+        }
+        else if (d9p == 9) {
+            self.d9i.image = UIImage(named: "candles.png")
+        }
+        else if (d9p == 10) {
+            self.d9i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (d9p == 13) {
+            self.d9i.image = UIImage(named: "stockade.png")
         }
         
         if (e1p == 1) {
@@ -1413,6 +2193,18 @@ class ViewController: UIViewController {
         else if (e1p == 4) {
             self.e1i.image = UIImage(named: "down-stairs.png")
         }
+        else if (e1p == 7) {
+            self.e1i.image = UIImage(named: "chest.png")
+        }
+        else if (e1p == 9) {
+            self.e1i.image = UIImage(named: "candles.png")
+        }
+        else if (e1p == 10) {
+            self.e1i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (e1p == 13) {
+            self.e1i.image = UIImage(named: "stockade.png")
+        }
         if (e2p == 1) {
             randomizeWalls()
             self.e2i.image = tileImage
@@ -1426,6 +2218,21 @@ class ViewController: UIViewController {
         }
         else if (e2p == 4) {
             self.e2i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (e2p == 5) {
+            self.e2i.image = UIImage(named: "web-upper-left.png")
+        }
+        else if (e2p == 7) {
+            self.e2i.image = UIImage(named: "chest.png")
+        }
+        else if (e2p == 9) {
+            self.e2i.image = UIImage(named: "candles.png")
+        }
+        else if (e2p == 10) {
+            self.e2i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (e2p == 13) {
+            self.e2i.image = UIImage(named: "stockade.png")
         }
         if (e3p == 1) {
             randomizeWalls()
@@ -1441,6 +2248,18 @@ class ViewController: UIViewController {
         else if (e3p == 4) {
             self.e3i.image = UIImage(named: "down-stairs.png")
         }
+        else if (e3p == 7) {
+            self.e3i.image = UIImage(named: "chest.png")
+        }
+        else if (e3p == 9) {
+            self.e3i.image = UIImage(named: "candles.png")
+        }
+        else if (e3p == 10) {
+            self.e3i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (e3p == 13) {
+            self.e3i.image = UIImage(named: "stockade.png")
+        }
         if (e4p == 1) {
             randomizeWalls()
             self.e4i.image = tileImage
@@ -1454,6 +2273,18 @@ class ViewController: UIViewController {
         }
         else if (e4p == 4) {
             self.e4i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (e4p == 7) {
+            self.e4i.image = UIImage(named: "chest.png")
+        }
+        else if (e4p == 9) {
+            self.e4i.image = UIImage(named: "candles.png")
+        }
+        else if (e4p == 10) {
+            self.e4i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (e4p == 13) {
+            self.e4i.image = UIImage(named: "stockade.png")
         }
         if (e5p == 1) {
             randomizeWalls()
@@ -1469,6 +2300,18 @@ class ViewController: UIViewController {
         else if (e5p == 4) {
             self.e5i.image = UIImage(named: "down-stairs.png")
         }
+        else if (e5p == 7) {
+            self.e5i.image = UIImage(named: "chest.png")
+        }
+        else if (e5p == 9) {
+            self.e5i.image = UIImage(named: "candles.png")
+        }
+        else if (e5p == 10) {
+            self.e5i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (e5p == 13) {
+            self.e5i.image = UIImage(named: "stockade.png")
+        }
         if (e6p == 1) {
             randomizeWalls()
             self.e6i.image = tileImage
@@ -1482,6 +2325,18 @@ class ViewController: UIViewController {
         }
         else if (e6p == 4) {
             self.e6i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (e6p == 7) {
+            self.e6i.image = UIImage(named: "chest.png")
+        }
+        else if (e6p == 9) {
+            self.e6i.image = UIImage(named: "candles.png")
+        }
+        else if (e6p == 10) {
+            self.e6i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (e6p == 13) {
+            self.e6i.image = UIImage(named: "stockade.png")
         }
         if (e7p == 1) {
             randomizeWalls()
@@ -1497,6 +2352,18 @@ class ViewController: UIViewController {
         else if (e7p == 4) {
             self.e7i.image = UIImage(named: "down-stairs.png")
         }
+        else if (e7p == 7) {
+            self.e7i.image = UIImage(named: "chest.png")
+        }
+        else if (e7p == 9) {
+            self.e7i.image = UIImage(named: "candles.png")
+        }
+        else if (e7p == 10) {
+            self.e7i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (e7p == 13) {
+            self.e7i.image = UIImage(named: "stockade.png")
+        }
         if (e8p == 1) {
             randomizeWalls()
             self.e8i.image = tileImage
@@ -1511,6 +2378,21 @@ class ViewController: UIViewController {
         else if (e8p == 4) {
             self.e8i.image = UIImage(named: "down-stairs.png")
         }
+        else if (e8p == 5) {
+            self.e8i.image = UIImage(named: "web-upper-right.png")
+        }
+        else if (e8p == 7) {
+            self.e8i.image = UIImage(named: "chest.png")
+        }
+        else if (e8p == 9) {
+            self.e8i.image = UIImage(named: "candles.png")
+        }
+        else if (e8p == 10) {
+            self.e8i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (e8p == 13) {
+            self.e8i.image = UIImage(named: "stockade.png")
+        }
         if (e9p == 1) {
             randomizeWalls()
             self.e9i.image = tileImage
@@ -1524,6 +2406,18 @@ class ViewController: UIViewController {
         }
         else if (e9p == 4) {
             self.e9i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (e9p == 7) {
+            self.e9i.image = UIImage(named: "chest.png")
+        }
+        else if (e9p == 9) {
+            self.e9i.image = UIImage(named: "candles.png")
+        }
+        else if (e9p == 10) {
+            self.e9i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (e9p == 13) {
+            self.e9i.image = UIImage(named: "stockade.png")
         }
         
         if (f1p == 1) {
@@ -1540,6 +2434,18 @@ class ViewController: UIViewController {
         else if (f1p == 4) {
             self.f1i.image = UIImage(named: "down-stairs.png")
         }
+        else if (f1p == 7) {
+            self.f1i.image = UIImage(named: "chest.png")
+        }
+        else if (f1p == 9) {
+            self.f1i.image = UIImage(named: "candles.png")
+        }
+        else if (f1p == 10) {
+            self.f1i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (f1p == 13) {
+            self.f1i.image = UIImage(named: "stockade.png")
+        }
         if (f2p == 1) {
             randomizeWalls()
             self.f2i.image = tileImage
@@ -1553,6 +2459,21 @@ class ViewController: UIViewController {
         }
         else if (f2p == 4) {
             self.f2i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (f2p == 5) {
+            self.f2i.image = UIImage(named: "web-upper-left.png")
+        }
+        else if (f2p == 7) {
+            self.f2i.image = UIImage(named: "chest.png")
+        }
+        else if (f2p == 9) {
+            self.f2i.image = UIImage(named: "candles.png")
+        }
+        else if (f2p == 10) {
+            self.f2i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (f2p == 13) {
+            self.f2i.image = UIImage(named: "stockade.png")
         }
         if (f3p == 1) {
             randomizeWalls()
@@ -1568,6 +2489,18 @@ class ViewController: UIViewController {
         else if (f3p == 4) {
             self.f3i.image = UIImage(named: "down-stairs.png")
         }
+        else if (f3p == 7) {
+            self.f3i.image = UIImage(named: "chest.png")
+        }
+        else if (f3p == 9) {
+            self.f3i.image = UIImage(named: "candles.png")
+        }
+        else if (f3p == 10) {
+            self.f3i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (f3p == 13) {
+            self.f3i.image = UIImage(named: "stockade.png")
+        }
         if (f4p == 1) {
             randomizeWalls()
             self.f4i.image = tileImage
@@ -1581,6 +2514,18 @@ class ViewController: UIViewController {
         }
         else if (f4p == 4) {
             self.f4i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (f4p == 7) {
+            self.f4i.image = UIImage(named: "chest.png")
+        }
+        else if (f4p == 9) {
+            self.f4i.image = UIImage(named: "candles.png")
+        }
+        else if (f4p == 10) {
+            self.f4i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (f4p == 13) {
+            self.f4i.image = UIImage(named: "stockade.png")
         }
         if (f5p == 1) {
             randomizeWalls()
@@ -1596,6 +2541,18 @@ class ViewController: UIViewController {
         else if (f5p == 4) {
             self.f5i.image = UIImage(named: "down-stairs.png")
         }
+        else if (f5p == 7) {
+            self.f5i.image = UIImage(named: "chest.png")
+        }
+        else if (f5p == 9) {
+            self.f5i.image = UIImage(named: "candles.png")
+        }
+        else if (f5p == 10) {
+            self.f5i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (f5p == 13) {
+            self.f5i.image = UIImage(named: "stockade.png")
+        }
         if (f6p == 1) {
             randomizeWalls()
             self.f6i.image = tileImage
@@ -1609,6 +2566,18 @@ class ViewController: UIViewController {
         }
         else if (f6p == 4) {
             self.f6i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (f6p == 7) {
+            self.f6i.image = UIImage(named: "chest.png")
+        }
+        else if (f6p == 9) {
+            self.f6i.image = UIImage(named: "candles.png")
+        }
+        else if (f6p == 10) {
+            self.f6i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (f6p == 13) {
+            self.f6i.image = UIImage(named: "stockade.png")
         }
         if (f7p == 1) {
             randomizeWalls()
@@ -1624,6 +2593,18 @@ class ViewController: UIViewController {
         else if (f7p == 4) {
             self.f7i.image = UIImage(named: "down-stairs.png")
         }
+        else if (f7p == 7) {
+            self.f7i.image = UIImage(named: "chest.png")
+        }
+        else if (f7p == 9) {
+            self.f7i.image = UIImage(named: "candles.png")
+        }
+        else if (f7p == 10) {
+            self.f7i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (f7p == 13) {
+            self.f7i.image = UIImage(named: "stockade.png")
+        }
         if (f8p == 1) {
             randomizeWalls()
             self.f8i.image = tileImage
@@ -1637,6 +2618,21 @@ class ViewController: UIViewController {
         }
         else if (f8p == 4) {
             self.f8i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (f8p == 5) {
+            self.f8i.image = UIImage(named: "web-upper-right.png")
+        }
+        else if (f8p == 7) {
+            self.f8i.image = UIImage(named: "chest.png")
+        }
+        else if (f8p == 9) {
+            self.f8i.image = UIImage(named: "candles.png")
+        }
+        else if (f8p == 10) {
+            self.f8i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (f8p == 13) {
+            self.f8i.image = UIImage(named: "stockade.png")
         }
         if (f9p == 1) {
             randomizeWalls()
@@ -1652,6 +2648,18 @@ class ViewController: UIViewController {
         else if (f9p == 4) {
             self.f9i.image = UIImage(named: "down-stairs.png")
         }
+        else if (f9p == 7) {
+            self.f9i.image = UIImage(named: "chest.png")
+        }
+        else if (f9p == 9) {
+            self.f9i.image = UIImage(named: "candles.png")
+        }
+        else if (f9p == 10) {
+            self.f9i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (f9p == 13) {
+            self.f9i.image = UIImage(named: "stockade.png")
+        }
         
         if (g1p == 1) {
             randomizeWalls()
@@ -1666,6 +2674,18 @@ class ViewController: UIViewController {
         }
         else if (g1p == 4) {
             self.g1i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (g1p == 7) {
+            self.g1i.image = UIImage(named: "chest.png")
+        }
+        else if (g1p == 9) {
+            self.g1i.image = UIImage(named: "candles.png")
+        }
+        else if (g1p == 10) {
+            self.g1i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (g1p == 13) {
+            self.g1i.image = UIImage(named: "stockade.png")
         }
         if (g2p == 1) {
             randomizeWalls()
@@ -1684,6 +2704,18 @@ class ViewController: UIViewController {
         else if (g2p == 5) {
             self.g2i.image = UIImage(named: "web-lower-left.png")
         }
+        else if (g2p == 7) {
+            self.g2i.image = UIImage(named: "chest.png")
+        }
+        else if (g2p == 9) {
+            self.g2i.image = UIImage(named: "candles.png")
+        }
+        else if (g2p == 10) {
+            self.g2i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (g2p == 13) {
+            self.g2i.image = UIImage(named: "stockade.png")
+        }
         if (g3p == 1) {
             randomizeWalls()
             self.g3i.image = tileImage
@@ -1697,6 +2729,18 @@ class ViewController: UIViewController {
         }
         else if (g3p == 4) {
             self.g3i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (g3p == 7) {
+            self.g3i.image = UIImage(named: "chest.png")
+        }
+        else if (g3p == 9) {
+            self.g3i.image = UIImage(named: "candles.png")
+        }
+        else if (g3p == 10) {
+            self.g3i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (g3p == 13) {
+            self.g3i.image = UIImage(named: "stockade.png")
         }
         if (g4p == 1) {
             randomizeWalls()
@@ -1712,6 +2756,18 @@ class ViewController: UIViewController {
         else if (g4p == 4) {
             self.g4i.image = UIImage(named: "down-stairs.png")
         }
+        else if (g4p == 7) {
+            self.g4i.image = UIImage(named: "chest.png")
+        }
+        else if (g4p == 9) {
+            self.g4i.image = UIImage(named: "candles.png")
+        }
+        else if (g4p == 10) {
+            self.g4i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (g4p == 13) {
+            self.g4i.image = UIImage(named: "stockade.png")
+        }
         if (g5p == 1) {
             randomizeWalls()
             self.g5i.image = tileImage
@@ -1725,6 +2781,18 @@ class ViewController: UIViewController {
         }
         else if (g5p == 4) {
             self.g5i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (g5p == 7) {
+            self.g5i.image = UIImage(named: "chest.png")
+        }
+        else if (g5p == 9) {
+            self.g5i.image = UIImage(named: "candles.png")
+        }
+        else if (g5p == 10) {
+            self.g5i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (g5p == 13) {
+            self.g5i.image = UIImage(named: "stockade.png")
         }
         if (g6p == 1) {
             randomizeWalls()
@@ -1740,6 +2808,18 @@ class ViewController: UIViewController {
         else if (g6p == 4) {
             self.g6i.image = UIImage(named: "down-stairs.png")
         }
+        else if (g6p == 7) {
+            self.g6i.image = UIImage(named: "chest.png")
+        }
+        else if (g6p == 9) {
+            self.g6i.image = UIImage(named: "candles.png")
+        }
+        else if (g6p == 10) {
+            self.g6i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (g6p == 13) {
+            self.g6i.image = UIImage(named: "stockade.png")
+        }
         if (g7p == 1) {
             randomizeWalls()
             self.g7i.image = tileImage
@@ -1753,6 +2833,18 @@ class ViewController: UIViewController {
         }
         else if (g7p == 4) {
             self.g7i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (g7p == 7) {
+            self.g7i.image = UIImage(named: "chest.png")
+        }
+        else if (g7p == 9) {
+            self.g7i.image = UIImage(named: "candles.png")
+        }
+        else if (g7p == 10) {
+            self.g7i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (g7p == 13) {
+            self.g7i.image = UIImage(named: "stockade.png")
         }
         if (g8p == 1) {
             randomizeWalls()
@@ -1771,6 +2863,18 @@ class ViewController: UIViewController {
         else if (g8p == 5) {
             self.g8i.image = UIImage(named: "web-lower-right.png")
         }
+        else if (g8p == 7) {
+            self.g8i.image = UIImage(named: "chest.png")
+        }
+        else if (g8p == 9) {
+            self.g8i.image = UIImage(named: "candles.png")
+        }
+        else if (g8p == 10) {
+            self.g8i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (g8p == 13) {
+            self.g8i.image = UIImage(named: "stockade.png")
+        }
         if (g9p == 1) {
             randomizeWalls()
             self.g9i.image = tileImage
@@ -1784,6 +2888,18 @@ class ViewController: UIViewController {
         }
         else if (g9p == 4) {
             self.g9i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (g9p == 7) {
+            self.g9i.image = UIImage(named: "chest.png")
+        }
+        else if (g9p == 9) {
+            self.g9i.image = UIImage(named: "candles.png")
+        }
+        else if (g9p == 10) {
+            self.g9i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (g9p == 13) {
+            self.g9i.image = UIImage(named: "stockade.png")
         }
         
         if (h1p == 1) {
@@ -1800,6 +2916,18 @@ class ViewController: UIViewController {
         else if (h1p == 4) {
             self.h1i.image = UIImage(named: "down-stairs.png")
         }
+        else if (h1p == 7) {
+            self.h1i.image = UIImage(named: "chest.png")
+        }
+        else if (h1p == 9) {
+            self.h1i.image = UIImage(named: "candles.png")
+        }
+        else if (h1p == 10) {
+            self.h1i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (h1p == 13) {
+            self.h1i.image = UIImage(named: "stockade.png")
+        }
         if (h2p == 1) {
             randomizeWalls()
             self.h2i.image = tileImage
@@ -1813,6 +2941,21 @@ class ViewController: UIViewController {
         }
         else if (h2p == 4) {
             self.h2i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (h2p == 5) {
+            self.h2i.image = UIImage(named: "web-lower-left.png")
+        }
+        else if (h2p == 7) {
+            self.h2i.image = UIImage(named: "chest.png")
+        }
+        else if (h2p == 9) {
+            self.h2i.image = UIImage(named: "candles.png")
+        }
+        else if (h2p == 10) {
+            self.h2i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (h2p == 13) {
+            self.h2i.image = UIImage(named: "stockade.png")
         }
         if (h3p == 1) {
             randomizeWalls()
@@ -1828,6 +2971,18 @@ class ViewController: UIViewController {
         else if (h3p == 4) {
             self.h3i.image = UIImage(named: "down-stairs.png")
         }
+        else if (h3p == 7) {
+            self.h3i.image = UIImage(named: "chest.png")
+        }
+        else if (h3p == 9) {
+            self.h3i.image = UIImage(named: "candles.png")
+        }
+        else if (h3p == 10) {
+            self.h3i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (h3p == 13) {
+            self.h3i.image = UIImage(named: "stockade.png")
+        }
         if (h4p == 1) {
             randomizeWalls()
             self.h4i.image = tileImage
@@ -1841,6 +2996,18 @@ class ViewController: UIViewController {
         }
         else if (h4p == 4) {
             self.h4i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (h4p == 7) {
+            self.h4i.image = UIImage(named: "chest.png")
+        }
+        else if (h4p == 9) {
+            self.h4i.image = UIImage(named: "candles.png")
+        }
+        else if (h4p == 10) {
+            self.h4i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (h4p == 13) {
+            self.h4i.image = UIImage(named: "stockade.png")
         }
         if (h5p == 1) {
             randomizeWalls()
@@ -1856,6 +3023,18 @@ class ViewController: UIViewController {
         else if (h5p == 4) {
             self.h5i.image = UIImage(named: "down-stairs.png")
         }
+        else if (h5p == 7) {
+            self.h5i.image = UIImage(named: "chest.png")
+        }
+        else if (h5p == 9) {
+            self.h5i.image = UIImage(named: "candles.png")
+        }
+        else if (h5p == 10) {
+            self.h5i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (h5p == 13) {
+            self.h5i.image = UIImage(named: "stockade.png")
+        }
         if (h6p == 1) {
             randomizeWalls()
             self.h6i.image = tileImage
@@ -1869,6 +3048,18 @@ class ViewController: UIViewController {
         }
         else if (h6p == 4) {
             self.h6i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (h6p == 7) {
+            self.h6i.image = UIImage(named: "chest.png")
+        }
+        else if (h6p == 9) {
+            self.h6i.image = UIImage(named: "candles.png")
+        }
+        else if (h6p == 10) {
+            self.h6i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (h6p == 13) {
+            self.h6i.image = UIImage(named: "stockade.png")
         }
         if (h7p == 1) {
             randomizeWalls()
@@ -1884,6 +3075,18 @@ class ViewController: UIViewController {
         else if (h7p == 4) {
             self.h7i.image = UIImage(named: "down-stairs.png")
         }
+        else if (h7p == 7) {
+            self.h7i.image = UIImage(named: "chest.png")
+        }
+        else if (h7p == 9) {
+            self.h7i.image = UIImage(named: "candles.png")
+        }
+        else if (h7p == 10) {
+            self.h7i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (h7p == 13) {
+            self.h7i.image = UIImage(named: "stockade.png")
+        }
         if (h8p == 1) {
             randomizeWalls()
             self.h8i.image = tileImage
@@ -1898,6 +3101,21 @@ class ViewController: UIViewController {
         else if (h8p == 4) {
             self.h8i.image = UIImage(named: "down-stairs.png")
         }
+        else if (h8p == 5) {
+            self.h8i.image = UIImage(named: "web-lower-right.png")
+        }
+        else if (h8p == 7) {
+            self.h8i.image = UIImage(named: "chest.png")
+        }
+        else if (h8p == 9) {
+            self.h8i.image = UIImage(named: "candles.png")
+        }
+        else if (h8p == 10) {
+            self.h8i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (h8p == 13) {
+            self.h8i.image = UIImage(named: "stockade.png")
+        }
         if (h9p == 1) {
             randomizeWalls()
             self.h9i.image = tileImage
@@ -1911,6 +3129,18 @@ class ViewController: UIViewController {
         }
         else if (h9p == 4) {
             self.h9i.image = UIImage(named: "down-stairs.png")
+        }
+        else if (h9p == 7) {
+            self.h9i.image = UIImage(named: "chest.png")
+        }
+        else if (h9p == 9) {
+            self.h9i.image = UIImage(named: "candles.png")
+        }
+        else if (h9p == 10) {
+            self.h9i.image = UIImage(named: "fallen-angel.png")
+        }
+        else if (h9p == 13) {
+            self.h9i.image = UIImage(named: "stockade.png")
         }
     }
     
@@ -3363,8 +4593,8 @@ class ViewController: UIViewController {
             }
         }
         
-        print(playerX, playerY)
-        print(canMoveLeft, canMoveRight, canMoveUp, canMoveDown)
+        //print(playerX, playerY)
+        //print(canMoveLeft, canMoveRight, canMoveUp, canMoveDown)
     }
     
     @IBAction func swipeUp(sender: AnyObject) {
@@ -3396,7 +4626,7 @@ class ViewController: UIViewController {
         if (playerY < boundsY && canMoveDown == true) {
             playerY += 1
             UIView.animateWithDuration(animationSpeed) {
-                self.player.center = CGPoint(x: self.player.center.x, y: self.player.center.y + 44)
+                self.player.center = CGPoint(x: self.player.center.x, y: self.player.center.y + 48)
             }
             
             endTurn()
@@ -3408,7 +4638,7 @@ class ViewController: UIViewController {
         if (playerY > 1 && canMoveUp == true) {
             playerY -= 1
             UIView.animateWithDuration(animationSpeed) {
-                self.player.center = CGPoint(x: self.player.center.x, y: self.player.center.y - 44)
+                self.player.center = CGPoint(x: self.player.center.x, y: self.player.center.y - 48)
             }
             
             endTurn()
@@ -3420,7 +4650,7 @@ class ViewController: UIViewController {
         if (playerX > 1 && canMoveLeft == true) {
             playerX -= 1
             UIView.animateWithDuration(animationSpeed) {
-                self.player.center = CGPoint(x: self.player.center.x - 28, y: self.player.center.y)
+                self.player.center = CGPoint(x: self.player.center.x - 32, y: self.player.center.y)
             }
             
             endTurn()
@@ -3432,7 +4662,7 @@ class ViewController: UIViewController {
         if (playerX < boundsX && canMoveRight == true) {
             playerX += 1
             UIView.animateWithDuration(animationSpeed) {
-                self.player.center = CGPoint(x: self.player.center.x + 28, y: self.player.center.y)
+                self.player.center = CGPoint(x: self.player.center.x + 32, y: self.player.center.y)
             }
             
             endTurn()
