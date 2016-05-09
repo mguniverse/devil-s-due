@@ -287,6 +287,7 @@ class ViewController: UIViewController {
     
     //this is where player and enemy objects are defined
     @IBOutlet weak var player: UIImageView!
+    @IBOutlet weak var enemy1: UIImageView!
     
     //this is where the standard 72 tiles are defined
     @IBOutlet weak var a1i: UIImageView!
@@ -598,7 +599,7 @@ class ViewController: UIViewController {
             newStairs()
         }
         
-        populateTempObjects()
+        //populateTempObjects()
         checkObstacles()
         loadSprites()
     }

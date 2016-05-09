@@ -13,6 +13,13 @@
 		D47D10231CB221860023BA19 /* shrub.png in Resources */ = {isa = PBXBuildFile; fileRef = D47D101D1CB221860023BA19 /* shrub.png */; };
 		D47D10241CB221860023BA19 /* stockade.png in Resources */ = {isa = PBXBuildFile; fileRef = D47D101E1CB221860023BA19 /* stockade.png */; };
 		D47D10251CB221860023BA19 /* weeds.png in Resources */ = {isa = PBXBuildFile; fileRef = D47D101F1CB221860023BA19 /* weeds.png */; };
+		D47ED11C1CE017EF00956779 /* alert-window.png in Resources */ = {isa = PBXBuildFile; fileRef = D47ED11B1CE017EF00956779 /* alert-window.png */; };
+		D47ED11E1CE01D4800956779 /* clew_hand_8.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D47ED11D1CE01D4800956779 /* clew_hand_8.ttf */; };
+		D47ED1251CE024B200956779 /* crown.png in Resources */ = {isa = PBXBuildFile; fileRef = D47ED1201CE024B200956779 /* crown.png */; };
+		D47ED1261CE024B200956779 /* money.png in Resources */ = {isa = PBXBuildFile; fileRef = D47ED1211CE024B200956779 /* money.png */; };
+		D47ED1271CE024B200956779 /* orb.png in Resources */ = {isa = PBXBuildFile; fileRef = D47ED1221CE024B200956779 /* orb.png */; };
+		D47ED1281CE024B200956779 /* ring.png in Resources */ = {isa = PBXBuildFile; fileRef = D47ED1231CE024B200956779 /* ring.png */; };
+		D47ED1291CE024B200956779 /* tome.png in Resources */ = {isa = PBXBuildFile; fileRef = D47ED1241CE024B200956779 /* tome.png */; };
 		D494DA911CB9BBED006938DE /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = D494DA901CB9BBED006938DE /* iTunesArtwork.png */; };
 		D4B0A4241C97DBD6002ED642 /* web-upper-left.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B0A4221C97DBD6002ED642 /* web-upper-left.png */; };
 		D4B0A4251C97DBD6002ED642 /* web-upper-right.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B0A4231C97DBD6002ED642 /* web-upper-right.png */; };
@@ -83,6 +90,13 @@
 		D47D101D1CB221860023BA19 /* shrub.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shrub.png; sourceTree = "<group>"; };
 		D47D101E1CB221860023BA19 /* stockade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stockade.png; sourceTree = "<group>"; };
 		D47D101F1CB221860023BA19 /* weeds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weeds.png; sourceTree = "<group>"; };
+		D47ED11B1CE017EF00956779 /* alert-window.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-window.png"; sourceTree = "<group>"; };
+		D47ED11D1CE01D4800956779 /* clew_hand_8.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = clew_hand_8.ttf; sourceTree = "<group>"; };
+		D47ED1201CE024B200956779 /* crown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crown.png; sourceTree = "<group>"; };
+		D47ED1211CE024B200956779 /* money.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = money.png; sourceTree = "<group>"; };
+		D47ED1221CE024B200956779 /* orb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orb.png; sourceTree = "<group>"; };
+		D47ED1231CE024B200956779 /* ring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ring.png; sourceTree = "<group>"; };
+		D47ED1241CE024B200956779 /* tome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tome.png; sourceTree = "<group>"; };
 		D494DA901CB9BBED006938DE /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		D4B0A4221C97DBD6002ED642 /* web-upper-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web-upper-left.png"; sourceTree = "<group>"; };
 		D4B0A4231C97DBD6002ED642 /* web-upper-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web-upper-right.png"; sourceTree = "<group>"; };
@@ -160,6 +174,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D47ED11F1CE024B200956779 /* Treasures */ = {
+			isa = PBXGroup;
+			children = (
+				D47ED1201CE024B200956779 /* crown.png */,
+				D47ED1211CE024B200956779 /* money.png */,
+				D47ED1221CE024B200956779 /* orb.png */,
+				D47ED1231CE024B200956779 /* ring.png */,
+				D47ED1241CE024B200956779 /* tome.png */,
+			);
+			path = Treasures;
+			sourceTree = "<group>";
+		};
 		D4EBCE021C950EEB003C69A2 = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +244,7 @@
 		D4EBCE3C1C9519E1003C69A2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D47ED11F1CE024B200956779 /* Treasures */,
 				D4EBCE7F1C9605F1003C69A2 /* Portraits */,
 				D4EBCE741C96049F003C69A2 /* Enemies */,
 				D4EBCE671C9523A2003C69A2 /* Interface */,
@@ -281,6 +308,8 @@
 		D4EBCE671C9523A2003C69A2 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				D47ED11D1CE01D4800956779 /* clew_hand_8.ttf */,
+				D47ED11B1CE017EF00956779 /* alert-window.png */,
 				D494DA901CB9BBED006938DE /* iTunesArtwork.png */,
 				D4EBCE6A1C954F5F003C69A2 /* container.png */,
 				D4EBCE681C9523A2003C69A2 /* heart.png */,
@@ -411,12 +440,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4EBCE191C950EEB003C69A2 /* LaunchScreen.storyboard in Resources */,
+				D47ED1291CE024B200956779 /* tome.png in Resources */,
 				D47D10201CB221860023BA19 /* body.png in Resources */,
 				D47D10251CB221860023BA19 /* weeds.png in Resources */,
+				D47ED1271CE024B200956779 /* orb.png in Resources */,
 				D4EBCE711C955141003C69A2 /* bricks-2.png in Resources */,
 				D4EBCE581C952013003C69A2 /* web-lower-left.png in Resources */,
 				D4B0A4291C97F000002ED642 /* chest.png in Resources */,
 				D4EBCE521C951D16003C69A2 /* down-stairs.png in Resources */,
+				D47ED11C1CE017EF00956779 /* alert-window.png in Resources */,
 				D4EBCE7E1C9604D1003C69A2 /* pillar-2.png in Resources */,
 				D4EBCE161C950EEB003C69A2 /* Assets.xcassets in Resources */,
 				D4EBCE641C952203003C69A2 /* hero-4.png in Resources */,
@@ -425,13 +457,16 @@
 				D4EBCE481C9519E1003C69A2 /* wall-3.png in Resources */,
 				D47D10231CB221860023BA19 /* shrub.png in Resources */,
 				D4EBCE141C950EEB003C69A2 /* Main.storyboard in Resources */,
+				D47ED1261CE024B200956779 /* money.png in Resources */,
 				D4B0A4241C97DBD6002ED642 /* web-upper-left.png in Resources */,
 				D4EBCE7C1C9604D1003C69A2 /* floor-cracks.png in Resources */,
 				D4EBCE771C96049F003C69A2 /* cobra-1.png in Resources */,
 				D47D10241CB221860023BA19 /* stockade.png in Resources */,
 				D4EBCE781C96049F003C69A2 /* cobra-2.png in Resources */,
+				D47ED1281CE024B200956779 /* ring.png in Resources */,
 				D4EBCE4A1C9519E1003C69A2 /* wall-5.png in Resources */,
 				D4B0A4281C97F000002ED642 /* chest-open.png in Resources */,
+				D47ED11E1CE01D4800956779 /* clew_hand_8.ttf in Resources */,
 				D4EBCE461C9519E1003C69A2 /* wall-1.png in Resources */,
 				D4EBCE501C951D16003C69A2 /* door-gate.png in Resources */,
 				D4EBCE701C955141003C69A2 /* bricks-1.png in Resources */,
@@ -448,6 +483,7 @@
 				D4EBCE611C952203003C69A2 /* hero-1.png in Resources */,
 				D4B0A4251C97DBD6002ED642 /* web-upper-right.png in Resources */,
 				D4EBCE661C952203003C69A2 /* hero-6.png in Resources */,
+				D47ED1251CE024B200956779 /* crown.png in Resources */,
 				D4EBCE511C951D16003C69A2 /* door-open.png in Resources */,
 				D4EBCE531C951D16003C69A2 /* stones.png in Resources */,
 				D4EBCE7D1C9604D1003C69A2 /* pillar-1.png in Resources */,
