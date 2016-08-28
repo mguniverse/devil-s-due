@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D43726821D737E0E0044E9E3 /* KHARB___.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D4CF98451D6E9E5F0010BFB9 /* KHARB___.TTF */; };
+		D43726831D737E0E0044E9E3 /* kharon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4CF98461D6E9E5F0010BFB9 /* kharon.ttf */; };
+		D43726841D737E0E0044E9E3 /* Blokus.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4CF98441D6E9DE50010BFB9 /* Blokus.otf */; };
+		D43726851D737E0E0044E9E3 /* clew_hand_8.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D47ED11D1CE01D4800956779 /* clew_hand_8.ttf */; };
 		D47D10201CB221860023BA19 /* body.png in Resources */ = {isa = PBXBuildFile; fileRef = D47D101A1CB221860023BA19 /* body.png */; };
 		D47D10211CB221860023BA19 /* candles.png in Resources */ = {isa = PBXBuildFile; fileRef = D47D101B1CB221860023BA19 /* candles.png */; };
 		D47D10221CB221860023BA19 /* fallen-angel.png in Resources */ = {isa = PBXBuildFile; fileRef = D47D101C1CB221860023BA19 /* fallen-angel.png */; };
@@ -14,7 +18,6 @@
 		D47D10241CB221860023BA19 /* stockade.png in Resources */ = {isa = PBXBuildFile; fileRef = D47D101E1CB221860023BA19 /* stockade.png */; };
 		D47D10251CB221860023BA19 /* weeds.png in Resources */ = {isa = PBXBuildFile; fileRef = D47D101F1CB221860023BA19 /* weeds.png */; };
 		D47ED11C1CE017EF00956779 /* alert-window.png in Resources */ = {isa = PBXBuildFile; fileRef = D47ED11B1CE017EF00956779 /* alert-window.png */; };
-		D47ED11E1CE01D4800956779 /* clew_hand_8.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D47ED11D1CE01D4800956779 /* clew_hand_8.ttf */; };
 		D47ED1251CE024B200956779 /* crown.png in Resources */ = {isa = PBXBuildFile; fileRef = D47ED1201CE024B200956779 /* crown.png */; };
 		D47ED1261CE024B200956779 /* money.png in Resources */ = {isa = PBXBuildFile; fileRef = D47ED1211CE024B200956779 /* money.png */; };
 		D47ED1271CE024B200956779 /* orb.png in Resources */ = {isa = PBXBuildFile; fileRef = D47ED1221CE024B200956779 /* orb.png */; };
@@ -102,6 +105,9 @@
 		D4B0A4231C97DBD6002ED642 /* web-upper-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web-upper-right.png"; sourceTree = "<group>"; };
 		D4B0A4261C97F000002ED642 /* chest-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chest-open.png"; sourceTree = "<group>"; };
 		D4B0A4271C97F000002ED642 /* chest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chest.png; sourceTree = "<group>"; };
+		D4CF98441D6E9DE50010BFB9 /* Blokus.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Blokus.otf; sourceTree = "<group>"; };
+		D4CF98451D6E9E5F0010BFB9 /* KHARB___.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KHARB___.TTF"; sourceTree = "<group>"; };
+		D4CF98461D6E9E5F0010BFB9 /* kharon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = kharon.ttf; sourceTree = "<group>"; };
 		D4EBCE0B1C950EEB003C69A2 /* Devil's Due.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Devil's Due.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EBCE0E1C950EEB003C69A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4EBCE101C950EEB003C69A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -308,6 +314,9 @@
 		D4EBCE671C9523A2003C69A2 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				D4CF98451D6E9E5F0010BFB9 /* KHARB___.TTF */,
+				D4CF98461D6E9E5F0010BFB9 /* kharon.ttf */,
+				D4CF98441D6E9DE50010BFB9 /* Blokus.otf */,
 				D47ED11D1CE01D4800956779 /* clew_hand_8.ttf */,
 				D47ED11B1CE017EF00956779 /* alert-window.png */,
 				D494DA901CB9BBED006938DE /* iTunesArtwork.png */,
@@ -460,18 +469,20 @@
 				D47ED1261CE024B200956779 /* money.png in Resources */,
 				D4B0A4241C97DBD6002ED642 /* web-upper-left.png in Resources */,
 				D4EBCE7C1C9604D1003C69A2 /* floor-cracks.png in Resources */,
+				D43726831D737E0E0044E9E3 /* kharon.ttf in Resources */,
 				D4EBCE771C96049F003C69A2 /* cobra-1.png in Resources */,
 				D47D10241CB221860023BA19 /* stockade.png in Resources */,
 				D4EBCE781C96049F003C69A2 /* cobra-2.png in Resources */,
 				D47ED1281CE024B200956779 /* ring.png in Resources */,
 				D4EBCE4A1C9519E1003C69A2 /* wall-5.png in Resources */,
 				D4B0A4281C97F000002ED642 /* chest-open.png in Resources */,
-				D47ED11E1CE01D4800956779 /* clew_hand_8.ttf in Resources */,
 				D4EBCE461C9519E1003C69A2 /* wall-1.png in Resources */,
 				D4EBCE501C951D16003C69A2 /* door-gate.png in Resources */,
 				D4EBCE701C955141003C69A2 /* bricks-1.png in Resources */,
+				D43726851D737E0E0044E9E3 /* clew_hand_8.ttf in Resources */,
 				D4EBCE591C952013003C69A2 /* web-lower-right.png in Resources */,
 				D47D10211CB221860023BA19 /* candles.png in Resources */,
+				D43726821D737E0E0044E9E3 /* KHARB___.TTF in Resources */,
 				D4EBCE731C955141003C69A2 /* bricks-4.png in Resources */,
 				D4EBCE631C952203003C69A2 /* hero-3.png in Resources */,
 				D4EBCE6B1C954F5F003C69A2 /* container.png in Resources */,
@@ -490,6 +501,7 @@
 				D47D10221CB221860023BA19 /* fallen-angel.png in Resources */,
 				D4EBCE721C955141003C69A2 /* bricks-3.png in Resources */,
 				D4EBCE831C9629DB003C69A2 /* pot.png in Resources */,
+				D43726841D737E0E0044E9E3 /* Blokus.otf in Resources */,
 				D4EBCE621C952203003C69A2 /* hero-2.png in Resources */,
 				D4EBCE551C951ED2003C69A2 /* blank.png in Resources */,
 			);

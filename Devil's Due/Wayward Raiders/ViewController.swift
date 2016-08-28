@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     //12 : weeds
     //13 : stockade
     //14 : pot
-    
+    //15 : hazard
     
     //this array defines which objects cannot be moved onto
     var obs = [1,2,4,7,9,10,13,14]
@@ -364,6 +364,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var h9i: UIImageView!
     
     @IBOutlet weak var tileImage: UIImage!
+    
+    @IBOutlet weak var healthLabel: UILabel!
     
     func endTurn() {
         if (playerX == exitDoorX && playerY == exitDoorY) {
@@ -4673,6 +4675,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.healthLabel.font = UIFont(name: "Kharon4av01", size: 16)
         
         generateNew()
     }

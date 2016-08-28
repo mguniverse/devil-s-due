@@ -16,6 +16,11 @@
 	<string>iTunesArtwork.png</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>kharon.ttf</string>
+		<string>KHARB___.TTF</string>
+	</array>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
