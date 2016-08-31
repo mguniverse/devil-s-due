@@ -54,7 +54,7 @@ class ViewController: UIViewController {
     var boundsX:Int = 9
     var boundsY:Int = 8
     
-    var moveEnabled:Bool = true
+    var moveEnabled:Bool = false
     
     var canMoveUp:Bool = true
     var canMoveDown:Bool = true
@@ -363,9 +363,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var h8i: UIImageView!
     @IBOutlet weak var h9i: UIImageView!
     
+    @IBOutlet weak var titleView: UIView!
+    
     @IBOutlet weak var tileImage: UIImage!
     
     @IBOutlet weak var healthLabel: UILabel!
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var embarkLabel: UILabel!
+    @IBOutlet weak var hsLabel: UILabel!
+    @IBOutlet weak var musicToggleLabel: UILabel!
+    @IBOutlet weak var needHelpLabel: UILabel!
+    
+    //this method is called when you press embark on the main menu
+    @IBAction func embark(sender: AnyObject) {
+        UIView.animateWithDuration(animationSpeed) {
+            self.titleView.alpha = 0
+        }
+        self.moveEnabled = true
+    }
     
     func endTurn() {
         if (playerX == exitDoorX && playerY == exitDoorY) {
@@ -4677,6 +4693,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         self.healthLabel.font = UIFont(name: "Kharon4av01", size: 16)
+        self.hsLabel.font = UIFont(name: "Kharon4av01", size: 16)
+        self.embarkLabel.font = UIFont(name: "Kharon4av01", size: 16)
+        self.titleLabel.font = UIFont(name: "Kharon4av01", size: 32)
+        self.musicToggleLabel.font = UIFont(name: "Kharon4av01", size: 16)
+        self.needHelpLabel.font = UIFont(name: "Kharon4av01", size: 16)
         
         generateNew()
     }

@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="zW1-M2-iaC">
+                            <view hidden="YES" contentMode="scaleToFill" id="zW1-M2-iaC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="92"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -47,7 +47,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="9ru-gj-cFU">
-                                <rect key="frame" x="44" y="178" width="288" height="384"/>
+                                <rect key="frame" x="44" y="142" width="288" height="384"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bricks-1.png" id="SrD-vD-8hZ">
@@ -354,33 +354,33 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="kfH-JU-eV3">
-                                <rect key="frame" x="-375" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Devil's Due" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3x6-mP-exk">
                                         <rect key="frame" x="8" y="535" width="275" height="65"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" name="Kharon4av01" family="Kharon4a_v01" pointSize="32"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMBARK" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nU9-4K-fI9">
-                                        <rect key="frame" x="8" y="608" width="359" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="8" y="608" width="126" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" name="Kharon4av01" family="Kharon4a_v01" pointSize="16"/>
                                         <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HS: 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tL9-vW-ibG">
-                                        <rect key="frame" x="8" y="608" width="359" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="207" y="608" width="160" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" name="Kharon4av01" family="Kharon4a_v01" pointSize="16"/>
                                         <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEED HELP?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fnH-Gw-bxD">
                                         <rect key="frame" x="207" y="23" width="160" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Kharon4av01" family="Kharon4a_v01" pointSize="16"/>
                                         <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -392,8 +392,15 @@
                                         <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YBP-QU-IAB">
+                                        <rect key="frame" x="0.0" y="535" width="375" height="132"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="embark:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X4E-Rq-MRz"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -454,6 +461,7 @@
                         <outlet property="e7i" destination="2O0-xT-d6a" id="4bq-LN-E7Z"/>
                         <outlet property="e8i" destination="roA-Bq-pcw" id="8yX-Z6-8Lm"/>
                         <outlet property="e9i" destination="ZX1-N4-dFE" id="nhE-qP-LN0"/>
+                        <outlet property="embarkLabel" destination="nU9-4K-fI9" id="ZDw-9C-c4D"/>
                         <outlet property="f1i" destination="7Ts-rS-D8N" id="mY7-Zf-Hlb"/>
                         <outlet property="f2i" destination="Kc7-sZ-pLM" id="2X0-LS-6jB"/>
                         <outlet property="f3i" destination="w76-XV-pqg" id="tov-a5-QF5"/>
@@ -482,7 +490,12 @@
                         <outlet property="h8i" destination="2iW-sA-t2u" id="YdM-3v-aTD"/>
                         <outlet property="h9i" destination="Mt5-5s-gcc" id="04n-t3-MDI"/>
                         <outlet property="healthLabel" destination="TmH-6W-wa3" id="LSh-2L-nmZ"/>
+                        <outlet property="hsLabel" destination="tL9-vW-ibG" id="qaL-Qe-izR"/>
+                        <outlet property="musicToggleLabel" destination="gSk-lH-uxt" id="XYL-Bq-LGk"/>
+                        <outlet property="needHelpLabel" destination="fnH-Gw-bxD" id="vTL-MV-uJK"/>
                         <outlet property="player" destination="LQ1-Zx-Zjq" id="xeV-eq-4Kk"/>
+                        <outlet property="titleLabel" destination="3x6-mP-exk" id="NgL-zg-BKa"/>
+                        <outlet property="titleView" destination="kfH-JU-eV3" id="10E-dr-OQ0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
