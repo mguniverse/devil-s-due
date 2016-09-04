@@ -342,8 +342,8 @@
                                         <rect key="frame" x="192" y="336" width="32" height="48"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cobra-1.png" id="x6X-gr-8nJ">
-                                        <rect key="frame" x="168" y="48" width="32" height="48"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cobra-1.png" id="x6X-gr-8nJ">
+                                        <rect key="frame" x="224" y="48" width="32" height="48"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orb.png" id="fHY-eJ-apy">
@@ -462,6 +462,7 @@
                         <outlet property="e8i" destination="roA-Bq-pcw" id="8yX-Z6-8Lm"/>
                         <outlet property="e9i" destination="ZX1-N4-dFE" id="nhE-qP-LN0"/>
                         <outlet property="embarkLabel" destination="nU9-4K-fI9" id="ZDw-9C-c4D"/>
+                        <outlet property="en1i" destination="x6X-gr-8nJ" id="EfG-GZ-He4"/>
                         <outlet property="f1i" destination="7Ts-rS-D8N" id="mY7-Zf-Hlb"/>
                         <outlet property="f2i" destination="Kc7-sZ-pLM" id="2X0-LS-6jB"/>
                         <outlet property="f3i" destination="w76-XV-pqg" id="tov-a5-QF5"/>

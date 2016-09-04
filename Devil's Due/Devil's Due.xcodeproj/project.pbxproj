@@ -34,6 +34,7 @@
 		D47ED1281CE024B200956779 /* ring.png in Resources */ = {isa = PBXBuildFile; fileRef = D47ED1231CE024B200956779 /* ring.png */; };
 		D47ED1291CE024B200956779 /* tome.png in Resources */ = {isa = PBXBuildFile; fileRef = D47ED1241CE024B200956779 /* tome.png */; };
 		D494DA911CB9BBED006938DE /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = D494DA901CB9BBED006938DE /* iTunesArtwork.png */; };
+		D4AC95CF1D797D5700145292 /* hero-flicker.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AC95CE1D797D5700145292 /* hero-flicker.png */; };
 		D4B0A4241C97DBD6002ED642 /* web-upper-left.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B0A4221C97DBD6002ED642 /* web-upper-left.png */; };
 		D4B0A4251C97DBD6002ED642 /* web-upper-right.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B0A4231C97DBD6002ED642 /* web-upper-right.png */; };
 		D4B0A4281C97F000002ED642 /* chest-open.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B0A4261C97F000002ED642 /* chest-open.png */; };
@@ -119,6 +120,7 @@
 		D47ED1231CE024B200956779 /* ring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ring.png; sourceTree = "<group>"; };
 		D47ED1241CE024B200956779 /* tome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tome.png; sourceTree = "<group>"; };
 		D494DA901CB9BBED006938DE /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		D4AC95CE1D797D5700145292 /* hero-flicker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hero-flicker.png"; sourceTree = "<group>"; };
 		D4B0A4221C97DBD6002ED642 /* web-upper-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web-upper-left.png"; sourceTree = "<group>"; };
 		D4B0A4231C97DBD6002ED642 /* web-upper-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web-upper-right.png"; sourceTree = "<group>"; };
 		D4B0A4261C97F000002ED642 /* chest-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chest-open.png"; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				D4EBCE5F1C952203003C69A2 /* hero-5.png */,
 				D4EBCE601C952203003C69A2 /* hero-6.png */,
 				D452593A1D76D2E600944544 /* hero-veil.png */,
+				D4AC95CE1D797D5700145292 /* hero-flicker.png */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				D4EBCE461C9519E1003C69A2 /* wall-1.png in Resources */,
 				D4EBCE501C951D16003C69A2 /* door-gate.png in Resources */,
 				D4EBCE701C955141003C69A2 /* bricks-1.png in Resources */,
+				D4AC95CF1D797D5700145292 /* hero-flicker.png in Resources */,
 				D43726851D737E0E0044E9E3 /* clew_hand_8.ttf in Resources */,
 				D4EBCE591C952013003C69A2 /* web-lower-right.png in Resources */,
 				D452594A1D76D30300944544 /* cobra-2.png in Resources */,

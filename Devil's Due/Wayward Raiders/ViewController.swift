@@ -40,13 +40,27 @@ class ViewController: UIViewController {
     var playerX:Int = 5
     var playerY:Int = 7
     
+    //enemy coordinates
+    var en1x:Int = 1
+    var en1y:Int = 1
+    //enemy stamina
+    var en1s:Int = 5
+    //enemy stamina temp
+    var en1t:Int = 0
+    
+    //generic temp value
     var temp:Int = 0
     
+    //value to count the pieces that need to spawn
+    var pieces:Int = 0
+    
+    //door coordinates
     var exitDoorX:Int = 0
     var exitDoorY:Int = 0
     var secretDoorX:Int = 0
     var secretDoorY:Int = 0
     
+    //coordinates for entry staircase
     var stairsX:Int = 0
     var stairsY:Int = 0
     
@@ -54,13 +68,24 @@ class ViewController: UIViewController {
     var boundsX:Int = 9
     var boundsY:Int = 8
     
+    //enemy encounter boolean
     var moveEnabled:Bool = false
     
+    //enemy encounter boolean
+    var en1e:Bool = false
+    
+    //player move permissions
     var canMoveUp:Bool = true
     var canMoveDown:Bool = true
     var canMoveLeft:Bool = true
     var canMoveRight:Bool = true
     
+    //enemy move permissions
+    var enemyCanMoveUp:Bool = true
+    var enemyCanMoveDown:Bool = true
+    var enemyCanMoveLeft:Bool = true
+    var enemyCanMoveRight:Bool = true
+
     var animationSpeed:Double = 0.25
     
     //these tell the game which pieces are physically occupied
@@ -287,7 +312,8 @@ class ViewController: UIViewController {
     
     //this is where player and enemy objects are defined
     @IBOutlet weak var player: UIImageView!
-    @IBOutlet weak var enemy1: UIImageView!
+    
+    @IBOutlet weak var en1i: UIImageView!
     
     //this is where the standard 72 tiles are defined
     @IBOutlet weak var a1i: UIImageView!
@@ -386,6 +412,26 @@ class ViewController: UIViewController {
     func endTurn() {
         if (playerX == exitDoorX && playerY == exitDoorY) {
             generateNew()
+        }
+        else {
+            checkEnemyConstraints()
+            checkEnemyEncounter()
+            
+            //checks if you are encountering the enemy or not
+            if (en1e == false) {
+                temp = 1
+                en1t = en1t + 1
+                if (en1t <= en1s) {
+                    while (temp > 0) {
+                        moveEnemy()
+                    }
+                }
+                else {
+                    en1t = 0
+                }
+            }
+            
+            en1e = false
         }
     }
     
@@ -617,9 +663,500 @@ class ViewController: UIViewController {
             newStairs()
         }
         
+        pieces = 1
+        
+        if (pieces < 1) {
+            en1i.hidden = true
+        }
+        else {
+            en1i.hidden = false
+        }
+        
+        while (pieces > 0) {
+            spawnEnemies()
+        }
+        
         //populateTempObjects()
         checkObstacles()
         loadSprites()
+    }
+    
+    func spawnEnemies() {
+        let column = arc4random() % 9
+        let row = arc4random() % 8
+        
+        //this code determines what kind of enemy will spawn
+        let tempspec = arc4random() % 5
+        if (tempspec == 0) {
+            self.en1i.image = UIImage(named: "cobra-1.png")
+        }
+        else if (tempspec == 1) {
+            self.en1i.image = UIImage(named: "skeleton.png")
+        }
+        else if (tempspec == 2) {
+            self.en1i.image = UIImage(named: "crab.png")
+        }
+        else if (tempspec == 3) {
+            self.en1i.image = UIImage(named: "werewolf.png")
+        }
+        else if (tempspec == 4) {
+            self.en1i.image = UIImage(named: "glider.png")
+        }
+        
+        //this code can use the temp values column and row used to spawn the enemy to also determine it's proprietary coordinates
+        let myXValue:Int = Int(column)
+        en1x = (myXValue) + 1
+        let myYValue:Int = Int(row)
+        en1y = (myYValue) + 1
+        
+        if (row == 0) {
+            if (column == 0) {
+                if (a1p == 0) {
+                    self.en1i.center = CGPoint(x: self.a1i.center.x, y: self.a1i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 1) {
+                if (a2p == 0) {
+                    self.en1i.center = CGPoint(x: self.a2i.center.x, y: self.a2i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 2) {
+                if (a3p == 0) {
+                    self.en1i.center = CGPoint(x: self.a3i.center.x, y: self.a3i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 3) {
+                if (a4p == 0) {
+                    self.en1i.center = CGPoint(x: self.a4i.center.x, y: self.a4i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 4) {
+                if (a5p == 0) {
+                    self.en1i.center = CGPoint(x: self.a5i.center.x, y: self.a5i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 5) {
+                if (a6p == 0) {
+                    self.en1i.center = CGPoint(x: self.a6i.center.x, y: self.a6i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 6) {
+                if (a7p == 0) {
+                    self.en1i.center = CGPoint(x: self.a7i.center.x, y: self.a7i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 7) {
+                if (a8p == 0) {
+                    self.en1i.center = CGPoint(x: self.a8i.center.x, y: self.a8i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 8) {
+                if (a9p == 0) {
+                    self.en1i.center = CGPoint(x: self.a9i.center.x, y: self.a9i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+        }
+        if (row == 1) {
+            if (column == 0) {
+                if (b1p == 0) {
+                    self.en1i.center = CGPoint(x: self.b1i.center.x, y: self.b1i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 1) {
+                if (b2p == 0) {
+                    self.en1i.center = CGPoint(x: self.b2i.center.x, y: self.b2i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 2) {
+                if (b3p == 0) {
+                    self.en1i.center = CGPoint(x: self.b3i.center.x, y: self.b3i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 3) {
+                if (b4p == 0) {
+                    self.en1i.center = CGPoint(x: self.b4i.center.x, y: self.b4i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 4) {
+                if (b5p == 0) {
+                    self.en1i.center = CGPoint(x: self.b5i.center.x, y: self.b5i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 5) {
+                if (b6p == 0) {
+                    self.en1i.center = CGPoint(x: self.b6i.center.x, y: self.b6i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 6) {
+                if (b7p == 0) {
+                    self.en1i.center = CGPoint(x: self.b7i.center.x, y: self.b7i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 7) {
+                if (b8p == 0) {
+                    self.en1i.center = CGPoint(x: self.b8i.center.x, y: self.b8i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 8) {
+                if (b9p == 0) {
+                    self.en1i.center = CGPoint(x: self.b9i.center.x, y: self.b9i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+        }
+        if (row == 2) {
+            if (column == 0) {
+                if (c1p == 0) {
+                    self.en1i.center = CGPoint(x: self.c1i.center.x, y: self.c1i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 1) {
+                if (c2p == 0) {
+                    self.en1i.center = CGPoint(x: self.c2i.center.x, y: self.c2i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 2) {
+                if (c3p == 0) {
+                    self.en1i.center = CGPoint(x: self.c3i.center.x, y: self.c3i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 3) {
+                if (c4p == 0) {
+                    self.en1i.center = CGPoint(x: self.c4i.center.x, y: self.c4i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 4) {
+                if (c5p == 0) {
+                    self.en1i.center = CGPoint(x: self.c5i.center.x, y: self.c5i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 5) {
+                if (c6p == 0) {
+                    self.en1i.center = CGPoint(x: self.c6i.center.x, y: self.c6i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 6) {
+                if (c7p == 0) {
+                    self.en1i.center = CGPoint(x: self.c7i.center.x, y: self.c7i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 7) {
+                if (c8p == 0) {
+                    self.en1i.center = CGPoint(x: self.c8i.center.x, y: self.c8i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 8) {
+                if (c9p == 0) {
+                    self.en1i.center = CGPoint(x: self.c9i.center.x, y: self.c9i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+        }
+        if (row == 3) {
+            if (column == 0) {
+                if (d1p == 0) {
+                    self.en1i.center = CGPoint(x: self.d1i.center.x, y: self.d1i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 1) {
+                if (d2p == 0) {
+                    self.en1i.center = CGPoint(x: self.d2i.center.x, y: self.d2i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 2) {
+                if (d3p == 0) {
+                    self.en1i.center = CGPoint(x: self.d3i.center.x, y: self.d3i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 3) {
+                if (d4p == 0) {
+                    self.en1i.center = CGPoint(x: self.d4i.center.x, y: self.d4i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 4) {
+                if (d5p == 0) {
+                    self.en1i.center = CGPoint(x: self.d5i.center.x, y: self.d5i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 5) {
+                if (d6p == 0) {
+                    self.en1i.center = CGPoint(x: self.d6i.center.x, y: self.d6i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 6) {
+                if (d7p == 0) {
+                    self.en1i.center = CGPoint(x: self.d7i.center.x, y: self.d7i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 7) {
+                if (d8p == 0) {
+                    self.en1i.center = CGPoint(x: self.d8i.center.x, y: self.d8i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 8) {
+                if (d9p == 0) {
+                    self.en1i.center = CGPoint(x: self.d9i.center.x, y: self.d9i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+        }
+        if (row == 4) {
+            if (column == 0) {
+                if (e1p == 0) {
+                    self.en1i.center = CGPoint(x: self.e1i.center.x, y: self.e1i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 1) {
+                if (e2p == 0) {
+                    self.en1i.center = CGPoint(x: self.e2i.center.x, y: self.e2i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 2) {
+                if (e3p == 0) {
+                    self.en1i.center = CGPoint(x: self.e3i.center.x, y: self.e3i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 3) {
+                if (e4p == 0) {
+                    self.en1i.center = CGPoint(x: self.e4i.center.x, y: self.e4i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 4) {
+                if (e5p == 0) {
+                    self.en1i.center = CGPoint(x: self.e5i.center.x, y: self.e5i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 5) {
+                if (e6p == 0) {
+                    self.en1i.center = CGPoint(x: self.e6i.center.x, y: self.e6i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 6) {
+                if (e7p == 0) {
+                    self.en1i.center = CGPoint(x: self.e7i.center.x, y: self.e7i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 7) {
+                if (e8p == 0) {
+                    self.en1i.center = CGPoint(x: self.e8i.center.x, y: self.e8i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 8) {
+                if (e9p == 0) {
+                    self.en1i.center = CGPoint(x: self.e9i.center.x, y: self.e9i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+        }
+        if (row == 5) {
+            if (column == 0) {
+                if (f1p == 0) {
+                    self.en1i.center = CGPoint(x: self.f1i.center.x, y: self.f1i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 1) {
+                if (f2p == 0) {
+                    self.en1i.center = CGPoint(x: self.f2i.center.x, y: self.f2i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 2) {
+                if (f3p == 0) {
+                    self.en1i.center = CGPoint(x: self.f3i.center.x, y: self.f3i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 3) {
+                if (f4p == 0) {
+                    self.en1i.center = CGPoint(x: self.f4i.center.x, y: self.f4i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 4) {
+                if (f5p == 0) {
+                    self.en1i.center = CGPoint(x: self.f5i.center.x, y: self.f5i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 5) {
+                if (f6p == 0) {
+                    self.en1i.center = CGPoint(x: self.f6i.center.x, y: self.f6i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 6) {
+                if (f7p == 0) {
+                    self.en1i.center = CGPoint(x: self.f7i.center.x, y: self.f7i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 7) {
+                if (f8p == 0) {
+                    self.en1i.center = CGPoint(x: self.f8i.center.x, y: self.f8i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 8) {
+                if (f9p == 0) {
+                    self.en1i.center = CGPoint(x: self.f9i.center.x, y: self.f9i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+        }
+        if (row == 6) {
+            if (column == 0) {
+                if (g1p == 0) {
+                    self.en1i.center = CGPoint(x: self.g1i.center.x, y: self.g1i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 1) {
+                if (g2p == 0) {
+                    self.en1i.center = CGPoint(x: self.g2i.center.x, y: self.g2i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 2) {
+                if (g3p == 0) {
+                    self.en1i.center = CGPoint(x: self.g3i.center.x, y: self.g3i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 3) {
+                if (g4p == 0) {
+                    self.en1i.center = CGPoint(x: self.g4i.center.x, y: self.g4i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 4) {
+                if (g5p == 0) {
+                    self.en1i.center = CGPoint(x: self.g5i.center.x, y: self.g5i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 5) {
+                if (g6p == 0) {
+                    self.en1i.center = CGPoint(x: self.g6i.center.x, y: self.g6i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 6) {
+                if (g7p == 0) {
+                    self.en1i.center = CGPoint(x: self.g7i.center.x, y: self.g7i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 7) {
+                if (g8p == 0) {
+                    self.en1i.center = CGPoint(x: self.g8i.center.x, y: self.g8i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 8) {
+                if (g9p == 0) {
+                    self.en1i.center = CGPoint(x: self.g9i.center.x, y: self.g9i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+        }
+        if (row == 7) {
+            if (column == 0) {
+                if (h1p == 0) {
+                    self.en1i.center = CGPoint(x: self.h1i.center.x, y: self.h1i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 1) {
+                if (h2p == 0) {
+                    self.en1i.center = CGPoint(x: self.h2i.center.x, y: self.h2i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 2) {
+                if (h3p == 0) {
+                    self.en1i.center = CGPoint(x: self.h3i.center.x, y: self.h3i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 3) {
+                if (h4p == 0) {
+                    self.en1i.center = CGPoint(x: self.h4i.center.x, y: self.h4i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 4) {
+                if (h5p == 0) {
+                    self.en1i.center = CGPoint(x: self.h5i.center.x, y: self.h5i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 5) {
+                if (h6p == 0) {
+                    self.en1i.center = CGPoint(x: self.h6i.center.x, y: self.h6i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 6) {
+                if (h7p == 0) {
+                    self.en1i.center = CGPoint(x: self.h7i.center.x, y: self.h7i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 7) {
+                if (h8p == 0) {
+                    self.en1i.center = CGPoint(x: self.h8i.center.x, y: self.h8i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+            if (column == 8) {
+                if (h9p == 0) {
+                    self.en1i.center = CGPoint(x: self.h9i.center.x, y: self.h9i.center.y)
+                    pieces = pieces - 1
+                }
+            }
+        }
     }
     
     func reset() {
@@ -4611,9 +5148,953 @@ class ViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func checkEnemyEncounter() {
+        if (en1x == playerX) {
+            if ((en1y - playerY) == 1 || (playerY - en1y) == 1) {
+                en1e = true
+                print("You've encountered an enemy!")
+            }
+        }
+        else if (en1y == playerY) {
+            if ((en1x - playerX) == 1 || (playerX - en1x) == 1) {
+                en1e = true
+                print("You've encountered an enemy!")
+            }
+        }
+    }
+    
+    func checkEnemyConstraints() {
+        enemyCanMoveUp = true
+        enemyCanMoveDown = true
+        enemyCanMoveLeft = true
+        enemyCanMoveRight = true
         
-        //print(playerX, playerY)
-        //print(canMoveLeft, canMoveRight, canMoveUp, canMoveDown)
+        if (en1y == 1) {
+            if (en1x == 1) {
+                if (a2o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (b1o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 2) {
+                if (a1o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (a3o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (b2o == true) {
+                    enemyCanMoveDown = false
+                }
+                
+            }
+            else if (en1x == 3) {
+                if (a2o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (a4o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (b3o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 4) {
+                if (a3o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (a5o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (b4o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 5) {
+                if (a4o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (a6o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (b5o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 6) {
+                if (a5o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (a7o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (b6o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 7) {
+                if (a6o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (a8o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (b7o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 8) {
+                if (a7o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (a9o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (b8o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 9) {
+                if (a8o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (b9o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+        }
+        if (en1y == 2) {
+            if (en1x == 1) {
+                if (a1o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (b2o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (c1o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 2) {
+                if (a2o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (b1o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (b3o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (c2o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 3) {
+                if (a3o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (b2o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (b4o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (c3o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 4) {
+                if (a4o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (b3o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (b5o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (c4o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 5) {
+                if (a5o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (b4o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (b6o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (c5o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 6) {
+                if (a6o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (b5o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (b7o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (c6o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 7) {
+                if (a7o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (b6o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (b8o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (c7o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 8) {
+                if (a8o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (b7o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (b9o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (c8o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 9) {
+                if (a9o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (b8o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (c9o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+        }
+        if (en1y == 3) {
+            if (en1x == 1) {
+                if (b1o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (c2o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (d1o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 2) {
+                if (b2o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (c1o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (c3o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (d2o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 3) {
+                if (b3o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (c2o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (c4o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (d3o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 4) {
+                if (b4o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (c3o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (c5o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (d4o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 5) {
+                if (b5o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (c4o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (c6o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (d5o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 6) {
+                if (b6o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (c5o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (c7o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (d6o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 7) {
+                if (b7o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (c6o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (c8o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (d7o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 8) {
+                if (b8o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (c7o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (c9o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (d8o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 9) {
+                if (b9o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (c8o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (d9o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+        }
+        if (en1y == 4) {
+            if (en1x == 1) {
+                if (c1o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (d2o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (e1o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 2) {
+                if (c2o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (d1o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (d3o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (e2o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 3) {
+                if (c3o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (d2o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (d4o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (e3o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 4) {
+                if (c4o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (d3o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (d5o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (e4o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 5) {
+                if (c5o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (d4o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (d6o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (e5o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 6) {
+                if (c6o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (d5o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (d7o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (e6o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 7) {
+                if (c7o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (d6o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (d8o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (e7o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 8) {
+                if (c8o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (d7o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (d9o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (e8o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 9) {
+                if (c9o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (d8o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (e9o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+        }
+        if (en1y == 5) {
+            if (en1x == 1) {
+                if (d1o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (e2o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (f1o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 2) {
+                if (d2o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (e1o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (e3o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (f2o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 3) {
+                if (d3o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (e2o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (e4o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (f3o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 4) {
+                if (d4o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (e3o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (e5o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (f4o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 5) {
+                if (d5o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (e4o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (e6o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (f5o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 6) {
+                if (d6o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (e5o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (e7o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (f6o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 7) {
+                if (d7o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (e6o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (e8o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (f7o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 8) {
+                if (d8o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (e7o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (e9o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (f8o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 9) {
+                if (d9o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (e8o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (f9o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+        }
+        if (en1y == 6) {
+            if (en1x == 1) {
+                if (e1o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (f2o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (g1o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 2) {
+                if (e2o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (f1o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (f3o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (g2o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 3) {
+                if (e3o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (f2o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (f4o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (g3o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 4) {
+                if (e4o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (f3o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (f5o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (g4o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 5) {
+                if (e5o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (f4o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (f6o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (g5o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 6) {
+                if (e6o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (f5o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (f7o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (g6o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 7) {
+                if (e7o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (f6o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (f8o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (g7o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 8) {
+                if (e8o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (f7o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (f9o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (g8o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 9) {
+                if (e9o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (f8o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (g9o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+        }
+        if (en1y == 7) {
+            if (en1x == 1) {
+                if (f1o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (g2o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (h1o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 2) {
+                if (f2o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (g1o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (g3o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (h2o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 3) {
+                if (f3o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (g2o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (g4o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (h3o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 4) {
+                if (f4o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (g3o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (g5o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (h4o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 5) {
+                if (f5o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (g4o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (g6o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (h5o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 6) {
+                if (f6o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (g5o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (g7o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (h6o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 7) {
+                if (f7o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (g6o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (g8o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (h7o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 8) {
+                if (f8o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (g7o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (g9o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (h8o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 9) {
+                if (f9o == true) {
+                    enemyCanMoveUp = false
+                }
+                if (g8o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (h9o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+        }
+        if (en1y == 8) {
+            if (en1x == 1) {
+                if (h2o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (g1o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 2) {
+                if (h1o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (h3o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (g2o == true) {
+                    enemyCanMoveDown = false
+                }
+                
+            }
+            else if (en1x == 3) {
+                if (h2o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (h4o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (g3o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 4) {
+                if (h3o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (h5o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (g4o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 5) {
+                if (h4o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (h6o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (g5o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 6) {
+                if (h5o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (h7o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (g6o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 7) {
+                if (h6o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (h8o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (g7o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 8) {
+                if (h7o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (h9o == true) {
+                    enemyCanMoveRight = false
+                }
+                if (g8o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+            else if (en1x == 9) {
+                if (h8o == true) {
+                    enemyCanMoveLeft = false
+                }
+                if (g9o == true) {
+                    enemyCanMoveDown = false
+                }
+            }
+        }
     }
     
     @IBAction func swipeUp(sender: AnyObject) {
@@ -4685,6 +6166,47 @@ class ViewController: UIViewController {
             }
             
             endTurn()
+        }
+    }
+    
+    func moveEnemy() {
+        let tempspec = arc4random() % 4
+        
+        if (tempspec == 0) {
+            if (en1y < boundsY && enemyCanMoveDown == true) {
+                en1y += 1
+                UIView.animateWithDuration(animationSpeed) {
+                    self.en1i.center = CGPoint(x: self.en1i.center.x, y: self.en1i.center.y + 48)
+                }
+                temp = temp - 1
+            }
+        }
+        if (tempspec == 1) {
+            if (en1y > 1 && enemyCanMoveUp == true) {
+                en1y -= 1
+                UIView.animateWithDuration(animationSpeed) {
+                    self.en1i.center = CGPoint(x: self.en1i.center.x, y: self.en1i.center.y - 48)
+                }
+                temp = temp - 1
+            }
+        }
+        if (tempspec == 2) {
+            if (en1x > 1 && enemyCanMoveLeft == true) {
+                en1x -= 1
+                UIView.animateWithDuration(animationSpeed) {
+                    self.en1i.center = CGPoint(x: self.en1i.center.x - 32, y: self.en1i.center.y)
+                }
+                temp = temp - 1
+            }
+        }
+        if (tempspec == 3) {
+            if (en1x < boundsX && enemyCanMoveRight == true) {
+                en1x += 1
+                UIView.animateWithDuration(animationSpeed) {
+                    self.en1i.center = CGPoint(x: self.en1i.center.x + 32, y: self.en1i.center.y)
+                }
+                temp = temp - 1
+            }
         }
     }
 
