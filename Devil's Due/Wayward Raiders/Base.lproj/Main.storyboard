@@ -12,6 +12,8 @@
             <string>Kharon4av01</string>
             <string>Kharon4av01</string>
             <string>Kharon4av01</string>
+            <string>Kharon4av01</string>
+            <string>Kharon4av01</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -402,6 +404,59 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                             </view>
+                            <view contentMode="scaleToFill" id="CeK-Lf-72k">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="You are attacked and wounded by an enemy. You must recover for a few turns." textAlignment="center" id="IGA-Ic-Zn0">
+                                        <rect key="frame" x="28" y="254" width="320" height="160"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Kharon4av01" family="Kharon4a_v01" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FCa-zx-fjF">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="dismissMessage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R7w-9c-k7x"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="ccx-eU-jQu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="portrait-1.png" id="bDv-OF-Dui">
+                                        <rect key="frame" x="149" y="166" width="76" height="76"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="You were killed by an enemy. You collected zero relics and did not reach the end of the catacombs." textAlignment="center" id="YaM-qq-g6P">
+                                        <rect key="frame" x="28" y="250" width="320" height="196"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Kharon4av01" family="Kharon4a_v01" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dqQ-gJ-95R">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="dismissEnd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lCO-vT-D3C"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relic-display-empty.png" id="4Fl-G1-pjE">
+                                        <rect key="frame" x="60" y="454" width="256" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -463,6 +518,8 @@
                         <outlet property="e9i" destination="ZX1-N4-dFE" id="nhE-qP-LN0"/>
                         <outlet property="embarkLabel" destination="nU9-4K-fI9" id="ZDw-9C-c4D"/>
                         <outlet property="en1i" destination="x6X-gr-8nJ" id="EfG-GZ-He4"/>
+                        <outlet property="endText" destination="YaM-qq-g6P" id="Wdz-PA-xjp"/>
+                        <outlet property="endView" destination="ccx-eU-jQu" id="C8y-Vs-h1t"/>
                         <outlet property="f1i" destination="7Ts-rS-D8N" id="mY7-Zf-Hlb"/>
                         <outlet property="f2i" destination="Kc7-sZ-pLM" id="2X0-LS-6jB"/>
                         <outlet property="f3i" destination="w76-XV-pqg" id="tov-a5-QF5"/>
@@ -481,6 +538,7 @@
                         <outlet property="g7i" destination="flg-AS-srm" id="8sr-mt-G9p"/>
                         <outlet property="g8i" destination="uyc-Wh-KPl" id="19Q-79-uSK"/>
                         <outlet property="g9i" destination="KoP-hK-Tk7" id="31f-X3-sng"/>
+                        <outlet property="gridView" destination="9ru-gj-cFU" id="Lss-Sz-veW"/>
                         <outlet property="h1i" destination="SrD-vD-8hZ" id="fDZ-fx-4qn"/>
                         <outlet property="h2i" destination="gxt-p0-dYh" id="fqT-ld-A7P"/>
                         <outlet property="h3i" destination="s34-cb-s5C" id="4tR-fy-BLb"/>
@@ -492,6 +550,8 @@
                         <outlet property="h9i" destination="Mt5-5s-gcc" id="04n-t3-MDI"/>
                         <outlet property="healthLabel" destination="TmH-6W-wa3" id="LSh-2L-nmZ"/>
                         <outlet property="hsLabel" destination="tL9-vW-ibG" id="qaL-Qe-izR"/>
+                        <outlet property="messageText" destination="IGA-Ic-Zn0" id="wbq-GO-9ex"/>
+                        <outlet property="messageView" destination="CeK-Lf-72k" id="bTx-j8-PCd"/>
                         <outlet property="musicToggleLabel" destination="gSk-lH-uxt" id="XYL-Bq-LGk"/>
                         <outlet property="needHelpLabel" destination="fnH-Gw-bxD" id="vTL-MV-uJK"/>
                         <outlet property="player" destination="LQ1-Zx-Zjq" id="xeV-eq-4Kk"/>
@@ -521,7 +581,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="171.5" y="366.5"/>
+            <point key="canvasLocation" x="7.5" y="404.5"/>
         </scene>
     </scenes>
     <resources>
@@ -538,6 +598,7 @@
         <image name="hero-1.png" width="32" height="48"/>
         <image name="orb.png" width="32" height="48"/>
         <image name="portrait-1.png" width="76" height="76"/>
+        <image name="relic-display-empty.png" width="256" height="48"/>
         <image name="wall-1.png" width="32" height="48"/>
         <image name="wall-2.png" width="32" height="48"/>
         <image name="wall-3.png" width="32" height="48"/>

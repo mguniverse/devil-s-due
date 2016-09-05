@@ -20,6 +20,7 @@
 	<array>
 		<string>kharon.ttf</string>
 		<string>KHARB___.TTF</string>
+		<string>Blokus.otf</string>
 	</array>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>

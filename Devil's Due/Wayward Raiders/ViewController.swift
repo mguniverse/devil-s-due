@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     //4 : stairs
     //5 : webs
     //6 : temp terrain object, will convert to various terrain objects
-    //7 : chest
+    //7 : hazard
     //8 : body
     //9 : candles
     //10 : fallen angel
@@ -26,7 +26,6 @@ class ViewController: UIViewController {
     //12 : weeds
     //13 : stockade
     //14 : pot
-    //15 : hazard
     
     //this array defines which objects cannot be moved onto
     var obs = [1,2,4,7,9,10,13,14]
@@ -39,6 +38,7 @@ class ViewController: UIViewController {
     var pheight:Int = 48
     var playerX:Int = 5
     var playerY:Int = 7
+    var playerHealth:Int = 2
     
     //enemy coordinates
     var en1x:Int = 1
@@ -47,6 +47,8 @@ class ViewController: UIViewController {
     var en1s:Int = 5
     //enemy stamina temp
     var en1t:Int = 0
+    //enemy health, used for death status
+    var en1h:Int = 1
     
     //generic temp value
     var temp:Int = 0
@@ -389,7 +391,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var h8i: UIImageView!
     @IBOutlet weak var h9i: UIImageView!
     
+    @IBOutlet weak var gridView: UIView!
     @IBOutlet weak var titleView: UIView!
+    @IBOutlet weak var messageView: UIView!
+    @IBOutlet weak var endView: UIView!
+    
+    @IBOutlet weak var messageText: UITextView!
+    @IBOutlet weak var endText: UITextView!
     
     @IBOutlet weak var tileImage: UIImage!
     
@@ -409,37 +417,62 @@ class ViewController: UIViewController {
         self.moveEnabled = true
     }
     
+    @IBAction func dismissMessage(sender: AnyObject) {
+        moveEnabled = true
+        UIView.animateWithDuration(animationSpeed) {
+            self.messageView.alpha = 0
+        }
+    }
+    
+    @IBAction func dismissEnd(sender: AnyObject) {
+        UIView.animateWithDuration(animationSpeed) {
+            self.endView.alpha = 0
+            self.titleView.alpha = 1
+        }
+        
+        restart()
+    }
+    
     func endTurn() {
         if (playerX == exitDoorX && playerY == exitDoorY) {
             generateNew()
         }
         else {
-            checkEnemyConstraints()
-            checkEnemyEncounter()
-            
-            //checks if you are encountering the enemy or not
-            if (en1e == false) {
-                temp = 1
-                en1t = en1t + 1
-                if (en1t <= en1s) {
-                    while (temp > 0) {
-                        moveEnemy()
+            //only check this code
+            if (en1h > 0) {
+                checkEnemyConstraints()
+                checkEnemyEncounter()
+                
+                //checks if you are encountering the enemy or not
+                if (en1e == false) {
+                    temp = 1
+                    en1t = en1t + 1
+                    if (en1t <= en1s) {
+                        while (temp > 0) {
+                            moveEnemy()
+                        }
+                    }
+                    else {
+                        en1t = 0
                     }
                 }
-                else {
-                    en1t = 0
-                }
+                
+                en1e = false
             }
-            
-            en1e = false
         }
+    }
+    
+    func restart() {
+        self.player.image = UIImage(named: "hero-1.png")
+        playerHealth = 2
+        generateNew()
     }
     
     func generateNew() {
         reset()
         
         //this random will let the game choose a new room layout each time
-        let prereq = arc4random() % 5
+        let prereq = arc4random() % 9
         if (prereq == 0) {
             a1p = 1
             a2p = 2
@@ -453,14 +486,12 @@ class ViewController: UIViewController {
             b1p = 1
             b9p = 1
             c1p = 1
-            c5p = 6
             c9p = 1
             d1p = 1
             d9p = 1
             e1p = 1
             e9p = 1
             f1p = 1
-            f5p = 6
             f9p = 1
             g1p = 1
             g9p = 1
@@ -492,7 +523,6 @@ class ViewController: UIViewController {
             b1p = 1
             b9p = 1
             c1p = 1
-            c5p = 6
             c9p = 1
             d1p = 1
             d4p = 1
@@ -505,7 +535,6 @@ class ViewController: UIViewController {
             e6p = 2
             e9p = 1
             f1p = 1
-            f5p = 6
             f9p = 1
             g1p = 1
             g9p = 1
@@ -537,9 +566,7 @@ class ViewController: UIViewController {
             b1p = 1
             b9p = 1
             c1p = 1
-            c2p = 6
             c5p = 1
-            c8p = 6
             c9p = 1
             d1p = 1
             d5p = 1
@@ -548,9 +575,7 @@ class ViewController: UIViewController {
             e5p = 1
             e9p = 1
             f1p = 1
-            f2p = 6
             f5p = 2
-            f8p = 6
             f9p = 1
             g1p = 1
             g9p = 1
@@ -582,7 +607,6 @@ class ViewController: UIViewController {
             b1p = 1
             b9p = 1
             c1p = 1
-            c2p = 6
             c9p = 1
             d1p = 1
             d2p = 1
@@ -597,7 +621,6 @@ class ViewController: UIViewController {
             e5p = 2
             e9p = 1
             f1p = 1
-            f2p = 6
             f9p = 1
             g1p = 1
             g9p = 1
@@ -663,21 +686,201 @@ class ViewController: UIViewController {
             newStairs()
         }
         
-        pieces = 1
+        if (prereq == 5) {
+            a1p = 1
+            a2p = 2
+            a3p = 2
+            a4p = 2
+            a5p = 2
+            a6p = 2
+            a7p = 2
+            a8p = 2
+            a9p = 1
+            b1p = 1
+            b9p = 1
+            c1p = 1
+            c9p = 1
+            d1p = 1
+            d5p = 1
+            d6p = 7
+            d7p = 7
+            d8p = 7
+            d9p = 1
+            e1p = 1
+            e5p = 2
+            e6p = 7
+            e7p = 7
+            e8p = 7
+            e9p = 1
+            f1p = 1
+            f9p = 1
+            g1p = 1
+            g9p = 1
+            h1p = 2
+            h2p = 2
+            h3p = 2
+            h4p = 2
+            h5p = 2
+            h6p = 2
+            h7p = 2
+            h8p = 2
+            h9p = 2
+            
+            newWebs()
+            newDoor()
+            newStairs()
+        }
         
+        if (prereq == 6) {
+            a1p = 1
+            a2p = 2
+            a3p = 2
+            a4p = 2
+            a5p = 2
+            a6p = 2
+            a7p = 2
+            a8p = 2
+            a9p = 1
+            b1p = 1
+            b9p = 1
+            c1p = 1
+            c9p = 1
+            d1p = 1
+            d2p = 7
+            d3p = 7
+            d4p = 7
+            d5p = 1
+            d9p = 1
+            e1p = 1
+            e2p = 7
+            e3p = 7
+            e4p = 7
+            e5p = 2
+            e9p = 1
+            f1p = 1
+            f9p = 1
+            g1p = 1
+            g9p = 1
+            h1p = 2
+            h2p = 2
+            h3p = 2
+            h4p = 2
+            h5p = 2
+            h6p = 2
+            h7p = 2
+            h8p = 2
+            h9p = 2
+            
+            newWebs()
+            newDoor()
+            newStairs()
+        }
+        
+        if (prereq == 7) {
+            a1p = 1
+            a2p = 2
+            a3p = 2
+            a4p = 2
+            a5p = 2
+            a6p = 2
+            a7p = 2
+            a8p = 2
+            a9p = 1
+            b1p = 1
+            b9p = 1
+            c1p = 1
+            c9p = 1
+            d1p = 1
+            d3p = 1
+            d4p = 7
+            d5p = 7
+            d6p = 7
+            d7p = 1
+            d9p = 1
+            e1p = 1
+            e3p = 2
+            e4p = 7
+            e5p = 7
+            e6p = 7
+            e7p = 2
+            e9p = 1
+            f1p = 1
+            f9p = 1
+            g1p = 1
+            g9p = 1
+            h1p = 2
+            h2p = 2
+            h3p = 2
+            h4p = 2
+            h5p = 2
+            h6p = 2
+            h7p = 2
+            h8p = 2
+            h9p = 2
+            
+            newWebs()
+            newDoor()
+            newStairs()
+        }
+        
+        if (prereq == 8) {
+            a1p = 1
+            a2p = 2
+            a3p = 2
+            a4p = 2
+            a5p = 2
+            a6p = 2
+            a7p = 2
+            a8p = 2
+            a9p = 1
+            b1p = 1
+            b9p = 1
+            c1p = 1
+            c9p = 1
+            d1p = 1
+            d2p = 7
+            d3p = 1
+            d7p = 1
+            d8p = 7
+            d9p = 1
+            e1p = 1
+            e2p = 7
+            e3p = 2
+            e7p = 2
+            e8p = 7
+            e9p = 1
+            f1p = 1
+            f9p = 1
+            g1p = 1
+            g9p = 1
+            h1p = 2
+            h2p = 2
+            h3p = 2
+            h4p = 2
+            h5p = 2
+            h6p = 2
+            h7p = 2
+            h8p = 2
+            h9p = 2
+            
+            newWebs()
+            newDoor()
+            newStairs()
+        }
+        
+        checkObstacles()
+        
+        pieces = 1
         if (pieces < 1) {
             en1i.hidden = true
         }
         else {
             en1i.hidden = false
         }
-        
         while (pieces > 0) {
             spawnEnemies()
         }
         
-        //populateTempObjects()
-        checkObstacles()
         loadSprites()
     }
     
@@ -685,8 +888,11 @@ class ViewController: UIViewController {
         let column = arc4random() % 9
         let row = arc4random() % 8
         
+        en1h = 1
+        en1i.alpha = 1
+        
         //this code determines what kind of enemy will spawn
-        let tempspec = arc4random() % 5
+        let tempspec = arc4random() % 10
         if (tempspec == 0) {
             self.en1i.image = UIImage(named: "cobra-1.png")
         }
@@ -701,6 +907,21 @@ class ViewController: UIViewController {
         }
         else if (tempspec == 4) {
             self.en1i.image = UIImage(named: "glider.png")
+        }
+        else if (tempspec == 5) {
+            self.en1i.image = UIImage(named: "spider.png")
+        }
+        else if (tempspec == 6) {
+            self.en1i.image = UIImage(named: "husk.png")
+        }
+        else if (tempspec == 7) {
+            self.en1i.image = UIImage(named: "giant.png")
+        }
+        else if (tempspec == 8) {
+            self.en1i.image = UIImage(named: "pyromancer.png")
+        }
+        else if (tempspec == 9) {
+            self.en1i.image = UIImage(named: "sorceress.png")
         }
         
         //this code can use the temp values column and row used to spawn the enemy to also determine it's proprietary coordinates
@@ -1233,7 +1454,7 @@ class ViewController: UIViewController {
         h8p = 0
         h9p = 0
         
-        tileImage = UIImage(named: "blank.png")
+        tileImage = UIImage(named: "empty.png")
         
         self.a1i.image = tileImage
         self.a2i.image = tileImage
@@ -1735,55 +1956,13 @@ class ViewController: UIViewController {
         playerX = stairsX
     }
     
-    func randomizeWalls() {
-        //oh shit
-        let wallrand = arc4random() % 12
-        if (wallrand == 0) {
-            tileImage = UIImage(named: "wall-2.png")
-        }
-        else if (wallrand == 1) {
-            tileImage = UIImage(named: "wall-3.png")
-        }
-        else if (wallrand == 2) {
-            tileImage = UIImage(named: "wall-4.png")
-        }
-        else if (wallrand == 3) {
-            tileImage = UIImage(named: "wall-5.png")
-        }
-        else if (wallrand == 4) {
-            tileImage = UIImage(named: "wall-6.png")
-        }
-        else {
-            tileImage = UIImage(named: "wall-1.png")
-        }
-    }
-    
-    func randomizeEdges() {
-        //oh shit
-        let edgerand = arc4random() % 8
-        if (edgerand == 0) {
-            tileImage = UIImage(named: "bricks-2.png")
-        }
-        else if (edgerand == 1) {
-            tileImage = UIImage(named: "bricks-3.png")
-        }
-        else if (edgerand == 2) {
-            tileImage = UIImage(named: "bricks-4.png")
-        }
-        else {
-            tileImage = UIImage(named: "bricks-1.png")
-        }
-    }
-    
     func loadSprites() {
         //this function is going to have a lot of stuff to do...
         if (a1p == 1) {
-            randomizeWalls()
-            self.a1i.image = tileImage
+            a1i.image = randomizeWalls()
         }
         else if (a1p == 2) {
-            randomizeEdges()
-            self.a1i.image = tileImage
+            a1i.image = randomizeEdges()
         }
         else if (a1p == 3) {
             self.a1i.image = UIImage(named: "door-open.png")
@@ -1792,7 +1971,7 @@ class ViewController: UIViewController {
             self.a1i.image = UIImage(named: "down-stairs.png")
         }
         else if (a1p == 7) {
-            self.a1i.image = UIImage(named: "chest.png")
+            self.a1i.image = UIImage(named: "water.png")
         }
         else if (a1p == 9) {
             self.a1i.image = UIImage(named: "candles.png")
@@ -1804,12 +1983,10 @@ class ViewController: UIViewController {
             self.a1i.image = UIImage(named: "stockade.png")
         }
         if (a2p == 1) {
-            randomizeWalls()
-            self.a2i.image = tileImage
+            a2i.image = randomizeWalls()
         }
         else if (a2p == 2) {
-            randomizeEdges()
-            self.a2i.image = tileImage
+            a2i.image = randomizeEdges()
         }
         else if (a2p == 3) {
             self.a2i.image = UIImage(named: "door-open.png")
@@ -1818,7 +1995,7 @@ class ViewController: UIViewController {
             self.a2i.image = UIImage(named: "down-stairs.png")
         }
         else if (a2p == 7) {
-            self.a2i.image = UIImage(named: "chest.png")
+            self.a2i.image = UIImage(named: "water.png")
         }
         else if (a2p == 9) {
             self.a2i.image = UIImage(named: "candles.png")
@@ -1830,12 +2007,10 @@ class ViewController: UIViewController {
             self.a2i.image = UIImage(named: "stockade.png")
         }
         if (a3p == 1) {
-            randomizeWalls()
-            self.a3i.image = tileImage
+            a3i.image = randomizeWalls()
         }
         else if (a3p == 2) {
-            randomizeEdges()
-            self.a3i.image = tileImage
+            a3i.image = randomizeEdges()
         }
         else if (a3p == 3) {
             self.a3i.image = UIImage(named: "door-open.png")
@@ -1844,7 +2019,7 @@ class ViewController: UIViewController {
             self.a3i.image = UIImage(named: "down-stairs.png")
         }
         else if (a3p == 7) {
-            self.a3i.image = UIImage(named: "chest.png")
+            self.a3i.image = UIImage(named: "water.png")
         }
         else if (a3p == 9) {
             self.a3i.image = UIImage(named: "candles.png")
@@ -1856,12 +2031,10 @@ class ViewController: UIViewController {
             self.a3i.image = UIImage(named: "stockade.png")
         }
         if (a4p == 1) {
-            randomizeWalls()
-            self.a4i.image = tileImage
+            a4i.image = randomizeWalls()
         }
         else if (a4p == 2) {
-            randomizeEdges()
-            self.a4i.image = tileImage
+            a4i.image = randomizeEdges()
         }
         else if (a4p == 3) {
             self.a4i.image = UIImage(named: "door-open.png")
@@ -1870,7 +2043,7 @@ class ViewController: UIViewController {
             self.a4i.image = UIImage(named: "down-stairs.png")
         }
         else if (a4p == 7) {
-            self.a4i.image = UIImage(named: "chest.png")
+            self.a4i.image = UIImage(named: "water.png")
         }
         else if (a4p == 9) {
             self.a4i.image = UIImage(named: "candles.png")
@@ -1882,12 +2055,10 @@ class ViewController: UIViewController {
             self.a4i.image = UIImage(named: "stockade.png")
         }
         if (a5p == 1) {
-            randomizeWalls()
-            self.a5i.image = tileImage
+            a5i.image = randomizeWalls()
         }
         else if (a5p == 2) {
-            randomizeEdges()
-            self.a5i.image = tileImage
+            a5i.image = randomizeEdges()
         }
         else if (a5p == 3) {
             self.a5i.image = UIImage(named: "door-open.png")
@@ -1896,7 +2067,7 @@ class ViewController: UIViewController {
             self.a5i.image = UIImage(named: "down-stairs.png")
         }
         else if (a5p == 7) {
-            self.a5i.image = UIImage(named: "chest.png")
+            self.a5i.image = UIImage(named: "water.png")
         }
         else if (a5p == 9) {
             self.a5i.image = UIImage(named: "candles.png")
@@ -1908,12 +2079,10 @@ class ViewController: UIViewController {
             self.a5i.image = UIImage(named: "stockade.png")
         }
         if (a6p == 1) {
-            randomizeWalls()
-            self.a6i.image = tileImage
+            a6i.image = randomizeWalls()
         }
         else if (a6p == 2) {
-            randomizeEdges()
-            self.a6i.image = tileImage
+            a6i.image = randomizeEdges()
         }
         else if (a6p == 3) {
             self.a6i.image = UIImage(named: "door-open.png")
@@ -1922,7 +2091,7 @@ class ViewController: UIViewController {
             self.a6i.image = UIImage(named: "down-stairs.png")
         }
         else if (a6p == 7) {
-            self.a6i.image = UIImage(named: "chest.png")
+            self.a6i.image = UIImage(named: "water.png")
         }
         else if (a6p == 9) {
             self.a6i.image = UIImage(named: "candles.png")
@@ -1934,12 +2103,10 @@ class ViewController: UIViewController {
             self.a6i.image = UIImage(named: "stockade.png")
         }
         if (a7p == 1) {
-            randomizeWalls()
-            self.a7i.image = tileImage
+            a7i.image = randomizeWalls()
         }
         else if (a7p == 2) {
-            randomizeEdges()
-            self.a7i.image = tileImage
+            a7i.image = randomizeEdges()
         }
         else if (a7p == 3) {
             self.a7i.image = UIImage(named: "door-open.png")
@@ -1948,7 +2115,7 @@ class ViewController: UIViewController {
             self.a7i.image = UIImage(named: "down-stairs.png")
         }
         else if (a7p == 7) {
-            self.a7i.image = UIImage(named: "chest.png")
+            self.a7i.image = UIImage(named: "water.png")
         }
         else if (a7p == 9) {
             self.a7i.image = UIImage(named: "candles.png")
@@ -1960,12 +2127,10 @@ class ViewController: UIViewController {
             self.a7i.image = UIImage(named: "stockade.png")
         }
         if (a8p == 1) {
-            randomizeWalls()
-            self.a8i.image = tileImage
+            a8i.image = randomizeWalls()
         }
         else if (a8p == 2) {
-            randomizeEdges()
-            self.a8i.image = tileImage
+            a8i.image = randomizeEdges()
         }
         else if (a8p == 3) {
             self.a8i.image = UIImage(named: "door-open.png")
@@ -1974,7 +2139,7 @@ class ViewController: UIViewController {
             self.a8i.image = UIImage(named: "down-stairs.png")
         }
         else if (a8p == 7) {
-            self.a8i.image = UIImage(named: "chest.png")
+            self.a8i.image = UIImage(named: "water.png")
         }
         else if (a8p == 9) {
             self.a8i.image = UIImage(named: "candles.png")
@@ -1986,12 +2151,10 @@ class ViewController: UIViewController {
             self.a8i.image = UIImage(named: "stockade.png")
         }
         if (a9p == 1) {
-            randomizeWalls()
-            self.a9i.image = tileImage
+            a9i.image = randomizeWalls()
         }
         else if (a9p == 2) {
-            randomizeEdges()
-            self.a9i.image = tileImage
+            a9i.image = randomizeEdges()
         }
         else if (a9p == 3) {
             self.a9i.image = UIImage(named: "door-open.png")
@@ -2000,7 +2163,7 @@ class ViewController: UIViewController {
             self.a9i.image = UIImage(named: "down-stairs.png")
         }
         else if (a9p == 7) {
-            self.a9i.image = UIImage(named: "chest.png")
+            self.a9i.image = UIImage(named: "water.png")
         }
         else if (a9p == 9) {
             self.a9i.image = UIImage(named: "candles.png")
@@ -2013,12 +2176,10 @@ class ViewController: UIViewController {
         }
         
         if (b1p == 1) {
-            randomizeWalls()
-            self.b1i.image = tileImage
+            b1i.image = randomizeWalls()
         }
         else if (b1p == 2) {
-            randomizeEdges()
-            self.b1i.image = tileImage
+            b1i.image = randomizeEdges()
         }
         else if (b1p == 3) {
             self.b1i.image = UIImage(named: "door-open.png")
@@ -2027,7 +2188,7 @@ class ViewController: UIViewController {
             self.b1i.image = UIImage(named: "down-stairs.png")
         }
         else if (b1p == 7) {
-            self.b1i.image = UIImage(named: "chest.png")
+            self.b1i.image = UIImage(named: "water.png")
         }
         else if (b1p == 9) {
             self.b1i.image = UIImage(named: "candles.png")
@@ -2039,12 +2200,10 @@ class ViewController: UIViewController {
             self.b1i.image = UIImage(named: "stockade.png")
         }
         if (b2p == 1) {
-            randomizeWalls()
-            self.b2i.image = tileImage
+            b2i.image = randomizeWalls()
         }
         else if (b2p == 2) {
-            randomizeEdges()
-            self.b2i.image = tileImage
+            b2i.image = randomizeEdges()
         }
         else if (b2p == 3) {
             self.b2i.image = UIImage(named: "door-open.png")
@@ -2056,7 +2215,7 @@ class ViewController: UIViewController {
             self.b2i.image = UIImage(named: "web-upper-left.png")
         }
         else if (b2p == 7) {
-            self.b2i.image = UIImage(named: "chest.png")
+            self.b2i.image = UIImage(named: "water.png")
         }
         else if (b2p == 9) {
             self.b2i.image = UIImage(named: "candles.png")
@@ -2068,12 +2227,10 @@ class ViewController: UIViewController {
             self.b2i.image = UIImage(named: "stockade.png")
         }
         if (b3p == 1) {
-            randomizeWalls()
-            self.b3i.image = tileImage
+            b3i.image = randomizeWalls()
         }
         else if (b3p == 2) {
-            randomizeEdges()
-            self.b3i.image = tileImage
+            b3i.image = randomizeEdges()
         }
         else if (b3p == 3) {
             self.b3i.image = UIImage(named: "door-open.png")
@@ -2082,7 +2239,7 @@ class ViewController: UIViewController {
             self.b3i.image = UIImage(named: "down-stairs.png")
         }
         else if (b3p == 7) {
-            self.b3i.image = UIImage(named: "chest.png")
+            self.b3i.image = UIImage(named: "water.png")
         }
         else if (b3p == 9) {
             self.b3i.image = UIImage(named: "candles.png")
@@ -2094,12 +2251,10 @@ class ViewController: UIViewController {
             self.b3i.image = UIImage(named: "stockade.png")
         }
         if (b4p == 1) {
-            randomizeWalls()
-            self.b4i.image = tileImage
+            b4i.image = randomizeWalls()
         }
         else if (b4p == 2) {
-            randomizeEdges()
-            self.b4i.image = tileImage
+            b4i.image = randomizeEdges()
         }
         else if (b4p == 3) {
             self.b4i.image = UIImage(named: "door-open.png")
@@ -2108,7 +2263,7 @@ class ViewController: UIViewController {
             self.b4i.image = UIImage(named: "down-stairs.png")
         }
         else if (b4p == 7) {
-            self.b4i.image = UIImage(named: "chest.png")
+            self.b4i.image = UIImage(named: "water.png")
         }
         else if (b4p == 9) {
             self.b4i.image = UIImage(named: "candles.png")
@@ -2120,12 +2275,10 @@ class ViewController: UIViewController {
             self.b4i.image = UIImage(named: "stockade.png")
         }
         if (b5p == 1) {
-            randomizeWalls()
-            self.b5i.image = tileImage
+            b5i.image = randomizeWalls()
         }
         else if (b5p == 2) {
-            randomizeEdges()
-            self.b5i.image = tileImage
+            b5i.image = randomizeEdges()
         }
         else if (b5p == 3) {
             self.b5i.image = UIImage(named: "door-open.png")
@@ -2134,7 +2287,7 @@ class ViewController: UIViewController {
             self.b5i.image = UIImage(named: "down-stairs.png")
         }
         else if (b5p == 7) {
-            self.b5i.image = UIImage(named: "chest.png")
+            self.b5i.image = UIImage(named: "water.png")
         }
         else if (b5p == 9) {
             self.b5i.image = UIImage(named: "candles.png")
@@ -2146,12 +2299,10 @@ class ViewController: UIViewController {
             self.b5i.image = UIImage(named: "stockade.png")
         }
         if (b6p == 1) {
-            randomizeWalls()
-            self.b6i.image = tileImage
+            b6i.image = randomizeWalls()
         }
         else if (b6p == 2) {
-            randomizeEdges()
-            self.b6i.image = tileImage
+            b6i.image = randomizeEdges()
         }
         else if (b6p == 3) {
             self.b6i.image = UIImage(named: "door-open.png")
@@ -2160,7 +2311,7 @@ class ViewController: UIViewController {
             self.b6i.image = UIImage(named: "down-stairs.png")
         }
         else if (b6p == 7) {
-            self.b6i.image = UIImage(named: "chest.png")
+            self.b6i.image = UIImage(named: "water.png")
         }
         else if (b6p == 9) {
             self.b6i.image = UIImage(named: "candles.png")
@@ -2172,12 +2323,10 @@ class ViewController: UIViewController {
             self.b6i.image = UIImage(named: "stockade.png")
         }
         if (b7p == 1) {
-            randomizeWalls()
-            self.b7i.image = tileImage
+            b7i.image = randomizeWalls()
         }
         else if (b7p == 2) {
-            randomizeEdges()
-            self.b7i.image = tileImage
+            b7i.image = randomizeEdges()
         }
         else if (b7p == 3) {
             self.b7i.image = UIImage(named: "door-open.png")
@@ -2186,7 +2335,7 @@ class ViewController: UIViewController {
             self.b7i.image = UIImage(named: "down-stairs.png")
         }
         else if (b7p == 7) {
-            self.b7i.image = UIImage(named: "chest.png")
+            self.b7i.image = UIImage(named: "water.png")
         }
         else if (b7p == 9) {
             self.b7i.image = UIImage(named: "candles.png")
@@ -2198,12 +2347,10 @@ class ViewController: UIViewController {
             self.b7i.image = UIImage(named: "stockade.png")
         }
         if (b8p == 1) {
-            randomizeWalls()
-            self.b8i.image = tileImage
+            b8i.image = randomizeWalls()
         }
         else if (b8p == 2) {
-            randomizeEdges()
-            self.b8i.image = tileImage
+            b8i.image = randomizeEdges()
         }
         else if (b8p == 3) {
             self.b8i.image = UIImage(named: "door-open.png")
@@ -2215,7 +2362,7 @@ class ViewController: UIViewController {
             self.b8i.image = UIImage(named: "web-upper-right.png")
         }
         else if (b8p == 7) {
-            self.b8i.image = UIImage(named: "chest.png")
+            self.b8i.image = UIImage(named: "water.png")
         }
         else if (b8p == 9) {
             self.b8i.image = UIImage(named: "candles.png")
@@ -2227,12 +2374,10 @@ class ViewController: UIViewController {
             self.b8i.image = UIImage(named: "stockade.png")
         }
         if (b9p == 1) {
-            randomizeWalls()
-            self.b9i.image = tileImage
+            b9i.image = randomizeWalls()
         }
         else if (b9p == 2) {
-            randomizeEdges()
-            self.b9i.image = tileImage
+            b9i.image = randomizeEdges()
         }
         else if (b9p == 3) {
             self.b9i.image = UIImage(named: "door-open.png")
@@ -2241,7 +2386,7 @@ class ViewController: UIViewController {
             self.b9i.image = UIImage(named: "down-stairs.png")
         }
         else if (b9p == 7) {
-            self.b9i.image = UIImage(named: "chest.png")
+            self.b9i.image = UIImage(named: "water.png")
         }
         else if (b9p == 9) {
             self.b9i.image = UIImage(named: "candles.png")
@@ -2254,12 +2399,10 @@ class ViewController: UIViewController {
         }
         
         if (c1p == 1) {
-            randomizeWalls()
-            self.c1i.image = tileImage
+            c1i.image = randomizeWalls()
         }
         else if (c1p == 2) {
-            randomizeEdges()
-            self.c1i.image = tileImage
+            c1i.image = randomizeEdges()
         }
         else if (c1p == 3) {
             self.c1i.image = UIImage(named: "door-open.png")
@@ -2268,7 +2411,7 @@ class ViewController: UIViewController {
             self.c1i.image = UIImage(named: "down-stairs.png")
         }
         else if (c1p == 7) {
-            self.c1i.image = UIImage(named: "chest.png")
+            self.c1i.image = UIImage(named: "water.png")
         }
         else if (c1p == 9) {
             self.c1i.image = UIImage(named: "candles.png")
@@ -2280,12 +2423,10 @@ class ViewController: UIViewController {
             self.c1i.image = UIImage(named: "stockade.png")
         }
         if (c2p == 1) {
-            randomizeWalls()
-            self.c2i.image = tileImage
+            c2i.image = randomizeWalls()
         }
         else if (c2p == 2) {
-            randomizeEdges()
-            self.c2i.image = tileImage
+            c2i.image = randomizeEdges()
         }
         else if (c2p == 3) {
             self.c2i.image = UIImage(named: "door-open.png")
@@ -2297,7 +2438,7 @@ class ViewController: UIViewController {
             self.c2i.image = UIImage(named: "web-upper-left.png")
         }
         else if (c2p == 7) {
-            self.c2i.image = UIImage(named: "chest.png")
+            self.c2i.image = UIImage(named: "water.png")
         }
         else if (c2p == 9) {
             self.c2i.image = UIImage(named: "candles.png")
@@ -2309,12 +2450,10 @@ class ViewController: UIViewController {
             self.c2i.image = UIImage(named: "stockade.png")
         }
         if (c3p == 1) {
-            randomizeWalls()
-            self.c3i.image = tileImage
+            c3i.image = randomizeWalls()
         }
         else if (c3p == 2) {
-            randomizeEdges()
-            self.c3i.image = tileImage
+            c3i.image = randomizeEdges()
         }
         else if (c3p == 3) {
             self.c3i.image = UIImage(named: "door-open.png")
@@ -2323,7 +2462,7 @@ class ViewController: UIViewController {
             self.c3i.image = UIImage(named: "down-stairs.png")
         }
         else if (c3p == 7) {
-            self.c3i.image = UIImage(named: "chest.png")
+            self.c3i.image = UIImage(named: "water.png")
         }
         else if (c3p == 9) {
             self.c3i.image = UIImage(named: "candles.png")
@@ -2335,12 +2474,10 @@ class ViewController: UIViewController {
             self.c3i.image = UIImage(named: "stockade.png")
         }
         if (c4p == 1) {
-            randomizeWalls()
-            self.c4i.image = tileImage
+            c4i.image = randomizeWalls()
         }
         else if (c4p == 2) {
-            randomizeEdges()
-            self.c4i.image = tileImage
+            c4i.image = randomizeEdges()
         }
         else if (c4p == 3) {
             self.c4i.image = UIImage(named: "door-open.png")
@@ -2349,7 +2486,7 @@ class ViewController: UIViewController {
             self.c4i.image = UIImage(named: "down-stairs.png")
         }
         else if (c4p == 7) {
-            self.c4i.image = UIImage(named: "chest.png")
+            self.c4i.image = UIImage(named: "water.png")
         }
         else if (c4p == 9) {
             self.c4i.image = UIImage(named: "candles.png")
@@ -2361,12 +2498,10 @@ class ViewController: UIViewController {
             self.c4i.image = UIImage(named: "stockade.png")
         }
         if (c5p == 1) {
-            randomizeWalls()
-            self.c5i.image = tileImage
+            c5i.image = randomizeWalls()
         }
         else if (c5p == 2) {
-            randomizeEdges()
-            self.c5i.image = tileImage
+            c5i.image = randomizeEdges()
         }
         else if (c5p == 3) {
             self.c5i.image = UIImage(named: "door-open.png")
@@ -2375,7 +2510,7 @@ class ViewController: UIViewController {
             self.c5i.image = UIImage(named: "down-stairs.png")
         }
         else if (c5p == 7) {
-            self.c5i.image = UIImage(named: "chest.png")
+            self.c5i.image = UIImage(named: "water.png")
         }
         else if (c5p == 9) {
             self.c5i.image = UIImage(named: "candles.png")
@@ -2387,12 +2522,10 @@ class ViewController: UIViewController {
             self.c5i.image = UIImage(named: "stockade.png")
         }
         if (c6p == 1) {
-            randomizeWalls()
-            self.c6i.image = tileImage
+            c6i.image = randomizeWalls()
         }
         else if (c6p == 2) {
-            randomizeEdges()
-            self.c6i.image = tileImage
+            c6i.image = randomizeEdges()
         }
         else if (c6p == 3) {
             self.c6i.image = UIImage(named: "door-open.png")
@@ -2401,7 +2534,7 @@ class ViewController: UIViewController {
             self.c6i.image = UIImage(named: "down-stairs.png")
         }
         else if (c6p == 7) {
-            self.c6i.image = UIImage(named: "chest.png")
+            self.c6i.image = UIImage(named: "water.png")
         }
         else if (c6p == 9) {
             self.c6i.image = UIImage(named: "candles.png")
@@ -2413,12 +2546,10 @@ class ViewController: UIViewController {
             self.c6i.image = UIImage(named: "stockade.png")
         }
         if (c7p == 1) {
-            randomizeWalls()
-            self.c7i.image = tileImage
+            c7i.image = randomizeWalls()
         }
         else if (c7p == 2) {
-            randomizeEdges()
-            self.c7i.image = tileImage
+            c7i.image = randomizeEdges()
         }
         else if (c7p == 3) {
             self.c7i.image = UIImage(named: "door-open.png")
@@ -2427,7 +2558,7 @@ class ViewController: UIViewController {
             self.c7i.image = UIImage(named: "down-stairs.png")
         }
         else if (c7p == 7) {
-            self.c7i.image = UIImage(named: "chest.png")
+            self.c7i.image = UIImage(named: "water.png")
         }
         else if (c7p == 9) {
             self.c7i.image = UIImage(named: "candles.png")
@@ -2439,12 +2570,10 @@ class ViewController: UIViewController {
             self.c7i.image = UIImage(named: "stockade.png")
         }
         if (c8p == 1) {
-            randomizeWalls()
-            self.c8i.image = tileImage
+            c8i.image = randomizeWalls()
         }
         else if (c8p == 2) {
-            randomizeEdges()
-            self.c8i.image = tileImage
+            c8i.image = randomizeEdges()
         }
         else if (c8p == 3) {
             self.c8i.image = UIImage(named: "door-open.png")
@@ -2456,7 +2585,7 @@ class ViewController: UIViewController {
             self.c8i.image = UIImage(named: "web-upper-right.png")
         }
         else if (c8p == 7) {
-            self.c8i.image = UIImage(named: "chest.png")
+            self.c8i.image = UIImage(named: "water.png")
         }
         else if (c8p == 9) {
             self.c8i.image = UIImage(named: "candles.png")
@@ -2468,12 +2597,10 @@ class ViewController: UIViewController {
             self.c8i.image = UIImage(named: "stockade.png")
         }
         if (c9p == 1) {
-            randomizeWalls()
-            self.c9i.image = tileImage
+            c9i.image = randomizeWalls()
         }
         else if (c9p == 2) {
-            randomizeEdges()
-            self.c9i.image = tileImage
+            c9i.image = randomizeEdges()
         }
         else if (c9p == 3) {
             self.c9i.image = UIImage(named: "door-open.png")
@@ -2482,7 +2609,7 @@ class ViewController: UIViewController {
             self.c9i.image = UIImage(named: "down-stairs.png")
         }
         else if (c9p == 7) {
-            self.c9i.image = UIImage(named: "chest.png")
+            self.c9i.image = UIImage(named: "water.png")
         }
         else if (c9p == 9) {
             self.c9i.image = UIImage(named: "candles.png")
@@ -2495,12 +2622,10 @@ class ViewController: UIViewController {
         }
         
         if (d1p == 1) {
-            randomizeWalls()
-            self.d1i.image = tileImage
+            d1i.image = randomizeWalls()
         }
         else if (d1p == 2) {
-            randomizeEdges()
-            self.d1i.image = tileImage
+            d1i.image = randomizeEdges()
         }
         else if (d1p == 3) {
             self.d1i.image = UIImage(named: "door-open.png")
@@ -2509,7 +2634,7 @@ class ViewController: UIViewController {
             self.d1i.image = UIImage(named: "down-stairs.png")
         }
         else if (d1p == 7) {
-            self.d1i.image = UIImage(named: "chest.png")
+            self.d1i.image = UIImage(named: "water.png")
         }
         else if (d1p == 9) {
             self.d1i.image = UIImage(named: "candles.png")
@@ -2521,12 +2646,10 @@ class ViewController: UIViewController {
             self.d1i.image = UIImage(named: "stockade.png")
         }
         if (d2p == 1) {
-            randomizeWalls()
-            self.d2i.image = tileImage
+            d2i.image = randomizeWalls()
         }
         else if (d2p == 2) {
-            randomizeEdges()
-            self.d2i.image = tileImage
+            d2i.image = randomizeEdges()
         }
         else if (d2p == 3) {
             self.d2i.image = UIImage(named: "door-open.png")
@@ -2538,7 +2661,7 @@ class ViewController: UIViewController {
             self.d2i.image = UIImage(named: "web-upper-left.png")
         }
         else if (d2p == 7) {
-            self.d2i.image = UIImage(named: "chest.png")
+            self.d2i.image = UIImage(named: "water.png")
         }
         else if (d2p == 9) {
             self.d2i.image = UIImage(named: "candles.png")
@@ -2550,12 +2673,10 @@ class ViewController: UIViewController {
             self.d2i.image = UIImage(named: "stockade.png")
         }
         if (d3p == 1) {
-            randomizeWalls()
-            self.d3i.image = tileImage
+            d3i.image = randomizeWalls()
         }
         else if (d3p == 2) {
-            randomizeEdges()
-            self.d3i.image = tileImage
+            d3i.image = randomizeEdges()
         }
         else if (d3p == 3) {
             self.d3i.image = UIImage(named: "door-open.png")
@@ -2564,7 +2685,7 @@ class ViewController: UIViewController {
             self.d3i.image = UIImage(named: "down-stairs.png")
         }
         else if (d3p == 7) {
-            self.d3i.image = UIImage(named: "chest.png")
+            self.d3i.image = UIImage(named: "water.png")
         }
         else if (d3p == 9) {
             self.d3i.image = UIImage(named: "candles.png")
@@ -2576,12 +2697,10 @@ class ViewController: UIViewController {
             self.d3i.image = UIImage(named: "stockade.png")
         }
         if (d4p == 1) {
-            randomizeWalls()
-            self.d4i.image = tileImage
+            d4i.image = randomizeWalls()
         }
         else if (d4p == 2) {
-            randomizeEdges()
-            self.d4i.image = tileImage
+            d4i.image = randomizeEdges()
         }
         else if (d4p == 3) {
             self.d4i.image = UIImage(named: "door-open.png")
@@ -2590,7 +2709,7 @@ class ViewController: UIViewController {
             self.d4i.image = UIImage(named: "down-stairs.png")
         }
         else if (d4p == 7) {
-            self.d4i.image = UIImage(named: "chest.png")
+            self.d4i.image = UIImage(named: "water.png")
         }
         else if (d4p == 9) {
             self.d4i.image = UIImage(named: "candles.png")
@@ -2602,12 +2721,10 @@ class ViewController: UIViewController {
             self.d4i.image = UIImage(named: "stockade.png")
         }
         if (d5p == 1) {
-            randomizeWalls()
-            self.d5i.image = tileImage
+            d5i.image = randomizeWalls()
         }
         else if (d5p == 2) {
-            randomizeEdges()
-            self.d5i.image = tileImage
+            d5i.image = randomizeEdges()
         }
         else if (d5p == 3) {
             self.d5i.image = UIImage(named: "door-open.png")
@@ -2616,7 +2733,7 @@ class ViewController: UIViewController {
             self.d5i.image = UIImage(named: "down-stairs.png")
         }
         else if (d5p == 7) {
-            self.d5i.image = UIImage(named: "chest.png")
+            self.d5i.image = UIImage(named: "water.png")
         }
         else if (d5p == 9) {
             self.d5i.image = UIImage(named: "candles.png")
@@ -2628,12 +2745,10 @@ class ViewController: UIViewController {
             self.d5i.image = UIImage(named: "stockade.png")
         }
         if (d6p == 1) {
-            randomizeWalls()
-            self.d6i.image = tileImage
+            d6i.image = randomizeWalls()
         }
         else if (d6p == 2) {
-            randomizeEdges()
-            self.d6i.image = tileImage
+            d6i.image = randomizeEdges()
         }
         else if (d6p == 3) {
             self.d6i.image = UIImage(named: "door-open.png")
@@ -2642,7 +2757,7 @@ class ViewController: UIViewController {
             self.d6i.image = UIImage(named: "down-stairs.png")
         }
         else if (d6p == 7) {
-            self.d6i.image = UIImage(named: "chest.png")
+            self.d6i.image = UIImage(named: "water.png")
         }
         else if (d6p == 9) {
             self.d6i.image = UIImage(named: "candles.png")
@@ -2654,12 +2769,10 @@ class ViewController: UIViewController {
             self.d6i.image = UIImage(named: "stockade.png")
         }
         if (d7p == 1) {
-            randomizeWalls()
-            self.d7i.image = tileImage
+            d7i.image = randomizeWalls()
         }
         else if (d7p == 2) {
-            randomizeEdges()
-            self.d7i.image = tileImage
+            d7i.image = randomizeEdges()
         }
         else if (d7p == 3) {
             self.d7i.image = UIImage(named: "door-open.png")
@@ -2668,7 +2781,7 @@ class ViewController: UIViewController {
             self.d7i.image = UIImage(named: "down-stairs.png")
         }
         else if (d7p == 7) {
-            self.d7i.image = UIImage(named: "chest.png")
+            self.d7i.image = UIImage(named: "water.png")
         }
         else if (d7p == 9) {
             self.d7i.image = UIImage(named: "candles.png")
@@ -2680,12 +2793,10 @@ class ViewController: UIViewController {
             self.d7i.image = UIImage(named: "stockade.png")
         }
         if (d8p == 1) {
-            randomizeWalls()
-            self.d8i.image = tileImage
+            d8i.image = randomizeWalls()
         }
         else if (d8p == 2) {
-            randomizeEdges()
-            self.d8i.image = tileImage
+            d8i.image = randomizeEdges()
         }
         else if (d8p == 3) {
             self.d8i.image = UIImage(named: "door-open.png")
@@ -2697,7 +2808,7 @@ class ViewController: UIViewController {
             self.d8i.image = UIImage(named: "web-upper-right.png")
         }
         else if (d8p == 7) {
-            self.d8i.image = UIImage(named: "chest.png")
+            self.d8i.image = UIImage(named: "water.png")
         }
         else if (d8p == 9) {
             self.d8i.image = UIImage(named: "candles.png")
@@ -2709,12 +2820,10 @@ class ViewController: UIViewController {
             self.d8i.image = UIImage(named: "stockade.png")
         }
         if (d9p == 1) {
-            randomizeWalls()
-            self.d9i.image = tileImage
+            d9i.image = randomizeWalls()
         }
         else if (d9p == 2) {
-            randomizeEdges()
-            self.d9i.image = tileImage
+            d9i.image = randomizeEdges()
         }
         else if (d9p == 3) {
             self.d9i.image = UIImage(named: "door-open.png")
@@ -2723,7 +2832,7 @@ class ViewController: UIViewController {
             self.d9i.image = UIImage(named: "down-stairs.png")
         }
         else if (d9p == 7) {
-            self.d9i.image = UIImage(named: "chest.png")
+            self.d9i.image = UIImage(named: "water.png")
         }
         else if (d9p == 9) {
             self.d9i.image = UIImage(named: "candles.png")
@@ -2736,12 +2845,10 @@ class ViewController: UIViewController {
         }
         
         if (e1p == 1) {
-            randomizeWalls()
-            self.e1i.image = tileImage
+            e1i.image = randomizeWalls()
         }
         else if (e1p == 2) {
-            randomizeEdges()
-            self.e1i.image = tileImage
+            e1i.image = randomizeEdges()
         }
         else if (e1p == 3) {
             self.e1i.image = UIImage(named: "door-open.png")
@@ -2750,7 +2857,7 @@ class ViewController: UIViewController {
             self.e1i.image = UIImage(named: "down-stairs.png")
         }
         else if (e1p == 7) {
-            self.e1i.image = UIImage(named: "chest.png")
+            self.e1i.image = UIImage(named: "water.png")
         }
         else if (e1p == 9) {
             self.e1i.image = UIImage(named: "candles.png")
@@ -2762,12 +2869,10 @@ class ViewController: UIViewController {
             self.e1i.image = UIImage(named: "stockade.png")
         }
         if (e2p == 1) {
-            randomizeWalls()
-            self.e2i.image = tileImage
+            e2i.image = randomizeWalls()
         }
         else if (e2p == 2) {
-            randomizeEdges()
-            self.e2i.image = tileImage
+            e2i.image = randomizeEdges()
         }
         else if (e2p == 3) {
             self.e2i.image = UIImage(named: "door-open.png")
@@ -2779,7 +2884,7 @@ class ViewController: UIViewController {
             self.e2i.image = UIImage(named: "web-upper-left.png")
         }
         else if (e2p == 7) {
-            self.e2i.image = UIImage(named: "chest.png")
+            self.e2i.image = UIImage(named: "water.png")
         }
         else if (e2p == 9) {
             self.e2i.image = UIImage(named: "candles.png")
@@ -2791,12 +2896,10 @@ class ViewController: UIViewController {
             self.e2i.image = UIImage(named: "stockade.png")
         }
         if (e3p == 1) {
-            randomizeWalls()
-            self.e3i.image = tileImage
+            e3i.image = randomizeWalls()
         }
         else if (e3p == 2) {
-            randomizeEdges()
-            self.e3i.image = tileImage
+            e3i.image = randomizeEdges()
         }
         else if (e3p == 3) {
             self.e3i.image = UIImage(named: "door-open.png")
@@ -2805,7 +2908,7 @@ class ViewController: UIViewController {
             self.e3i.image = UIImage(named: "down-stairs.png")
         }
         else if (e3p == 7) {
-            self.e3i.image = UIImage(named: "chest.png")
+            self.e3i.image = UIImage(named: "water.png")
         }
         else if (e3p == 9) {
             self.e3i.image = UIImage(named: "candles.png")
@@ -2817,12 +2920,10 @@ class ViewController: UIViewController {
             self.e3i.image = UIImage(named: "stockade.png")
         }
         if (e4p == 1) {
-            randomizeWalls()
-            self.e4i.image = tileImage
+            e4i.image = randomizeWalls()
         }
         else if (e4p == 2) {
-            randomizeEdges()
-            self.e4i.image = tileImage
+            e4i.image = randomizeEdges()
         }
         else if (e4p == 3) {
             self.e4i.image = UIImage(named: "door-open.png")
@@ -2831,7 +2932,7 @@ class ViewController: UIViewController {
             self.e4i.image = UIImage(named: "down-stairs.png")
         }
         else if (e4p == 7) {
-            self.e4i.image = UIImage(named: "chest.png")
+            self.e4i.image = UIImage(named: "water.png")
         }
         else if (e4p == 9) {
             self.e4i.image = UIImage(named: "candles.png")
@@ -2843,12 +2944,10 @@ class ViewController: UIViewController {
             self.e4i.image = UIImage(named: "stockade.png")
         }
         if (e5p == 1) {
-            randomizeWalls()
-            self.e5i.image = tileImage
+            e5i.image = randomizeWalls()
         }
         else if (e5p == 2) {
-            randomizeEdges()
-            self.e5i.image = tileImage
+            e5i.image = randomizeEdges()
         }
         else if (e5p == 3) {
             self.e5i.image = UIImage(named: "door-open.png")
@@ -2857,7 +2956,7 @@ class ViewController: UIViewController {
             self.e5i.image = UIImage(named: "down-stairs.png")
         }
         else if (e5p == 7) {
-            self.e5i.image = UIImage(named: "chest.png")
+            self.e5i.image = UIImage(named: "water.png")
         }
         else if (e5p == 9) {
             self.e5i.image = UIImage(named: "candles.png")
@@ -2869,12 +2968,10 @@ class ViewController: UIViewController {
             self.e5i.image = UIImage(named: "stockade.png")
         }
         if (e6p == 1) {
-            randomizeWalls()
-            self.e6i.image = tileImage
+            e6i.image = randomizeWalls()
         }
         else if (e6p == 2) {
-            randomizeEdges()
-            self.e6i.image = tileImage
+            e6i.image = randomizeEdges()
         }
         else if (e6p == 3) {
             self.e6i.image = UIImage(named: "door-open.png")
@@ -2883,7 +2980,7 @@ class ViewController: UIViewController {
             self.e6i.image = UIImage(named: "down-stairs.png")
         }
         else if (e6p == 7) {
-            self.e6i.image = UIImage(named: "chest.png")
+            self.e6i.image = UIImage(named: "water.png")
         }
         else if (e6p == 9) {
             self.e6i.image = UIImage(named: "candles.png")
@@ -2895,12 +2992,10 @@ class ViewController: UIViewController {
             self.e6i.image = UIImage(named: "stockade.png")
         }
         if (e7p == 1) {
-            randomizeWalls()
-            self.e7i.image = tileImage
+            e7i.image = randomizeWalls()
         }
         else if (e7p == 2) {
-            randomizeEdges()
-            self.e7i.image = tileImage
+            e7i.image = randomizeEdges()
         }
         else if (e7p == 3) {
             self.e7i.image = UIImage(named: "door-open.png")
@@ -2909,7 +3004,7 @@ class ViewController: UIViewController {
             self.e7i.image = UIImage(named: "down-stairs.png")
         }
         else if (e7p == 7) {
-            self.e7i.image = UIImage(named: "chest.png")
+            self.e7i.image = UIImage(named: "water.png")
         }
         else if (e7p == 9) {
             self.e7i.image = UIImage(named: "candles.png")
@@ -2921,12 +3016,10 @@ class ViewController: UIViewController {
             self.e7i.image = UIImage(named: "stockade.png")
         }
         if (e8p == 1) {
-            randomizeWalls()
-            self.e8i.image = tileImage
+            e8i.image = randomizeWalls()
         }
         else if (e8p == 2) {
-            randomizeEdges()
-            self.e8i.image = tileImage
+            e8i.image = randomizeEdges()
         }
         else if (e8p == 3) {
             self.e8i.image = UIImage(named: "door-open.png")
@@ -2938,7 +3031,7 @@ class ViewController: UIViewController {
             self.e8i.image = UIImage(named: "web-upper-right.png")
         }
         else if (e8p == 7) {
-            self.e8i.image = UIImage(named: "chest.png")
+            self.e8i.image = UIImage(named: "water.png")
         }
         else if (e8p == 9) {
             self.e8i.image = UIImage(named: "candles.png")
@@ -2950,12 +3043,10 @@ class ViewController: UIViewController {
             self.e8i.image = UIImage(named: "stockade.png")
         }
         if (e9p == 1) {
-            randomizeWalls()
-            self.e9i.image = tileImage
+            e9i.image = randomizeWalls()
         }
         else if (e9p == 2) {
-            randomizeEdges()
-            self.e9i.image = tileImage
+            e9i.image = randomizeEdges()
         }
         else if (e9p == 3) {
             self.e9i.image = UIImage(named: "door-open.png")
@@ -2964,7 +3055,7 @@ class ViewController: UIViewController {
             self.e9i.image = UIImage(named: "down-stairs.png")
         }
         else if (e9p == 7) {
-            self.e9i.image = UIImage(named: "chest.png")
+            self.e9i.image = UIImage(named: "water.png")
         }
         else if (e9p == 9) {
             self.e9i.image = UIImage(named: "candles.png")
@@ -2977,12 +3068,10 @@ class ViewController: UIViewController {
         }
         
         if (f1p == 1) {
-            randomizeWalls()
-            self.f1i.image = tileImage
+            f1i.image = randomizeWalls()
         }
         else if (f1p == 2) {
-            randomizeEdges()
-            self.f1i.image = tileImage
+            f1i.image = randomizeEdges()
         }
         else if (f1p == 3) {
             self.f1i.image = UIImage(named: "door-open.png")
@@ -2991,7 +3080,7 @@ class ViewController: UIViewController {
             self.f1i.image = UIImage(named: "down-stairs.png")
         }
         else if (f1p == 7) {
-            self.f1i.image = UIImage(named: "chest.png")
+            self.f1i.image = UIImage(named: "water.png")
         }
         else if (f1p == 9) {
             self.f1i.image = UIImage(named: "candles.png")
@@ -3003,12 +3092,10 @@ class ViewController: UIViewController {
             self.f1i.image = UIImage(named: "stockade.png")
         }
         if (f2p == 1) {
-            randomizeWalls()
-            self.f2i.image = tileImage
+            f2i.image = randomizeWalls()
         }
         else if (f2p == 2) {
-            randomizeEdges()
-            self.f2i.image = tileImage
+            f2i.image = randomizeEdges()
         }
         else if (f2p == 3) {
             self.f2i.image = UIImage(named: "door-open.png")
@@ -3020,7 +3107,7 @@ class ViewController: UIViewController {
             self.f2i.image = UIImage(named: "web-upper-left.png")
         }
         else if (f2p == 7) {
-            self.f2i.image = UIImage(named: "chest.png")
+            self.f2i.image = UIImage(named: "water.png")
         }
         else if (f2p == 9) {
             self.f2i.image = UIImage(named: "candles.png")
@@ -3032,12 +3119,10 @@ class ViewController: UIViewController {
             self.f2i.image = UIImage(named: "stockade.png")
         }
         if (f3p == 1) {
-            randomizeWalls()
-            self.f3i.image = tileImage
+            f3i.image = randomizeWalls()
         }
         else if (f3p == 2) {
-            randomizeEdges()
-            self.f3i.image = tileImage
+            f3i.image = randomizeEdges()
         }
         else if (f3p == 3) {
             self.f3i.image = UIImage(named: "door-open.png")
@@ -3046,7 +3131,7 @@ class ViewController: UIViewController {
             self.f3i.image = UIImage(named: "down-stairs.png")
         }
         else if (f3p == 7) {
-            self.f3i.image = UIImage(named: "chest.png")
+            self.f3i.image = UIImage(named: "water.png")
         }
         else if (f3p == 9) {
             self.f3i.image = UIImage(named: "candles.png")
@@ -3058,12 +3143,10 @@ class ViewController: UIViewController {
             self.f3i.image = UIImage(named: "stockade.png")
         }
         if (f4p == 1) {
-            randomizeWalls()
-            self.f4i.image = tileImage
+            f4i.image = randomizeWalls()
         }
         else if (f4p == 2) {
-            randomizeEdges()
-            self.f4i.image = tileImage
+            f4i.image = randomizeEdges()
         }
         else if (f4p == 3) {
             self.f4i.image = UIImage(named: "door-open.png")
@@ -3072,7 +3155,7 @@ class ViewController: UIViewController {
             self.f4i.image = UIImage(named: "down-stairs.png")
         }
         else if (f4p == 7) {
-            self.f4i.image = UIImage(named: "chest.png")
+            self.f4i.image = UIImage(named: "water.png")
         }
         else if (f4p == 9) {
             self.f4i.image = UIImage(named: "candles.png")
@@ -3084,12 +3167,10 @@ class ViewController: UIViewController {
             self.f4i.image = UIImage(named: "stockade.png")
         }
         if (f5p == 1) {
-            randomizeWalls()
-            self.f5i.image = tileImage
+            f5i.image = randomizeWalls()
         }
         else if (f5p == 2) {
-            randomizeEdges()
-            self.f5i.image = tileImage
+            f5i.image = randomizeEdges()
         }
         else if (f5p == 3) {
             self.f5i.image = UIImage(named: "door-open.png")
@@ -3098,7 +3179,7 @@ class ViewController: UIViewController {
             self.f5i.image = UIImage(named: "down-stairs.png")
         }
         else if (f5p == 7) {
-            self.f5i.image = UIImage(named: "chest.png")
+            self.f5i.image = UIImage(named: "water.png")
         }
         else if (f5p == 9) {
             self.f5i.image = UIImage(named: "candles.png")
@@ -3110,12 +3191,10 @@ class ViewController: UIViewController {
             self.f5i.image = UIImage(named: "stockade.png")
         }
         if (f6p == 1) {
-            randomizeWalls()
-            self.f6i.image = tileImage
+            f6i.image = randomizeWalls()
         }
         else if (f6p == 2) {
-            randomizeEdges()
-            self.f6i.image = tileImage
+            f6i.image = randomizeEdges()
         }
         else if (f6p == 3) {
             self.f6i.image = UIImage(named: "door-open.png")
@@ -3124,7 +3203,7 @@ class ViewController: UIViewController {
             self.f6i.image = UIImage(named: "down-stairs.png")
         }
         else if (f6p == 7) {
-            self.f6i.image = UIImage(named: "chest.png")
+            self.f6i.image = UIImage(named: "water.png")
         }
         else if (f6p == 9) {
             self.f6i.image = UIImage(named: "candles.png")
@@ -3136,12 +3215,10 @@ class ViewController: UIViewController {
             self.f6i.image = UIImage(named: "stockade.png")
         }
         if (f7p == 1) {
-            randomizeWalls()
-            self.f7i.image = tileImage
+            f7i.image = randomizeWalls()
         }
         else if (f7p == 2) {
-            randomizeEdges()
-            self.f7i.image = tileImage
+            f7i.image = randomizeEdges()
         }
         else if (f7p == 3) {
             self.f7i.image = UIImage(named: "door-open.png")
@@ -3150,7 +3227,7 @@ class ViewController: UIViewController {
             self.f7i.image = UIImage(named: "down-stairs.png")
         }
         else if (f7p == 7) {
-            self.f7i.image = UIImage(named: "chest.png")
+            self.f7i.image = UIImage(named: "water.png")
         }
         else if (f7p == 9) {
             self.f7i.image = UIImage(named: "candles.png")
@@ -3162,12 +3239,10 @@ class ViewController: UIViewController {
             self.f7i.image = UIImage(named: "stockade.png")
         }
         if (f8p == 1) {
-            randomizeWalls()
-            self.f8i.image = tileImage
+            f8i.image = randomizeWalls()
         }
         else if (f8p == 2) {
-            randomizeEdges()
-            self.f8i.image = tileImage
+            f8i.image = randomizeEdges()
         }
         else if (f8p == 3) {
             self.f8i.image = UIImage(named: "door-open.png")
@@ -3179,7 +3254,7 @@ class ViewController: UIViewController {
             self.f8i.image = UIImage(named: "web-upper-right.png")
         }
         else if (f8p == 7) {
-            self.f8i.image = UIImage(named: "chest.png")
+            self.f8i.image = UIImage(named: "water.png")
         }
         else if (f8p == 9) {
             self.f8i.image = UIImage(named: "candles.png")
@@ -3191,12 +3266,10 @@ class ViewController: UIViewController {
             self.f8i.image = UIImage(named: "stockade.png")
         }
         if (f9p == 1) {
-            randomizeWalls()
-            self.f9i.image = tileImage
+            f9i.image = randomizeWalls()
         }
         else if (f9p == 2) {
-            randomizeEdges()
-            self.f9i.image = tileImage
+            f9i.image = randomizeEdges()
         }
         else if (f9p == 3) {
             self.f9i.image = UIImage(named: "door-open.png")
@@ -3205,7 +3278,7 @@ class ViewController: UIViewController {
             self.f9i.image = UIImage(named: "down-stairs.png")
         }
         else if (f9p == 7) {
-            self.f9i.image = UIImage(named: "chest.png")
+            self.f9i.image = UIImage(named: "water.png")
         }
         else if (f9p == 9) {
             self.f9i.image = UIImage(named: "candles.png")
@@ -3218,12 +3291,10 @@ class ViewController: UIViewController {
         }
         
         if (g1p == 1) {
-            randomizeWalls()
-            self.g1i.image = tileImage
+            g1i.image = randomizeWalls()
         }
         else if (g1p == 2) {
-            randomizeEdges()
-            self.g1i.image = tileImage
+            g1i.image = randomizeEdges()
         }
         else if (g1p == 3) {
             self.g1i.image = UIImage(named: "door-open.png")
@@ -3232,7 +3303,7 @@ class ViewController: UIViewController {
             self.g1i.image = UIImage(named: "down-stairs.png")
         }
         else if (g1p == 7) {
-            self.g1i.image = UIImage(named: "chest.png")
+            self.g1i.image = UIImage(named: "water.png")
         }
         else if (g1p == 9) {
             self.g1i.image = UIImage(named: "candles.png")
@@ -3244,12 +3315,10 @@ class ViewController: UIViewController {
             self.g1i.image = UIImage(named: "stockade.png")
         }
         if (g2p == 1) {
-            randomizeWalls()
-            self.g2i.image = tileImage
+            g2i.image = randomizeWalls()
         }
         else if (g2p == 2) {
-            randomizeEdges()
-            self.g2i.image = tileImage
+            g2i.image = randomizeEdges()
         }
         else if (g2p == 3) {
             self.g2i.image = UIImage(named: "door-open.png")
@@ -3261,7 +3330,7 @@ class ViewController: UIViewController {
             self.g2i.image = UIImage(named: "web-lower-left.png")
         }
         else if (g2p == 7) {
-            self.g2i.image = UIImage(named: "chest.png")
+            self.g2i.image = UIImage(named: "water.png")
         }
         else if (g2p == 9) {
             self.g2i.image = UIImage(named: "candles.png")
@@ -3273,12 +3342,10 @@ class ViewController: UIViewController {
             self.g2i.image = UIImage(named: "stockade.png")
         }
         if (g3p == 1) {
-            randomizeWalls()
-            self.g3i.image = tileImage
+            g3i.image = randomizeWalls()
         }
         else if (g3p == 2) {
-            randomizeEdges()
-            self.g3i.image = tileImage
+            g3i.image = randomizeEdges()
         }
         else if (g3p == 3) {
             self.g3i.image = UIImage(named: "door-open.png")
@@ -3287,7 +3354,7 @@ class ViewController: UIViewController {
             self.g3i.image = UIImage(named: "down-stairs.png")
         }
         else if (g3p == 7) {
-            self.g3i.image = UIImage(named: "chest.png")
+            self.g3i.image = UIImage(named: "water.png")
         }
         else if (g3p == 9) {
             self.g3i.image = UIImage(named: "candles.png")
@@ -3299,12 +3366,10 @@ class ViewController: UIViewController {
             self.g3i.image = UIImage(named: "stockade.png")
         }
         if (g4p == 1) {
-            randomizeWalls()
-            self.g4i.image = tileImage
+            g4i.image = randomizeWalls()
         }
         else if (g4p == 2) {
-            randomizeEdges()
-            self.g4i.image = tileImage
+            g4i.image = randomizeEdges()
         }
         else if (g4p == 3) {
             self.g4i.image = UIImage(named: "door-open.png")
@@ -3313,7 +3378,7 @@ class ViewController: UIViewController {
             self.g4i.image = UIImage(named: "down-stairs.png")
         }
         else if (g4p == 7) {
-            self.g4i.image = UIImage(named: "chest.png")
+            self.g4i.image = UIImage(named: "water.png")
         }
         else if (g4p == 9) {
             self.g4i.image = UIImage(named: "candles.png")
@@ -3325,12 +3390,10 @@ class ViewController: UIViewController {
             self.g4i.image = UIImage(named: "stockade.png")
         }
         if (g5p == 1) {
-            randomizeWalls()
-            self.g5i.image = tileImage
+            g5i.image = randomizeWalls()
         }
         else if (g5p == 2) {
-            randomizeEdges()
-            self.g5i.image = tileImage
+            g5i.image = randomizeEdges()
         }
         else if (g5p == 3) {
             self.g5i.image = UIImage(named: "door-open.png")
@@ -3339,7 +3402,7 @@ class ViewController: UIViewController {
             self.g5i.image = UIImage(named: "down-stairs.png")
         }
         else if (g5p == 7) {
-            self.g5i.image = UIImage(named: "chest.png")
+            self.g5i.image = UIImage(named: "water.png")
         }
         else if (g5p == 9) {
             self.g5i.image = UIImage(named: "candles.png")
@@ -3351,12 +3414,10 @@ class ViewController: UIViewController {
             self.g5i.image = UIImage(named: "stockade.png")
         }
         if (g6p == 1) {
-            randomizeWalls()
-            self.g6i.image = tileImage
+            g6i.image = randomizeWalls()
         }
         else if (g6p == 2) {
-            randomizeEdges()
-            self.g6i.image = tileImage
+            g6i.image = randomizeEdges()
         }
         else if (g6p == 3) {
             self.g6i.image = UIImage(named: "door-open.png")
@@ -3365,7 +3426,7 @@ class ViewController: UIViewController {
             self.g6i.image = UIImage(named: "down-stairs.png")
         }
         else if (g6p == 7) {
-            self.g6i.image = UIImage(named: "chest.png")
+            self.g6i.image = UIImage(named: "water.png")
         }
         else if (g6p == 9) {
             self.g6i.image = UIImage(named: "candles.png")
@@ -3377,12 +3438,10 @@ class ViewController: UIViewController {
             self.g6i.image = UIImage(named: "stockade.png")
         }
         if (g7p == 1) {
-            randomizeWalls()
-            self.g7i.image = tileImage
+            g7i.image = randomizeWalls()
         }
         else if (g7p == 2) {
-            randomizeEdges()
-            self.g7i.image = tileImage
+            g7i.image = randomizeEdges()
         }
         else if (g7p == 3) {
             self.g7i.image = UIImage(named: "door-open.png")
@@ -3391,7 +3450,7 @@ class ViewController: UIViewController {
             self.g7i.image = UIImage(named: "down-stairs.png")
         }
         else if (g7p == 7) {
-            self.g7i.image = UIImage(named: "chest.png")
+            self.g7i.image = UIImage(named: "water.png")
         }
         else if (g7p == 9) {
             self.g7i.image = UIImage(named: "candles.png")
@@ -3403,12 +3462,10 @@ class ViewController: UIViewController {
             self.g7i.image = UIImage(named: "stockade.png")
         }
         if (g8p == 1) {
-            randomizeWalls()
-            self.g8i.image = tileImage
+            g8i.image = randomizeWalls()
         }
         else if (g8p == 2) {
-            randomizeEdges()
-            self.g8i.image = tileImage
+            g8i.image = randomizeEdges()
         }
         else if (g8p == 3) {
             self.g8i.image = UIImage(named: "door-open.png")
@@ -3420,7 +3477,7 @@ class ViewController: UIViewController {
             self.g8i.image = UIImage(named: "web-lower-right.png")
         }
         else if (g8p == 7) {
-            self.g8i.image = UIImage(named: "chest.png")
+            self.g8i.image = UIImage(named: "water.png")
         }
         else if (g8p == 9) {
             self.g8i.image = UIImage(named: "candles.png")
@@ -3432,12 +3489,10 @@ class ViewController: UIViewController {
             self.g8i.image = UIImage(named: "stockade.png")
         }
         if (g9p == 1) {
-            randomizeWalls()
-            self.g9i.image = tileImage
+            g9i.image = randomizeWalls()
         }
         else if (g9p == 2) {
-            randomizeEdges()
-            self.g9i.image = tileImage
+            g9i.image = randomizeEdges()
         }
         else if (g9p == 3) {
             self.g9i.image = UIImage(named: "door-open.png")
@@ -3446,7 +3501,7 @@ class ViewController: UIViewController {
             self.g9i.image = UIImage(named: "down-stairs.png")
         }
         else if (g9p == 7) {
-            self.g9i.image = UIImage(named: "chest.png")
+            self.g9i.image = UIImage(named: "water.png")
         }
         else if (g9p == 9) {
             self.g9i.image = UIImage(named: "candles.png")
@@ -3459,12 +3514,10 @@ class ViewController: UIViewController {
         }
         
         if (h1p == 1) {
-            randomizeWalls()
-            self.h1i.image = tileImage
+            h1i.image = randomizeWalls()
         }
         else if (h1p == 2) {
-            randomizeEdges()
-            self.h1i.image = tileImage
+            h1i.image = randomizeEdges()
         }
         else if (h1p == 3) {
             self.h1i.image = UIImage(named: "door-open.png")
@@ -3473,7 +3526,7 @@ class ViewController: UIViewController {
             self.h1i.image = UIImage(named: "down-stairs.png")
         }
         else if (h1p == 7) {
-            self.h1i.image = UIImage(named: "chest.png")
+            self.h1i.image = UIImage(named: "water.png")
         }
         else if (h1p == 9) {
             self.h1i.image = UIImage(named: "candles.png")
@@ -3485,12 +3538,10 @@ class ViewController: UIViewController {
             self.h1i.image = UIImage(named: "stockade.png")
         }
         if (h2p == 1) {
-            randomizeWalls()
-            self.h2i.image = tileImage
+            h2i.image = randomizeWalls()
         }
         else if (h2p == 2) {
-            randomizeEdges()
-            self.h2i.image = tileImage
+            h2i.image = randomizeEdges()
         }
         else if (h2p == 3) {
             self.h2i.image = UIImage(named: "door-open.png")
@@ -3502,7 +3553,7 @@ class ViewController: UIViewController {
             self.h2i.image = UIImage(named: "web-lower-left.png")
         }
         else if (h2p == 7) {
-            self.h2i.image = UIImage(named: "chest.png")
+            self.h2i.image = UIImage(named: "water.png")
         }
         else if (h2p == 9) {
             self.h2i.image = UIImage(named: "candles.png")
@@ -3514,12 +3565,10 @@ class ViewController: UIViewController {
             self.h2i.image = UIImage(named: "stockade.png")
         }
         if (h3p == 1) {
-            randomizeWalls()
-            self.h3i.image = tileImage
+            h3i.image = randomizeWalls()
         }
         else if (h3p == 2) {
-            randomizeEdges()
-            self.h3i.image = tileImage
+            h3i.image = randomizeEdges()
         }
         else if (h3p == 3) {
             self.h3i.image = UIImage(named: "door-open.png")
@@ -3528,7 +3577,7 @@ class ViewController: UIViewController {
             self.h3i.image = UIImage(named: "down-stairs.png")
         }
         else if (h3p == 7) {
-            self.h3i.image = UIImage(named: "chest.png")
+            self.h3i.image = UIImage(named: "water.png")
         }
         else if (h3p == 9) {
             self.h3i.image = UIImage(named: "candles.png")
@@ -3540,12 +3589,10 @@ class ViewController: UIViewController {
             self.h3i.image = UIImage(named: "stockade.png")
         }
         if (h4p == 1) {
-            randomizeWalls()
-            self.h4i.image = tileImage
+            h4i.image = randomizeWalls()
         }
         else if (h4p == 2) {
-            randomizeEdges()
-            self.h4i.image = tileImage
+            h4i.image = randomizeEdges()
         }
         else if (h4p == 3) {
             self.h4i.image = UIImage(named: "door-open.png")
@@ -3554,7 +3601,7 @@ class ViewController: UIViewController {
             self.h4i.image = UIImage(named: "down-stairs.png")
         }
         else if (h4p == 7) {
-            self.h4i.image = UIImage(named: "chest.png")
+            self.h4i.image = UIImage(named: "water.png")
         }
         else if (h4p == 9) {
             self.h4i.image = UIImage(named: "candles.png")
@@ -3566,12 +3613,10 @@ class ViewController: UIViewController {
             self.h4i.image = UIImage(named: "stockade.png")
         }
         if (h5p == 1) {
-            randomizeWalls()
-            self.h5i.image = tileImage
+            h5i.image = randomizeWalls()
         }
         else if (h5p == 2) {
-            randomizeEdges()
-            self.h5i.image = tileImage
+            h5i.image = randomizeEdges()
         }
         else if (h5p == 3) {
             self.h5i.image = UIImage(named: "door-open.png")
@@ -3580,7 +3625,7 @@ class ViewController: UIViewController {
             self.h5i.image = UIImage(named: "down-stairs.png")
         }
         else if (h5p == 7) {
-            self.h5i.image = UIImage(named: "chest.png")
+            self.h5i.image = UIImage(named: "water.png")
         }
         else if (h5p == 9) {
             self.h5i.image = UIImage(named: "candles.png")
@@ -3592,12 +3637,10 @@ class ViewController: UIViewController {
             self.h5i.image = UIImage(named: "stockade.png")
         }
         if (h6p == 1) {
-            randomizeWalls()
-            self.h6i.image = tileImage
+            h6i.image = randomizeWalls()
         }
         else if (h6p == 2) {
-            randomizeEdges()
-            self.h6i.image = tileImage
+            h6i.image = randomizeEdges()
         }
         else if (h6p == 3) {
             self.h6i.image = UIImage(named: "door-open.png")
@@ -3606,7 +3649,7 @@ class ViewController: UIViewController {
             self.h6i.image = UIImage(named: "down-stairs.png")
         }
         else if (h6p == 7) {
-            self.h6i.image = UIImage(named: "chest.png")
+            self.h6i.image = UIImage(named: "water.png")
         }
         else if (h6p == 9) {
             self.h6i.image = UIImage(named: "candles.png")
@@ -3618,12 +3661,10 @@ class ViewController: UIViewController {
             self.h6i.image = UIImage(named: "stockade.png")
         }
         if (h7p == 1) {
-            randomizeWalls()
-            self.h7i.image = tileImage
+            h7i.image = randomizeWalls()
         }
         else if (h7p == 2) {
-            randomizeEdges()
-            self.h7i.image = tileImage
+            h7i.image = randomizeEdges()
         }
         else if (h7p == 3) {
             self.h7i.image = UIImage(named: "door-open.png")
@@ -3632,7 +3673,7 @@ class ViewController: UIViewController {
             self.h7i.image = UIImage(named: "down-stairs.png")
         }
         else if (h7p == 7) {
-            self.h7i.image = UIImage(named: "chest.png")
+            self.h7i.image = UIImage(named: "water.png")
         }
         else if (h7p == 9) {
             self.h7i.image = UIImage(named: "candles.png")
@@ -3644,12 +3685,10 @@ class ViewController: UIViewController {
             self.h7i.image = UIImage(named: "stockade.png")
         }
         if (h8p == 1) {
-            randomizeWalls()
-            self.h8i.image = tileImage
+            h8i.image = randomizeWalls()
         }
         else if (h8p == 2) {
-            randomizeEdges()
-            self.h8i.image = tileImage
+            h8i.image = randomizeEdges()
         }
         else if (h8p == 3) {
             self.h8i.image = UIImage(named: "door-open.png")
@@ -3661,7 +3700,7 @@ class ViewController: UIViewController {
             self.h8i.image = UIImage(named: "web-lower-right.png")
         }
         else if (h8p == 7) {
-            self.h8i.image = UIImage(named: "chest.png")
+            self.h8i.image = UIImage(named: "water.png")
         }
         else if (h8p == 9) {
             self.h8i.image = UIImage(named: "candles.png")
@@ -3673,12 +3712,10 @@ class ViewController: UIViewController {
             self.h8i.image = UIImage(named: "stockade.png")
         }
         if (h9p == 1) {
-            randomizeWalls()
-            self.h9i.image = tileImage
+            h9i.image = randomizeWalls()
         }
         else if (h9p == 2) {
-            randomizeEdges()
-            self.h9i.image = tileImage
+            h9i.image = randomizeEdges()
         }
         else if (h9p == 3) {
             self.h9i.image = UIImage(named: "door-open.png")
@@ -3687,7 +3724,7 @@ class ViewController: UIViewController {
             self.h9i.image = UIImage(named: "down-stairs.png")
         }
         else if (h9p == 7) {
-            self.h9i.image = UIImage(named: "chest.png")
+            self.h9i.image = UIImage(named: "water.png")
         }
         else if (h9p == 9) {
             self.h9i.image = UIImage(named: "candles.png")
@@ -5154,14 +5191,53 @@ class ViewController: UIViewController {
         if (en1x == playerX) {
             if ((en1y - playerY) == 1 || (playerY - en1y) == 1) {
                 en1e = true
-                print("You've encountered an enemy!")
+                enemyEncounter()
             }
         }
         else if (en1y == playerY) {
             if ((en1x - playerX) == 1 || (playerX - en1x) == 1) {
                 en1e = true
-                print("You've encountered an enemy!")
+                enemyEncounter()
             }
+        }
+    }
+    
+    func enemyEncounter() {
+        self.gridView.shake()
+        moveEnabled = false
+        playerHealth = playerHealth - 1
+        if (playerHealth > 0) {
+            let triggerTime = (Int64(NSEC_PER_SEC) * 1)
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+                self.revealMessage()
+            })
+        }
+        else {
+            self.player.image = UIImage(named: "body.png")
+            let triggerTime = (Int64(NSEC_PER_SEC) * 1)
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+                self.revealEnd()
+            })
+        }
+        killEnemy()
+    }
+    
+    func revealMessage() {
+        UIView.animateWithDuration(animationSpeed) {
+            self.messageView.alpha = 1
+        }
+    }
+    
+    func revealEnd() {
+        UIView.animateWithDuration(animationSpeed) {
+            self.endView.alpha = 1
+        }
+    }
+    
+    func killEnemy() {
+        en1h = 0
+        UIView.animateWithDuration(animationSpeed) {
+            self.en1i.alpha = 0
         }
     }
     
@@ -6208,6 +6284,8 @@ class ViewController: UIViewController {
                 temp = temp - 1
             }
         }
+        
+        checkEnemyEncounter()
     }
 
     override func viewDidLoad() {
@@ -6220,6 +6298,10 @@ class ViewController: UIViewController {
         self.titleLabel.font = UIFont(name: "Kharon4av01", size: 32)
         self.musicToggleLabel.font = UIFont(name: "Kharon4av01", size: 16)
         self.needHelpLabel.font = UIFont(name: "Kharon4av01", size: 16)
+        self.messageText.font = UIFont(name: "Kharon4av01", size: 16)
+        
+        self.messageView.alpha = 0
+        self.endView.alpha = 0
         
         generateNew()
     }

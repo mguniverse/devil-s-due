@@ -33,6 +33,29 @@
 		D47ED1271CE024B200956779 /* orb.png in Resources */ = {isa = PBXBuildFile; fileRef = D47ED1221CE024B200956779 /* orb.png */; };
 		D47ED1281CE024B200956779 /* ring.png in Resources */ = {isa = PBXBuildFile; fileRef = D47ED1231CE024B200956779 /* ring.png */; };
 		D47ED1291CE024B200956779 /* tome.png in Resources */ = {isa = PBXBuildFile; fileRef = D47ED1241CE024B200956779 /* tome.png */; };
+		D484DC061D7C0A7900699104 /* RandomWalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484DC051D7C0A7900699104 /* RandomWalls.swift */; };
+		D484DC081D7C12F600699104 /* RandomEdges.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484DC071D7C12F600699104 /* RandomEdges.swift */; };
+		D484DC0B1D7CC04200699104 /* cracked-stone-faded.png in Resources */ = {isa = PBXBuildFile; fileRef = D484DC091D7CC04200699104 /* cracked-stone-faded.png */; };
+		D484DC0C1D7CC04200699104 /* cracked-stone.png in Resources */ = {isa = PBXBuildFile; fileRef = D484DC0A1D7CC04200699104 /* cracked-stone.png */; };
+		D484DC101D7D020700699104 /* door-rubble.png in Resources */ = {isa = PBXBuildFile; fileRef = D484DC0D1D7D020700699104 /* door-rubble.png */; };
+		D484DC111D7D020700699104 /* end-door-open.png in Resources */ = {isa = PBXBuildFile; fileRef = D484DC0E1D7D020700699104 /* end-door-open.png */; };
+		D484DC121D7D020700699104 /* end-door.png in Resources */ = {isa = PBXBuildFile; fileRef = D484DC0F1D7D020700699104 /* end-door.png */; };
+		D484DC141D7D020E00699104 /* spider.png in Resources */ = {isa = PBXBuildFile; fileRef = D484DC131D7D020E00699104 /* spider.png */; };
+		D484DC161D7D021C00699104 /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = D484DC151D7D021C00699104 /* water.png */; };
+		D484DC181D7D238C00699104 /* relic-display.png in Resources */ = {isa = PBXBuildFile; fileRef = D484DC171D7D238C00699104 /* relic-display.png */; };
+		D484DC1D1D7D35BC00699104 /* giant.png in Resources */ = {isa = PBXBuildFile; fileRef = D484DC191D7D35BC00699104 /* giant.png */; };
+		D484DC1E1D7D35BC00699104 /* king-cobra.png in Resources */ = {isa = PBXBuildFile; fileRef = D484DC1A1D7D35BC00699104 /* king-cobra.png */; };
+		D484DC1F1D7D35BC00699104 /* pyromancer.png in Resources */ = {isa = PBXBuildFile; fileRef = D484DC1B1D7D35BC00699104 /* pyromancer.png */; };
+		D484DC201D7D35BC00699104 /* sorceress.png in Resources */ = {isa = PBXBuildFile; fileRef = D484DC1C1D7D35BC00699104 /* sorceress.png */; };
+		D484DC271D7D3C2900699104 /* cave-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D484DC211D7D3C2900699104 /* cave-1.png */; };
+		D484DC281D7D3C2900699104 /* cave-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D484DC221D7D3C2900699104 /* cave-2.png */; };
+		D484DC291D7D3C2900699104 /* cave-3.png in Resources */ = {isa = PBXBuildFile; fileRef = D484DC231D7D3C2900699104 /* cave-3.png */; };
+		D484DC2A1D7D3C2900699104 /* cave-4.png in Resources */ = {isa = PBXBuildFile; fileRef = D484DC241D7D3C2900699104 /* cave-4.png */; };
+		D484DC2B1D7D3C2900699104 /* cave-door-closed.png in Resources */ = {isa = PBXBuildFile; fileRef = D484DC251D7D3C2900699104 /* cave-door-closed.png */; };
+		D484DC2C1D7D3C2900699104 /* cave-door.png in Resources */ = {isa = PBXBuildFile; fileRef = D484DC261D7D3C2900699104 /* cave-door.png */; };
+		D484DC2E1D7D5D2500699104 /* boat.png in Resources */ = {isa = PBXBuildFile; fileRef = D484DC2D1D7D5D2500699104 /* boat.png */; };
+		D484DC301D7DE47700699104 /* relic-display-empty.png in Resources */ = {isa = PBXBuildFile; fileRef = D484DC2F1D7DE47700699104 /* relic-display-empty.png */; };
+		D484DC321D7E06BD00699104 /* ScreenShake.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484DC311D7E06BD00699104 /* ScreenShake.swift */; };
 		D494DA911CB9BBED006938DE /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = D494DA901CB9BBED006938DE /* iTunesArtwork.png */; };
 		D4AC95CF1D797D5700145292 /* hero-flicker.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AC95CE1D797D5700145292 /* hero-flicker.png */; };
 		D4B0A4241C97DBD6002ED642 /* web-upper-left.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B0A4221C97DBD6002ED642 /* web-upper-left.png */; };
@@ -119,6 +142,29 @@
 		D47ED1221CE024B200956779 /* orb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orb.png; sourceTree = "<group>"; };
 		D47ED1231CE024B200956779 /* ring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ring.png; sourceTree = "<group>"; };
 		D47ED1241CE024B200956779 /* tome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tome.png; sourceTree = "<group>"; };
+		D484DC051D7C0A7900699104 /* RandomWalls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomWalls.swift; sourceTree = "<group>"; };
+		D484DC071D7C12F600699104 /* RandomEdges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomEdges.swift; sourceTree = "<group>"; };
+		D484DC091D7CC04200699104 /* cracked-stone-faded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cracked-stone-faded.png"; sourceTree = "<group>"; };
+		D484DC0A1D7CC04200699104 /* cracked-stone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cracked-stone.png"; sourceTree = "<group>"; };
+		D484DC0D1D7D020700699104 /* door-rubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "door-rubble.png"; sourceTree = "<group>"; };
+		D484DC0E1D7D020700699104 /* end-door-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "end-door-open.png"; sourceTree = "<group>"; };
+		D484DC0F1D7D020700699104 /* end-door.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "end-door.png"; sourceTree = "<group>"; };
+		D484DC131D7D020E00699104 /* spider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spider.png; sourceTree = "<group>"; };
+		D484DC151D7D021C00699104 /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water.png; sourceTree = "<group>"; };
+		D484DC171D7D238C00699104 /* relic-display.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "relic-display.png"; sourceTree = "<group>"; };
+		D484DC191D7D35BC00699104 /* giant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = giant.png; sourceTree = "<group>"; };
+		D484DC1A1D7D35BC00699104 /* king-cobra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "king-cobra.png"; sourceTree = "<group>"; };
+		D484DC1B1D7D35BC00699104 /* pyromancer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pyromancer.png; sourceTree = "<group>"; };
+		D484DC1C1D7D35BC00699104 /* sorceress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sorceress.png; sourceTree = "<group>"; };
+		D484DC211D7D3C2900699104 /* cave-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cave-1.png"; sourceTree = "<group>"; };
+		D484DC221D7D3C2900699104 /* cave-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cave-2.png"; sourceTree = "<group>"; };
+		D484DC231D7D3C2900699104 /* cave-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cave-3.png"; sourceTree = "<group>"; };
+		D484DC241D7D3C2900699104 /* cave-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cave-4.png"; sourceTree = "<group>"; };
+		D484DC251D7D3C2900699104 /* cave-door-closed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cave-door-closed.png"; sourceTree = "<group>"; };
+		D484DC261D7D3C2900699104 /* cave-door.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cave-door.png"; sourceTree = "<group>"; };
+		D484DC2D1D7D5D2500699104 /* boat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boat.png; sourceTree = "<group>"; };
+		D484DC2F1D7DE47700699104 /* relic-display-empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "relic-display-empty.png"; sourceTree = "<group>"; };
+		D484DC311D7E06BD00699104 /* ScreenShake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenShake.swift; sourceTree = "<group>"; };
 		D494DA901CB9BBED006938DE /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		D4AC95CE1D797D5700145292 /* hero-flicker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hero-flicker.png"; sourceTree = "<group>"; };
 		D4B0A4221C97DBD6002ED642 /* web-upper-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web-upper-left.png"; sourceTree = "<group>"; };
@@ -236,6 +282,9 @@
 			children = (
 				D4EBCE0E1C950EEB003C69A2 /* AppDelegate.swift */,
 				D4EBCE101C950EEB003C69A2 /* ViewController.swift */,
+				D484DC051D7C0A7900699104 /* RandomWalls.swift */,
+				D484DC071D7C12F600699104 /* RandomEdges.swift */,
+				D484DC311D7E06BD00699104 /* ScreenShake.swift */,
 				D4EBCE121C950EEB003C69A2 /* Main.storyboard */,
 				D4EBCE151C950EEB003C69A2 /* Assets.xcassets */,
 				D4EBCE171C950EEB003C69A2 /* LaunchScreen.storyboard */,
@@ -281,6 +330,16 @@
 		D4EBCE3D1C9519E1003C69A2 /* Terrain */ = {
 			isa = PBXGroup;
 			children = (
+				D484DC2D1D7D5D2500699104 /* boat.png */,
+				D484DC211D7D3C2900699104 /* cave-1.png */,
+				D484DC221D7D3C2900699104 /* cave-2.png */,
+				D484DC231D7D3C2900699104 /* cave-3.png */,
+				D484DC241D7D3C2900699104 /* cave-4.png */,
+				D484DC251D7D3C2900699104 /* cave-door-closed.png */,
+				D484DC261D7D3C2900699104 /* cave-door.png */,
+				D484DC151D7D021C00699104 /* water.png */,
+				D484DC091D7CC04200699104 /* cracked-stone-faded.png */,
+				D484DC0A1D7CC04200699104 /* cracked-stone.png */,
 				D47D101A1CB221860023BA19 /* body.png */,
 				D47D101B1CB221860023BA19 /* candles.png */,
 				D47D101C1CB221860023BA19 /* fallen-angel.png */,
@@ -305,6 +364,9 @@
 				D4EBCE4C1C951D16003C69A2 /* door-gate.png */,
 				D4EBCE4D1C951D16003C69A2 /* door-open.png */,
 				D4EBCE4E1C951D16003C69A2 /* down-stairs.png */,
+				D484DC0D1D7D020700699104 /* door-rubble.png */,
+				D484DC0E1D7D020700699104 /* end-door-open.png */,
+				D484DC0F1D7D020700699104 /* end-door.png */,
 				D4EBCE4F1C951D16003C69A2 /* stones.png */,
 				D4EBCE3F1C9519E1003C69A2 /* wall-1.png */,
 				D4EBCE401C9519E1003C69A2 /* wall-2.png */,
@@ -334,6 +396,8 @@
 		D4EBCE671C9523A2003C69A2 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				D484DC171D7D238C00699104 /* relic-display.png */,
+				D484DC2F1D7DE47700699104 /* relic-display-empty.png */,
 				D4CF98451D6E9E5F0010BFB9 /* KHARB___.TTF */,
 				D4CF98461D6E9E5F0010BFB9 /* kharon.ttf */,
 				D4CF98441D6E9DE50010BFB9 /* Blokus.otf */,
@@ -349,6 +413,7 @@
 		D4EBCE741C96049F003C69A2 /* Enemies */ = {
 			isa = PBXGroup;
 			children = (
+				D484DC131D7D020E00699104 /* spider.png */,
 				D45259471D76D30300944544 /* cobra-1.png */,
 				D45259481D76D30300944544 /* cobra-2.png */,
 				D45259371D76D2E600944544 /* crab.png */,
@@ -358,6 +423,10 @@
 				D452593C1D76D2E600944544 /* husk.png */,
 				D452593D1D76D2E600944544 /* skeleton.png */,
 				D452593E1D76D2E600944544 /* werewolf.png */,
+				D484DC191D7D35BC00699104 /* giant.png */,
+				D484DC1A1D7D35BC00699104 /* king-cobra.png */,
+				D484DC1B1D7D35BC00699104 /* pyromancer.png */,
+				D484DC1C1D7D35BC00699104 /* sorceress.png */,
 			);
 			path = Enemies;
 			sourceTree = "<group>";
@@ -475,17 +544,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D484DC111D7D020700699104 /* end-door-open.png in Resources */,
 				D4EBCE191C950EEB003C69A2 /* LaunchScreen.storyboard in Resources */,
 				D47ED1291CE024B200956779 /* tome.png in Resources */,
+				D484DC201D7D35BC00699104 /* sorceress.png in Resources */,
 				D47D10201CB221860023BA19 /* body.png in Resources */,
 				D47D10251CB221860023BA19 /* weeds.png in Resources */,
+				D484DC2B1D7D3C2900699104 /* cave-door-closed.png in Resources */,
 				D47ED1271CE024B200956779 /* orb.png in Resources */,
 				D4EBCE711C955141003C69A2 /* bricks-2.png in Resources */,
+				D484DC121D7D020700699104 /* end-door.png in Resources */,
 				D4EBCE581C952013003C69A2 /* web-lower-left.png in Resources */,
 				D4B0A4291C97F000002ED642 /* chest.png in Resources */,
 				D4EBCE521C951D16003C69A2 /* down-stairs.png in Resources */,
 				D45259401D76D2E600944544 /* fallen-angel.png in Resources */,
 				D47ED11C1CE017EF00956779 /* alert-window.png in Resources */,
+				D484DC301D7DE47700699104 /* relic-display-empty.png in Resources */,
 				D4EBCE7E1C9604D1003C69A2 /* pillar-2.png in Resources */,
 				D4EBCE161C950EEB003C69A2 /* Assets.xcassets in Resources */,
 				D4EBCE641C952203003C69A2 /* hero-4.png in Resources */,
@@ -496,19 +570,27 @@
 				D4EBCE481C9519E1003C69A2 /* wall-3.png in Resources */,
 				D47D10231CB221860023BA19 /* shrub.png in Resources */,
 				D4EBCE141C950EEB003C69A2 /* Main.storyboard in Resources */,
+				D484DC1E1D7D35BC00699104 /* king-cobra.png in Resources */,
 				D47ED1261CE024B200956779 /* money.png in Resources */,
 				D4B0A4241C97DBD6002ED642 /* web-upper-left.png in Resources */,
 				D45259421D76D2E600944544 /* hero-veil.png in Resources */,
+				D484DC291D7D3C2900699104 /* cave-3.png in Resources */,
+				D484DC141D7D020E00699104 /* spider.png in Resources */,
 				D4EBCE7C1C9604D1003C69A2 /* floor-cracks.png in Resources */,
+				D484DC1F1D7D35BC00699104 /* pyromancer.png in Resources */,
 				D43726831D737E0E0044E9E3 /* kharon.ttf in Resources */,
+				D484DC1D1D7D35BC00699104 /* giant.png in Resources */,
 				D47D10241CB221860023BA19 /* stockade.png in Resources */,
+				D484DC281D7D3C2900699104 /* cave-2.png in Resources */,
 				D47ED1281CE024B200956779 /* ring.png in Resources */,
 				D45259441D76D2E600944544 /* husk.png in Resources */,
+				D484DC0C1D7CC04200699104 /* cracked-stone.png in Resources */,
 				D4EBCE4A1C9519E1003C69A2 /* wall-5.png in Resources */,
 				D4B0A4281C97F000002ED642 /* chest-open.png in Resources */,
 				D4EBCE461C9519E1003C69A2 /* wall-1.png in Resources */,
 				D4EBCE501C951D16003C69A2 /* door-gate.png in Resources */,
 				D4EBCE701C955141003C69A2 /* bricks-1.png in Resources */,
+				D484DC101D7D020700699104 /* door-rubble.png in Resources */,
 				D4AC95CF1D797D5700145292 /* hero-flicker.png in Resources */,
 				D43726851D737E0E0044E9E3 /* clew_hand_8.ttf in Resources */,
 				D4EBCE591C952013003C69A2 /* web-lower-right.png in Resources */,
@@ -517,12 +599,14 @@
 				D43726821D737E0E0044E9E3 /* KHARB___.TTF in Resources */,
 				D4EBCE731C955141003C69A2 /* bricks-4.png in Resources */,
 				D4EBCE631C952203003C69A2 /* hero-3.png in Resources */,
+				D484DC161D7D021C00699104 /* water.png in Resources */,
 				D4EBCE6B1C954F5F003C69A2 /* container.png in Resources */,
 				D4EBCE491C9519E1003C69A2 /* wall-4.png in Resources */,
 				D4EBCE4B1C9519E1003C69A2 /* wall-6.png in Resources */,
 				D494DA911CB9BBED006938DE /* iTunesArtwork.png in Resources */,
 				D45259411D76D2E600944544 /* glider.png in Resources */,
 				D4EBCE651C952203003C69A2 /* hero-5.png in Resources */,
+				D484DC0B1D7CC04200699104 /* cracked-stone-faded.png in Resources */,
 				D4EBCE691C9523A2003C69A2 /* heart.png in Resources */,
 				D4EBCE611C952203003C69A2 /* hero-1.png in Resources */,
 				D4B0A4251C97DBD6002ED642 /* web-upper-right.png in Resources */,
@@ -530,12 +614,17 @@
 				D4EBCE661C952203003C69A2 /* hero-6.png in Resources */,
 				D47ED1251CE024B200956779 /* crown.png in Resources */,
 				D4EBCE511C951D16003C69A2 /* door-open.png in Resources */,
+				D484DC2C1D7D3C2900699104 /* cave-door.png in Resources */,
 				D4EBCE531C951D16003C69A2 /* stones.png in Resources */,
 				D45259431D76D2E600944544 /* husk-hunch.png in Resources */,
 				D4EBCE7D1C9604D1003C69A2 /* pillar-1.png in Resources */,
 				D47D10221CB221860023BA19 /* fallen-angel.png in Resources */,
+				D484DC2A1D7D3C2900699104 /* cave-4.png in Resources */,
 				D4EBCE721C955141003C69A2 /* bricks-3.png in Resources */,
 				D4EBCE831C9629DB003C69A2 /* pot.png in Resources */,
+				D484DC2E1D7D5D2500699104 /* boat.png in Resources */,
+				D484DC271D7D3C2900699104 /* cave-1.png in Resources */,
+				D484DC181D7D238C00699104 /* relic-display.png in Resources */,
 				D452593F1D76D2E600944544 /* crab.png in Resources */,
 				D43726841D737E0E0044E9E3 /* Blokus.otf in Resources */,
 				D4EBCE621C952203003C69A2 /* hero-2.png in Resources */,
@@ -564,6 +653,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D484DC321D7E06BD00699104 /* ScreenShake.swift in Sources */,
+				D484DC061D7C0A7900699104 /* RandomWalls.swift in Sources */,
+				D484DC081D7C12F600699104 /* RandomEdges.swift in Sources */,
 				D4EBCE111C950EEB003C69A2 /* ViewController.swift in Sources */,
 				D4EBCE0F1C950EEB003C69A2 /* AppDelegate.swift in Sources */,
 			);
