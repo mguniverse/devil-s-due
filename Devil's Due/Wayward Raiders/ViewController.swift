@@ -930,451 +930,454 @@ class ViewController: UIViewController {
         let myYValue:Int = Int(row)
         en1y = (myYValue) + 1
         
-        if (row == 0) {
-            if (column == 0) {
-                if (a1p == 0) {
-                    self.en1i.center = CGPoint(x: self.a1i.center.x, y: self.a1i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 1) {
-                if (a2p == 0) {
-                    self.en1i.center = CGPoint(x: self.a2i.center.x, y: self.a2i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 2) {
-                if (a3p == 0) {
-                    self.en1i.center = CGPoint(x: self.a3i.center.x, y: self.a3i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 3) {
-                if (a4p == 0) {
-                    self.en1i.center = CGPoint(x: self.a4i.center.x, y: self.a4i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 4) {
-                if (a5p == 0) {
-                    self.en1i.center = CGPoint(x: self.a5i.center.x, y: self.a5i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 5) {
-                if (a6p == 0) {
-                    self.en1i.center = CGPoint(x: self.a6i.center.x, y: self.a6i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 6) {
-                if (a7p == 0) {
-                    self.en1i.center = CGPoint(x: self.a7i.center.x, y: self.a7i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 7) {
-                if (a8p == 0) {
-                    self.en1i.center = CGPoint(x: self.a8i.center.x, y: self.a8i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 8) {
-                if (a9p == 0) {
-                    self.en1i.center = CGPoint(x: self.a9i.center.x, y: self.a9i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-        }
-        if (row == 1) {
-            if (column == 0) {
-                if (b1p == 0) {
-                    self.en1i.center = CGPoint(x: self.b1i.center.x, y: self.b1i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 1) {
-                if (b2p == 0) {
-                    self.en1i.center = CGPoint(x: self.b2i.center.x, y: self.b2i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 2) {
-                if (b3p == 0) {
-                    self.en1i.center = CGPoint(x: self.b3i.center.x, y: self.b3i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 3) {
-                if (b4p == 0) {
-                    self.en1i.center = CGPoint(x: self.b4i.center.x, y: self.b4i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 4) {
-                if (b5p == 0) {
-                    self.en1i.center = CGPoint(x: self.b5i.center.x, y: self.b5i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 5) {
-                if (b6p == 0) {
-                    self.en1i.center = CGPoint(x: self.b6i.center.x, y: self.b6i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 6) {
-                if (b7p == 0) {
-                    self.en1i.center = CGPoint(x: self.b7i.center.x, y: self.b7i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 7) {
-                if (b8p == 0) {
-                    self.en1i.center = CGPoint(x: self.b8i.center.x, y: self.b8i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 8) {
-                if (b9p == 0) {
-                    self.en1i.center = CGPoint(x: self.b9i.center.x, y: self.b9i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-        }
-        if (row == 2) {
-            if (column == 0) {
-                if (c1p == 0) {
-                    self.en1i.center = CGPoint(x: self.c1i.center.x, y: self.c1i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 1) {
-                if (c2p == 0) {
-                    self.en1i.center = CGPoint(x: self.c2i.center.x, y: self.c2i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 2) {
-                if (c3p == 0) {
-                    self.en1i.center = CGPoint(x: self.c3i.center.x, y: self.c3i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 3) {
-                if (c4p == 0) {
-                    self.en1i.center = CGPoint(x: self.c4i.center.x, y: self.c4i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 4) {
-                if (c5p == 0) {
-                    self.en1i.center = CGPoint(x: self.c5i.center.x, y: self.c5i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 5) {
-                if (c6p == 0) {
-                    self.en1i.center = CGPoint(x: self.c6i.center.x, y: self.c6i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 6) {
-                if (c7p == 0) {
-                    self.en1i.center = CGPoint(x: self.c7i.center.x, y: self.c7i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 7) {
-                if (c8p == 0) {
-                    self.en1i.center = CGPoint(x: self.c8i.center.x, y: self.c8i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 8) {
-                if (c9p == 0) {
-                    self.en1i.center = CGPoint(x: self.c9i.center.x, y: self.c9i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-        }
-        if (row == 3) {
-            if (column == 0) {
-                if (d1p == 0) {
-                    self.en1i.center = CGPoint(x: self.d1i.center.x, y: self.d1i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 1) {
-                if (d2p == 0) {
-                    self.en1i.center = CGPoint(x: self.d2i.center.x, y: self.d2i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 2) {
-                if (d3p == 0) {
-                    self.en1i.center = CGPoint(x: self.d3i.center.x, y: self.d3i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 3) {
-                if (d4p == 0) {
-                    self.en1i.center = CGPoint(x: self.d4i.center.x, y: self.d4i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 4) {
-                if (d5p == 0) {
-                    self.en1i.center = CGPoint(x: self.d5i.center.x, y: self.d5i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 5) {
-                if (d6p == 0) {
-                    self.en1i.center = CGPoint(x: self.d6i.center.x, y: self.d6i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 6) {
-                if (d7p == 0) {
-                    self.en1i.center = CGPoint(x: self.d7i.center.x, y: self.d7i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 7) {
-                if (d8p == 0) {
-                    self.en1i.center = CGPoint(x: self.d8i.center.x, y: self.d8i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 8) {
-                if (d9p == 0) {
-                    self.en1i.center = CGPoint(x: self.d9i.center.x, y: self.d9i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-        }
-        if (row == 4) {
-            if (column == 0) {
-                if (e1p == 0) {
-                    self.en1i.center = CGPoint(x: self.e1i.center.x, y: self.e1i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 1) {
-                if (e2p == 0) {
-                    self.en1i.center = CGPoint(x: self.e2i.center.x, y: self.e2i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 2) {
-                if (e3p == 0) {
-                    self.en1i.center = CGPoint(x: self.e3i.center.x, y: self.e3i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 3) {
-                if (e4p == 0) {
-                    self.en1i.center = CGPoint(x: self.e4i.center.x, y: self.e4i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 4) {
-                if (e5p == 0) {
-                    self.en1i.center = CGPoint(x: self.e5i.center.x, y: self.e5i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 5) {
-                if (e6p == 0) {
-                    self.en1i.center = CGPoint(x: self.e6i.center.x, y: self.e6i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 6) {
-                if (e7p == 0) {
-                    self.en1i.center = CGPoint(x: self.e7i.center.x, y: self.e7i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 7) {
-                if (e8p == 0) {
-                    self.en1i.center = CGPoint(x: self.e8i.center.x, y: self.e8i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 8) {
-                if (e9p == 0) {
-                    self.en1i.center = CGPoint(x: self.e9i.center.x, y: self.e9i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-        }
-        if (row == 5) {
-            if (column == 0) {
-                if (f1p == 0) {
-                    self.en1i.center = CGPoint(x: self.f1i.center.x, y: self.f1i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 1) {
-                if (f2p == 0) {
-                    self.en1i.center = CGPoint(x: self.f2i.center.x, y: self.f2i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 2) {
-                if (f3p == 0) {
-                    self.en1i.center = CGPoint(x: self.f3i.center.x, y: self.f3i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 3) {
-                if (f4p == 0) {
-                    self.en1i.center = CGPoint(x: self.f4i.center.x, y: self.f4i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 4) {
-                if (f5p == 0) {
-                    self.en1i.center = CGPoint(x: self.f5i.center.x, y: self.f5i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 5) {
-                if (f6p == 0) {
-                    self.en1i.center = CGPoint(x: self.f6i.center.x, y: self.f6i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 6) {
-                if (f7p == 0) {
-                    self.en1i.center = CGPoint(x: self.f7i.center.x, y: self.f7i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 7) {
-                if (f8p == 0) {
-                    self.en1i.center = CGPoint(x: self.f8i.center.x, y: self.f8i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 8) {
-                if (f9p == 0) {
-                    self.en1i.center = CGPoint(x: self.f9i.center.x, y: self.f9i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-        }
-        if (row == 6) {
-            if (column == 0) {
-                if (g1p == 0) {
-                    self.en1i.center = CGPoint(x: self.g1i.center.x, y: self.g1i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 1) {
-                if (g2p == 0) {
-                    self.en1i.center = CGPoint(x: self.g2i.center.x, y: self.g2i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 2) {
-                if (g3p == 0) {
-                    self.en1i.center = CGPoint(x: self.g3i.center.x, y: self.g3i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 3) {
-                if (g4p == 0) {
-                    self.en1i.center = CGPoint(x: self.g4i.center.x, y: self.g4i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 4) {
-                if (g5p == 0) {
-                    self.en1i.center = CGPoint(x: self.g5i.center.x, y: self.g5i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 5) {
-                if (g6p == 0) {
-                    self.en1i.center = CGPoint(x: self.g6i.center.x, y: self.g6i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 6) {
-                if (g7p == 0) {
-                    self.en1i.center = CGPoint(x: self.g7i.center.x, y: self.g7i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 7) {
-                if (g8p == 0) {
-                    self.en1i.center = CGPoint(x: self.g8i.center.x, y: self.g8i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 8) {
-                if (g9p == 0) {
-                    self.en1i.center = CGPoint(x: self.g9i.center.x, y: self.g9i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-        }
-        if (row == 7) {
-            if (column == 0) {
-                if (h1p == 0) {
-                    self.en1i.center = CGPoint(x: self.h1i.center.x, y: self.h1i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 1) {
-                if (h2p == 0) {
-                    self.en1i.center = CGPoint(x: self.h2i.center.x, y: self.h2i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 2) {
-                if (h3p == 0) {
-                    self.en1i.center = CGPoint(x: self.h3i.center.x, y: self.h3i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 3) {
-                if (h4p == 0) {
-                    self.en1i.center = CGPoint(x: self.h4i.center.x, y: self.h4i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 4) {
-                if (h5p == 0) {
-                    self.en1i.center = CGPoint(x: self.h5i.center.x, y: self.h5i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 5) {
-                if (h6p == 0) {
-                    self.en1i.center = CGPoint(x: self.h6i.center.x, y: self.h6i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 6) {
-                if (h7p == 0) {
-                    self.en1i.center = CGPoint(x: self.h7i.center.x, y: self.h7i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 7) {
-                if (h8p == 0) {
-                    self.en1i.center = CGPoint(x: self.h8i.center.x, y: self.h8i.center.y)
-                    pieces = pieces - 1
-                }
-            }
-            if (column == 8) {
-                if (h9p == 0) {
-                    self.en1i.center = CGPoint(x: self.h9i.center.x, y: self.h9i.center.y)
-                    pieces = pieces - 1
+        //we need to make sure the enemy does not spawn right next to the player
+        if (en1x != playerX && en1y != playerY) {
+            if (row == 0) {
+                if (column == 0) {
+                    if (a1p == 0) {
+                        self.en1i.center = CGPoint(x: self.a1i.center.x, y: self.a1i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 1) {
+                    if (a2p == 0) {
+                        self.en1i.center = CGPoint(x: self.a2i.center.x, y: self.a2i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 2) {
+                    if (a3p == 0) {
+                        self.en1i.center = CGPoint(x: self.a3i.center.x, y: self.a3i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 3) {
+                    if (a4p == 0) {
+                        self.en1i.center = CGPoint(x: self.a4i.center.x, y: self.a4i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 4) {
+                    if (a5p == 0) {
+                        self.en1i.center = CGPoint(x: self.a5i.center.x, y: self.a5i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 5) {
+                    if (a6p == 0) {
+                        self.en1i.center = CGPoint(x: self.a6i.center.x, y: self.a6i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 6) {
+                    if (a7p == 0) {
+                        self.en1i.center = CGPoint(x: self.a7i.center.x, y: self.a7i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 7) {
+                    if (a8p == 0) {
+                        self.en1i.center = CGPoint(x: self.a8i.center.x, y: self.a8i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 8) {
+                    if (a9p == 0) {
+                        self.en1i.center = CGPoint(x: self.a9i.center.x, y: self.a9i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+            }
+            if (row == 1) {
+                if (column == 0) {
+                    if (b1p == 0) {
+                        self.en1i.center = CGPoint(x: self.b1i.center.x, y: self.b1i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 1) {
+                    if (b2p == 0) {
+                        self.en1i.center = CGPoint(x: self.b2i.center.x, y: self.b2i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 2) {
+                    if (b3p == 0) {
+                        self.en1i.center = CGPoint(x: self.b3i.center.x, y: self.b3i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 3) {
+                    if (b4p == 0) {
+                        self.en1i.center = CGPoint(x: self.b4i.center.x, y: self.b4i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 4) {
+                    if (b5p == 0) {
+                        self.en1i.center = CGPoint(x: self.b5i.center.x, y: self.b5i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 5) {
+                    if (b6p == 0) {
+                        self.en1i.center = CGPoint(x: self.b6i.center.x, y: self.b6i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 6) {
+                    if (b7p == 0) {
+                        self.en1i.center = CGPoint(x: self.b7i.center.x, y: self.b7i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 7) {
+                    if (b8p == 0) {
+                        self.en1i.center = CGPoint(x: self.b8i.center.x, y: self.b8i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 8) {
+                    if (b9p == 0) {
+                        self.en1i.center = CGPoint(x: self.b9i.center.x, y: self.b9i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+            }
+            if (row == 2) {
+                if (column == 0) {
+                    if (c1p == 0) {
+                        self.en1i.center = CGPoint(x: self.c1i.center.x, y: self.c1i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 1) {
+                    if (c2p == 0) {
+                        self.en1i.center = CGPoint(x: self.c2i.center.x, y: self.c2i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 2) {
+                    if (c3p == 0) {
+                        self.en1i.center = CGPoint(x: self.c3i.center.x, y: self.c3i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 3) {
+                    if (c4p == 0) {
+                        self.en1i.center = CGPoint(x: self.c4i.center.x, y: self.c4i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 4) {
+                    if (c5p == 0) {
+                        self.en1i.center = CGPoint(x: self.c5i.center.x, y: self.c5i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 5) {
+                    if (c6p == 0) {
+                        self.en1i.center = CGPoint(x: self.c6i.center.x, y: self.c6i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 6) {
+                    if (c7p == 0) {
+                        self.en1i.center = CGPoint(x: self.c7i.center.x, y: self.c7i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 7) {
+                    if (c8p == 0) {
+                        self.en1i.center = CGPoint(x: self.c8i.center.x, y: self.c8i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 8) {
+                    if (c9p == 0) {
+                        self.en1i.center = CGPoint(x: self.c9i.center.x, y: self.c9i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+            }
+            if (row == 3) {
+                if (column == 0) {
+                    if (d1p == 0) {
+                        self.en1i.center = CGPoint(x: self.d1i.center.x, y: self.d1i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 1) {
+                    if (d2p == 0) {
+                        self.en1i.center = CGPoint(x: self.d2i.center.x, y: self.d2i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 2) {
+                    if (d3p == 0) {
+                        self.en1i.center = CGPoint(x: self.d3i.center.x, y: self.d3i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 3) {
+                    if (d4p == 0) {
+                        self.en1i.center = CGPoint(x: self.d4i.center.x, y: self.d4i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 4) {
+                    if (d5p == 0) {
+                        self.en1i.center = CGPoint(x: self.d5i.center.x, y: self.d5i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 5) {
+                    if (d6p == 0) {
+                        self.en1i.center = CGPoint(x: self.d6i.center.x, y: self.d6i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 6) {
+                    if (d7p == 0) {
+                        self.en1i.center = CGPoint(x: self.d7i.center.x, y: self.d7i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 7) {
+                    if (d8p == 0) {
+                        self.en1i.center = CGPoint(x: self.d8i.center.x, y: self.d8i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 8) {
+                    if (d9p == 0) {
+                        self.en1i.center = CGPoint(x: self.d9i.center.x, y: self.d9i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+            }
+            if (row == 4) {
+                if (column == 0) {
+                    if (e1p == 0) {
+                        self.en1i.center = CGPoint(x: self.e1i.center.x, y: self.e1i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 1) {
+                    if (e2p == 0) {
+                        self.en1i.center = CGPoint(x: self.e2i.center.x, y: self.e2i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 2) {
+                    if (e3p == 0) {
+                        self.en1i.center = CGPoint(x: self.e3i.center.x, y: self.e3i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 3) {
+                    if (e4p == 0) {
+                        self.en1i.center = CGPoint(x: self.e4i.center.x, y: self.e4i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 4) {
+                    if (e5p == 0) {
+                        self.en1i.center = CGPoint(x: self.e5i.center.x, y: self.e5i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 5) {
+                    if (e6p == 0) {
+                        self.en1i.center = CGPoint(x: self.e6i.center.x, y: self.e6i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 6) {
+                    if (e7p == 0) {
+                        self.en1i.center = CGPoint(x: self.e7i.center.x, y: self.e7i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 7) {
+                    if (e8p == 0) {
+                        self.en1i.center = CGPoint(x: self.e8i.center.x, y: self.e8i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 8) {
+                    if (e9p == 0) {
+                        self.en1i.center = CGPoint(x: self.e9i.center.x, y: self.e9i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+            }
+            if (row == 5) {
+                if (column == 0) {
+                    if (f1p == 0) {
+                        self.en1i.center = CGPoint(x: self.f1i.center.x, y: self.f1i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 1) {
+                    if (f2p == 0) {
+                        self.en1i.center = CGPoint(x: self.f2i.center.x, y: self.f2i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 2) {
+                    if (f3p == 0) {
+                        self.en1i.center = CGPoint(x: self.f3i.center.x, y: self.f3i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 3) {
+                    if (f4p == 0) {
+                        self.en1i.center = CGPoint(x: self.f4i.center.x, y: self.f4i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 4) {
+                    if (f5p == 0) {
+                        self.en1i.center = CGPoint(x: self.f5i.center.x, y: self.f5i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 5) {
+                    if (f6p == 0) {
+                        self.en1i.center = CGPoint(x: self.f6i.center.x, y: self.f6i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 6) {
+                    if (f7p == 0) {
+                        self.en1i.center = CGPoint(x: self.f7i.center.x, y: self.f7i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 7) {
+                    if (f8p == 0) {
+                        self.en1i.center = CGPoint(x: self.f8i.center.x, y: self.f8i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 8) {
+                    if (f9p == 0) {
+                        self.en1i.center = CGPoint(x: self.f9i.center.x, y: self.f9i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+            }
+            if (row == 6) {
+                if (column == 0) {
+                    if (g1p == 0) {
+                        self.en1i.center = CGPoint(x: self.g1i.center.x, y: self.g1i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 1) {
+                    if (g2p == 0) {
+                        self.en1i.center = CGPoint(x: self.g2i.center.x, y: self.g2i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 2) {
+                    if (g3p == 0) {
+                        self.en1i.center = CGPoint(x: self.g3i.center.x, y: self.g3i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 3) {
+                    if (g4p == 0) {
+                        self.en1i.center = CGPoint(x: self.g4i.center.x, y: self.g4i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 4) {
+                    if (g5p == 0) {
+                        self.en1i.center = CGPoint(x: self.g5i.center.x, y: self.g5i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 5) {
+                    if (g6p == 0) {
+                        self.en1i.center = CGPoint(x: self.g6i.center.x, y: self.g6i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 6) {
+                    if (g7p == 0) {
+                        self.en1i.center = CGPoint(x: self.g7i.center.x, y: self.g7i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 7) {
+                    if (g8p == 0) {
+                        self.en1i.center = CGPoint(x: self.g8i.center.x, y: self.g8i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 8) {
+                    if (g9p == 0) {
+                        self.en1i.center = CGPoint(x: self.g9i.center.x, y: self.g9i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+            }
+            if (row == 7) {
+                if (column == 0) {
+                    if (h1p == 0) {
+                        self.en1i.center = CGPoint(x: self.h1i.center.x, y: self.h1i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 1) {
+                    if (h2p == 0) {
+                        self.en1i.center = CGPoint(x: self.h2i.center.x, y: self.h2i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 2) {
+                    if (h3p == 0) {
+                        self.en1i.center = CGPoint(x: self.h3i.center.x, y: self.h3i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 3) {
+                    if (h4p == 0) {
+                        self.en1i.center = CGPoint(x: self.h4i.center.x, y: self.h4i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 4) {
+                    if (h5p == 0) {
+                        self.en1i.center = CGPoint(x: self.h5i.center.x, y: self.h5i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 5) {
+                    if (h6p == 0) {
+                        self.en1i.center = CGPoint(x: self.h6i.center.x, y: self.h6i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 6) {
+                    if (h7p == 0) {
+                        self.en1i.center = CGPoint(x: self.h7i.center.x, y: self.h7i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 7) {
+                    if (h8p == 0) {
+                        self.en1i.center = CGPoint(x: self.h8i.center.x, y: self.h8i.center.y)
+                        pieces = pieces - 1
+                    }
+                }
+                if (column == 8) {
+                    if (h9p == 0) {
+                        self.en1i.center = CGPoint(x: self.h9i.center.x, y: self.h9i.center.y)
+                        pieces = pieces - 1
+                    }
                 }
             }
         }
