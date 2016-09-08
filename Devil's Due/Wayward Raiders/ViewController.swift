@@ -9,18 +9,28 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var progressView: UIProgressView!
     
     func switchView() {
         performSegueWithIdentifier("toGameplay", sender: nil)
+    }
+    
+    func animateProgressBar() {
+        progressView.setProgress(1, animated: true)
+        
+        let triggerTime = (Int64(NSEC_PER_SEC) * 3)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+            self.switchView()
+        })
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let triggerTime = (Int64(NSEC_PER_SEC) * 3)
+        let triggerTime = (Int64(NSEC_PER_SEC) * 1)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-            self.switchView()
+            self.animateProgressBar()
         })
     }
 
