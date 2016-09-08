@@ -410,8 +410,6 @@ class Gameplay: UIViewController {
     
     @IBOutlet weak var tileImage: UIImage!
     
-    @IBOutlet weak var healthLabel: UILabel!
-    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var embarkLabel: UILabel!
     @IBOutlet weak var hsLabel: UILabel!
@@ -6895,7 +6893,6 @@ class Gameplay: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.healthLabel.font = UIFont(name: "Kharon4av01", size: 16)
         self.hsLabel.font = UIFont(name: "Kharon4av01", size: 16)
         self.embarkLabel.font = UIFont(name: "Kharon4av01", size: 16)
         self.titleLabel.font = UIFont(name: "Kharon4av01", size: 32)

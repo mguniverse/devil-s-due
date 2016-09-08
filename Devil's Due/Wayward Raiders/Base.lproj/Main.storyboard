@@ -24,7 +24,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="tK5-jm-T5P">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" id="tK5-jm-T5P">
                                 <rect key="frame" x="52" y="333" width="270" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="progressTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -402,6 +402,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gG6-3o-OQM">
                                         <rect key="frame" x="0.0" y="535" width="375" height="132"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="embark:" destination="Moh-1P-SHW" eventType="touchUpInside" id="v0Y-NY-QHO"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
@@ -421,6 +424,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uLq-EK-Iz8">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="dismissMessage:" destination="Moh-1P-SHW" eventType="touchUpInside" id="vS0-Ib-C3q"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
@@ -445,6 +451,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sCN-DT-UyF">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="dismissEnd:" destination="Moh-1P-SHW" eventType="touchUpInside" id="X83-0C-wPP"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relic-display-empty.png" id="Qbj-bR-obg">
                                         <rect key="frame" x="60" y="454" width="256" height="48"/>
@@ -458,6 +467,9 @@
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="xoZ-e7-ZCx" appends="YES" id="bqo-aJ-m1p"/>
+                            <outletCollection property="gestureRecognizers" destination="mZQ-vn-shN" appends="YES" id="wBE-3G-Fbs"/>
+                            <outletCollection property="gestureRecognizers" destination="V45-Yh-Mh9" appends="YES" id="kaV-xH-BjQ"/>
+                            <outletCollection property="gestureRecognizers" destination="RpA-6J-Cu1" appends="YES" id="wwV-Zf-DfH"/>
                         </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -507,6 +519,7 @@
                         <outlet property="e7i" destination="T7V-Jv-W4W" id="j1c-ae-0xZ"/>
                         <outlet property="e8i" destination="KXT-TD-hAH" id="cg1-VB-yS1"/>
                         <outlet property="e9i" destination="2P9-Hl-XgH" id="BaB-jD-mn1"/>
+                        <outlet property="embarkLabel" destination="KXk-qC-MjM" id="pYp-mS-zoY"/>
                         <outlet property="en1i" destination="T8L-3E-Pkv" id="6hl-7F-At6"/>
                         <outlet property="endText" destination="C8y-Z0-78E" id="icM-AK-pBx"/>
                         <outlet property="endView" destination="ygo-BQ-lWY" id="shn-GG-PtR"/>
@@ -542,6 +555,7 @@
                         <outlet property="messageText" destination="QKS-49-748" id="QOo-bZ-4G6"/>
                         <outlet property="messageView" destination="xYF-vZ-n3Y" id="alc-7x-MEc"/>
                         <outlet property="musicToggleLabel" destination="Rcu-Mh-HMN" id="Lvi-1K-wRn"/>
+                        <outlet property="needHelpLabel" destination="wH9-Rm-gel" id="NOi-6g-Eu4"/>
                         <outlet property="player" destination="oOF-i3-dHj" id="Dco-i2-mni"/>
                         <outlet property="titleLabel" destination="3We-DT-K4P" id="6se-GK-X40"/>
                         <outlet property="titleView" destination="o5N-Qs-4cT" id="GNX-zA-U5Q"/>
