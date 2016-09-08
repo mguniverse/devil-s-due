@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D42B13801D812814007B82CE /* gravedigger.png in Resources */ = {isa = PBXBuildFile; fileRef = D42B137C1D812814007B82CE /* gravedigger.png */; };
+		D42B13811D812814007B82CE /* healer.png in Resources */ = {isa = PBXBuildFile; fileRef = D42B137D1D812814007B82CE /* healer.png */; };
+		D42B13821D812814007B82CE /* jester.png in Resources */ = {isa = PBXBuildFile; fileRef = D42B137E1D812814007B82CE /* jester.png */; };
+		D42B13831D812814007B82CE /* priest.png in Resources */ = {isa = PBXBuildFile; fileRef = D42B137F1D812814007B82CE /* priest.png */; };
+		D42B13851D8128B3007B82CE /* Gameplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42B13841D8128B3007B82CE /* Gameplay.swift */; };
 		D43726821D737E0E0044E9E3 /* KHARB___.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D4CF98451D6E9E5F0010BFB9 /* KHARB___.TTF */; };
 		D43726831D737E0E0044E9E3 /* kharon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4CF98461D6E9E5F0010BFB9 /* kharon.ttf */; };
 		D43726841D737E0E0044E9E3 /* Blokus.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4CF98441D6E9DE50010BFB9 /* Blokus.otf */; };
@@ -21,6 +26,11 @@
 		D45259461D76D2E600944544 /* werewolf.png in Resources */ = {isa = PBXBuildFile; fileRef = D452593E1D76D2E600944544 /* werewolf.png */; };
 		D45259491D76D30300944544 /* cobra-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D45259471D76D30300944544 /* cobra-1.png */; };
 		D452594A1D76D30300944544 /* cobra-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D45259481D76D30300944544 /* cobra-2.png */; };
+		D45F9F5B1D7FE39900C385AF /* wraith.png in Resources */ = {isa = PBXBuildFile; fileRef = D45F9F5A1D7FE39900C385AF /* wraith.png */; };
+		D45F9F5D1D7FEE7700C385AF /* flare.png in Resources */ = {isa = PBXBuildFile; fileRef = D45F9F5C1D7FEE7700C385AF /* flare.png */; };
+		D45F9F5F1D7FF12200C385AF /* necromancer.png in Resources */ = {isa = PBXBuildFile; fileRef = D45F9F5E1D7FF12200C385AF /* necromancer.png */; };
+		D45F9F611D7FF13000C385AF /* leech.png in Resources */ = {isa = PBXBuildFile; fileRef = D45F9F601D7FF13000C385AF /* leech.png */; };
+		D45F9F631D7FF8FE00C385AF /* angel-eye.png in Resources */ = {isa = PBXBuildFile; fileRef = D45F9F621D7FF8FE00C385AF /* angel-eye.png */; };
 		D47D10201CB221860023BA19 /* body.png in Resources */ = {isa = PBXBuildFile; fileRef = D47D101A1CB221860023BA19 /* body.png */; };
 		D47D10211CB221860023BA19 /* candles.png in Resources */ = {isa = PBXBuildFile; fileRef = D47D101B1CB221860023BA19 /* candles.png */; };
 		D47D10221CB221860023BA19 /* fallen-angel.png in Resources */ = {isa = PBXBuildFile; fileRef = D47D101C1CB221860023BA19 /* fallen-angel.png */; };
@@ -120,6 +130,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D42B137C1D812814007B82CE /* gravedigger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gravedigger.png; sourceTree = "<group>"; };
+		D42B137D1D812814007B82CE /* healer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healer.png; sourceTree = "<group>"; };
+		D42B137E1D812814007B82CE /* jester.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jester.png; sourceTree = "<group>"; };
+		D42B137F1D812814007B82CE /* priest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = priest.png; sourceTree = "<group>"; };
+		D42B13841D8128B3007B82CE /* Gameplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gameplay.swift; sourceTree = "<group>"; };
 		D45259371D76D2E600944544 /* crab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crab.png; sourceTree = "<group>"; };
 		D45259381D76D2E600944544 /* fallen-angel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fallen-angel.png"; sourceTree = "<group>"; };
 		D45259391D76D2E600944544 /* glider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glider.png; sourceTree = "<group>"; };
@@ -130,6 +145,11 @@
 		D452593E1D76D2E600944544 /* werewolf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = werewolf.png; sourceTree = "<group>"; };
 		D45259471D76D30300944544 /* cobra-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cobra-1.png"; sourceTree = "<group>"; };
 		D45259481D76D30300944544 /* cobra-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cobra-2.png"; sourceTree = "<group>"; };
+		D45F9F5A1D7FE39900C385AF /* wraith.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wraith.png; sourceTree = "<group>"; };
+		D45F9F5C1D7FEE7700C385AF /* flare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flare.png; sourceTree = "<group>"; };
+		D45F9F5E1D7FF12200C385AF /* necromancer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = necromancer.png; sourceTree = "<group>"; };
+		D45F9F601D7FF13000C385AF /* leech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leech.png; sourceTree = "<group>"; };
+		D45F9F621D7FF8FE00C385AF /* angel-eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angel-eye.png"; sourceTree = "<group>"; };
 		D47D101A1CB221860023BA19 /* body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body.png; sourceTree = "<group>"; };
 		D47D101B1CB221860023BA19 /* candles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = candles.png; sourceTree = "<group>"; };
 		D47D101C1CB221860023BA19 /* fallen-angel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fallen-angel.png"; sourceTree = "<group>"; };
@@ -246,6 +266,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D42B137B1D812814007B82CE /* NPCs */ = {
+			isa = PBXGroup;
+			children = (
+				D42B137C1D812814007B82CE /* gravedigger.png */,
+				D42B137D1D812814007B82CE /* healer.png */,
+				D42B137E1D812814007B82CE /* jester.png */,
+				D42B137F1D812814007B82CE /* priest.png */,
+			);
+			path = NPCs;
+			sourceTree = "<group>";
+		};
 		D47ED11F1CE024B200956779 /* Treasures */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +313,7 @@
 		D4EBCE0D1C950EEB003C69A2 /* Devil's Due */ = {
 			isa = PBXGroup;
 			children = (
+				D42B13841D8128B3007B82CE /* Gameplay.swift */,
 				D4EBCE0E1C950EEB003C69A2 /* AppDelegate.swift */,
 				D4EBCE101C950EEB003C69A2 /* ViewController.swift */,
 				D484DC051D7C0A7900699104 /* RandomWalls.swift */,
@@ -319,6 +351,7 @@
 		D4EBCE3C1C9519E1003C69A2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D42B137B1D812814007B82CE /* NPCs */,
 				D47ED11F1CE024B200956779 /* Treasures */,
 				D4EBCE7F1C9605F1003C69A2 /* Portraits */,
 				D4EBCE741C96049F003C69A2 /* Enemies */,
@@ -416,6 +449,9 @@
 		D4EBCE741C96049F003C69A2 /* Enemies */ = {
 			isa = PBXGroup;
 			children = (
+				D45F9F621D7FF8FE00C385AF /* angel-eye.png */,
+				D45F9F5C1D7FEE7700C385AF /* flare.png */,
+				D45F9F5A1D7FE39900C385AF /* wraith.png */,
 				D484DC131D7D020E00699104 /* spider.png */,
 				D45259471D76D30300944544 /* cobra-1.png */,
 				D45259481D76D30300944544 /* cobra-2.png */,
@@ -430,6 +466,8 @@
 				D484DC1A1D7D35BC00699104 /* king-cobra.png */,
 				D484DC1B1D7D35BC00699104 /* pyromancer.png */,
 				D484DC1C1D7D35BC00699104 /* sorceress.png */,
+				D45F9F5E1D7FF12200C385AF /* necromancer.png */,
+				D45F9F601D7FF13000C385AF /* leech.png */,
 			);
 			path = Enemies;
 			sourceTree = "<group>";
@@ -563,6 +601,7 @@
 				D45259401D76D2E600944544 /* fallen-angel.png in Resources */,
 				D47ED11C1CE017EF00956779 /* alert-window.png in Resources */,
 				D484DC301D7DE47700699104 /* relic-display-empty.png in Resources */,
+				D45F9F631D7FF8FE00C385AF /* angel-eye.png in Resources */,
 				D4EBCE7E1C9604D1003C69A2 /* pillar-2.png in Resources */,
 				D4EBCE161C950EEB003C69A2 /* Assets.xcassets in Resources */,
 				D4EBCE641C952203003C69A2 /* hero-4.png in Resources */,
@@ -574,14 +613,17 @@
 				D47D10231CB221860023BA19 /* shrub.png in Resources */,
 				D4EBCE141C950EEB003C69A2 /* Main.storyboard in Resources */,
 				D484DC1E1D7D35BC00699104 /* king-cobra.png in Resources */,
+				D42B13821D812814007B82CE /* jester.png in Resources */,
 				D47ED1261CE024B200956779 /* money.png in Resources */,
 				D4B0A4241C97DBD6002ED642 /* web-upper-left.png in Resources */,
+				D45F9F611D7FF13000C385AF /* leech.png in Resources */,
 				D45259421D76D2E600944544 /* hero-veil.png in Resources */,
 				D484DC291D7D3C2900699104 /* cave-3.png in Resources */,
 				D484DC141D7D020E00699104 /* spider.png in Resources */,
 				D4EBCE7C1C9604D1003C69A2 /* floor-cracks.png in Resources */,
 				D484DC1F1D7D35BC00699104 /* pyromancer.png in Resources */,
 				D43726831D737E0E0044E9E3 /* kharon.ttf in Resources */,
+				D42B13801D812814007B82CE /* gravedigger.png in Resources */,
 				D484DC1D1D7D35BC00699104 /* giant.png in Resources */,
 				D47D10241CB221860023BA19 /* stockade.png in Resources */,
 				D484DC281D7D3C2900699104 /* cave-2.png in Resources */,
@@ -601,6 +643,7 @@
 				D47D10211CB221860023BA19 /* candles.png in Resources */,
 				D43726821D737E0E0044E9E3 /* KHARB___.TTF in Resources */,
 				D4EBCE731C955141003C69A2 /* bricks-4.png in Resources */,
+				D45F9F5D1D7FEE7700C385AF /* flare.png in Resources */,
 				D4EBCE631C952203003C69A2 /* hero-3.png in Resources */,
 				D484DC161D7D021C00699104 /* water.png in Resources */,
 				D4EBCE6B1C954F5F003C69A2 /* container.png in Resources */,
@@ -609,13 +652,16 @@
 				D494DA911CB9BBED006938DE /* iTunesArtwork.png in Resources */,
 				D45259411D76D2E600944544 /* glider.png in Resources */,
 				D4EBCE651C952203003C69A2 /* hero-5.png in Resources */,
+				D42B13811D812814007B82CE /* healer.png in Resources */,
 				D484DC0B1D7CC04200699104 /* cracked-stone-faded.png in Resources */,
 				D4EBCE691C9523A2003C69A2 /* heart.png in Resources */,
 				D4EBCE611C952203003C69A2 /* hero-1.png in Resources */,
+				D45F9F5F1D7FF12200C385AF /* necromancer.png in Resources */,
 				D4B0A4251C97DBD6002ED642 /* web-upper-right.png in Resources */,
 				D45259451D76D2E600944544 /* skeleton.png in Resources */,
 				D4EBCE661C952203003C69A2 /* hero-6.png in Resources */,
 				D47ED1251CE024B200956779 /* crown.png in Resources */,
+				D45F9F5B1D7FE39900C385AF /* wraith.png in Resources */,
 				D4EBCE511C951D16003C69A2 /* door-open.png in Resources */,
 				D487D4891D7E2B45006FA6B6 /* hero-hover.png in Resources */,
 				D484DC2C1D7D3C2900699104 /* cave-door.png in Resources */,
@@ -626,6 +672,7 @@
 				D484DC2A1D7D3C2900699104 /* cave-4.png in Resources */,
 				D4EBCE721C955141003C69A2 /* bricks-3.png in Resources */,
 				D4EBCE831C9629DB003C69A2 /* pot.png in Resources */,
+				D42B13831D812814007B82CE /* priest.png in Resources */,
 				D484DC2E1D7D5D2500699104 /* boat.png in Resources */,
 				D484DC271D7D3C2900699104 /* cave-1.png in Resources */,
 				D484DC181D7D238C00699104 /* relic-display.png in Resources */,
@@ -658,6 +705,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D484DC321D7E06BD00699104 /* ScreenShake.swift in Sources */,
+				D42B13851D8128B3007B82CE /* Gameplay.swift in Sources */,
 				D484DC061D7C0A7900699104 /* RandomWalls.swift in Sources */,
 				D484DC081D7C12F600699104 /* RandomEdges.swift in Sources */,
 				D4EBCE111C950EEB003C69A2 /* ViewController.swift in Sources */,
