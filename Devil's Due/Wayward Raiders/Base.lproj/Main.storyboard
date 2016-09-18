@@ -13,6 +13,8 @@
             <string>Kharon4av01</string>
             <string>Kharon4av01</string>
             <string>Kharon4av01</string>
+            <string>Kharon4av01</string>
+            <string>Kharon4av01</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -432,6 +434,40 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                             </view>
+                            <view contentMode="scaleToFill" id="PhD-wu-afM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Boots of Persistence; You can now traverse over hazardous obstacles." textAlignment="center" id="1gg-w0-ltx">
+                                        <rect key="frame" x="28" y="305" width="320" height="161"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Kharon4av01" family="Kharon4a_v01" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-- new relic acquired --" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tZd-Zz-Fga">
+                                        <rect key="frame" x="28" y="261" width="320" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" name="Kharon4av01" family="Kharon4a_v01" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="relic-square.png" id="Vfa-sQ-0IV">
+                                        <rect key="frame" x="165" y="198" width="46" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boots.png" id="qmX-g2-Ihe">
+                                        <rect key="frame" x="172" y="198" width="32" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NjC-Sb-IWy">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                            </view>
                             <view contentMode="scaleToFill" id="ygo-BQ-lWY">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -471,6 +507,7 @@
                             <outletCollection property="gestureRecognizers" destination="mZQ-vn-shN" appends="YES" id="wBE-3G-Fbs"/>
                             <outletCollection property="gestureRecognizers" destination="V45-Yh-Mh9" appends="YES" id="kaV-xH-BjQ"/>
                             <outletCollection property="gestureRecognizers" destination="RpA-6J-Cu1" appends="YES" id="wwV-Zf-DfH"/>
+                            <outletCollection property="gestureRecognizers" destination="xLN-Ao-YfR" appends="YES" id="WLc-iO-uyL"/>
                         </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -558,6 +595,9 @@
                         <outlet property="musicToggleLabel" destination="Rcu-Mh-HMN" id="Lvi-1K-wRn"/>
                         <outlet property="needHelpLabel" destination="wH9-Rm-gel" id="NOi-6g-Eu4"/>
                         <outlet property="player" destination="oOF-i3-dHj" id="Dco-i2-mni"/>
+                        <outlet property="relicPreview" destination="qmX-g2-Ihe" id="VOS-we-yzg"/>
+                        <outlet property="relicText" destination="1gg-w0-ltx" id="FiU-VJ-ptT"/>
+                        <outlet property="relicView" destination="PhD-wu-afM" id="2F5-es-BXI"/>
                         <outlet property="titleLabel" destination="3We-DT-K4P" id="6se-GK-X40"/>
                         <outlet property="titleView" destination="o5N-Qs-4cT" id="GNX-zA-U5Q"/>
                     </connections>
@@ -583,12 +623,18 @@
                         <action selector="swipeDown:" destination="Moh-1P-SHW" id="9c3-Dq-2s6"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" numberOfTouchesRequired="2" id="xLN-Ao-YfR">
+                    <connections>
+                        <action selector="debug:" destination="Moh-1P-SHW" id="ohN-cB-Zmt"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="421.5" y="404.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="blank.png" width="32" height="48"/>
+        <image name="boots.png" width="32" height="48"/>
         <image name="bricks-1.png" width="32" height="48"/>
         <image name="bricks-2.png" width="32" height="48"/>
         <image name="bricks-3.png" width="32" height="48"/>
@@ -602,6 +648,7 @@
         <image name="orb.png" width="32" height="48"/>
         <image name="portrait-1.png" width="76" height="76"/>
         <image name="relic-display-empty.png" width="256" height="48"/>
+        <image name="relic-square.png" width="46" height="48"/>
         <image name="wall-1.png" width="32" height="48"/>
         <image name="wall-2.png" width="32" height="48"/>
         <image name="wall-3.png" width="32" height="48"/>

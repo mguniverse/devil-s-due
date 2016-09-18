@@ -58,7 +58,7 @@ class Gameplay: UIViewController {
     var pieces:Int = 0
     
     //current room
-    var room:Int = 1
+    var room:Int = 0
     
     //door coordinates
     var exitDoorX:Int = 0
@@ -79,6 +79,8 @@ class Gameplay: UIViewController {
     
     //enemy encounter boolean
     var en1e:Bool = false
+    //boolean to determine in an enemy is used in this room
+    var en1u:Bool = false
     
     //player move permissions
     var canMoveUp:Bool = true
@@ -405,6 +407,10 @@ class Gameplay: UIViewController {
     @IBOutlet weak var messageView: UIView!
     @IBOutlet weak var endView: UIView!
     
+    @IBOutlet weak var relicView: UIView!
+    @IBOutlet weak var relicPreview: UIImageView!
+    @IBOutlet weak var relicText: UITextView!
+    
     @IBOutlet weak var messageText: UITextView!
     @IBOutlet weak var endText: UITextView!
     
@@ -431,6 +437,13 @@ class Gameplay: UIViewController {
         }
     }
     
+    @IBAction func dismissRelic(sender: AnyObject) {
+        moveEnabled = true
+        UIView.animateWithDuration(animationSpeed) {
+            self.relicView.alpha = 0
+        }
+    }
+    
     @IBAction func dismissEnd(sender: AnyObject) {
         UIView.animateWithDuration(animationSpeed) {
             self.endView.alpha = 0
@@ -452,7 +465,7 @@ class Gameplay: UIViewController {
                 checkEnemyEncounter()
                 
                 //checks if you are encountering the enemy or not
-                if (en1e == false) {
+                if (en1e == false && en1u == true) {
                     temp = 1
                     en1t = en1t + 1
                     if (en1t <= en1s) {
@@ -475,7 +488,8 @@ class Gameplay: UIViewController {
     func restart() {
         self.player.image = UIImage(named: "hero-1.png")
         playerHealth = 2
-        room = 1
+        room = 0
+        pieces = 0
         
         enemyPriorityUp = false
         enemyPriorityDown = false
@@ -488,7 +502,7 @@ class Gameplay: UIViewController {
     func generateNew() {
         reset()
         
-        if (room == 1) {
+        if (room == 0) {
             a1p = 1
             a2p = 1
             a3p = 1
@@ -936,22 +950,29 @@ class Gameplay: UIViewController {
                 newDoor()
                 newStairs()
             }
+            
+            pieces = 1
         }
         
         checkObstacles()
         
-        pieces = 1
         if (pieces < 1) {
             en1i.hidden = true
+            en1u = false
         }
         else {
             en1i.hidden = false
+            en1u = true
         }
         while (pieces > 0) {
             spawnEnemies()
         }
         
         loadSprites()
+    }
+    
+    @IBAction func debug(sender: AnyObject) {
+        print("moveEnabled: ", moveEnabled)
     }
     
     func spawnEnemies() {
@@ -2406,7 +2427,7 @@ class Gameplay: UIViewController {
     
     
     func newDoor() {
-        if (room == 1) {
+        if (room == 0) {
             a5p = 3
             exitDoorX = 5
             exitDoorY = 1
@@ -6901,6 +6922,7 @@ class Gameplay: UIViewController {
         self.messageText.font = UIFont(name: "Kharon4av01", size: 16)
         
         self.messageView.alpha = 0
+        self.relicView.alpha = 0
         self.endView.alpha = 0
         
         generateNew()
