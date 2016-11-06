@@ -423,32 +423,32 @@ class Gameplay: UIViewController {
     @IBOutlet weak var needHelpLabel: UILabel!
     
     //this method is called when you press embark on the main menu
-    @IBAction func embark(sender: AnyObject) {
-        UIView.animateWithDuration(animationSpeed) {
+    @IBAction func embark(_ sender: AnyObject) {
+        UIView.animate(withDuration: animationSpeed, animations: {
             self.titleView.alpha = 0
-        }
+        }) 
         self.moveEnabled = true
     }
     
-    @IBAction func dismissMessage(sender: AnyObject) {
+    @IBAction func dismissMessage(_ sender: AnyObject) {
         moveEnabled = true
-        UIView.animateWithDuration(animationSpeed) {
+        UIView.animate(withDuration: animationSpeed, animations: {
             self.messageView.alpha = 0
-        }
+        }) 
     }
     
-    @IBAction func dismissRelic(sender: AnyObject) {
+    @IBAction func dismissRelic(_ sender: AnyObject) {
         moveEnabled = true
-        UIView.animateWithDuration(animationSpeed) {
+        UIView.animate(withDuration: animationSpeed, animations: {
             self.relicView.alpha = 0
-        }
+        }) 
     }
     
-    @IBAction func dismissEnd(sender: AnyObject) {
-        UIView.animateWithDuration(animationSpeed) {
+    @IBAction func dismissEnd(_ sender: AnyObject) {
+        UIView.animate(withDuration: animationSpeed, animations: {
             self.endView.alpha = 0
             self.titleView.alpha = 1
-        }
+        }) 
         
         restart()
     }
@@ -957,11 +957,11 @@ class Gameplay: UIViewController {
         checkObstacles()
         
         if (pieces < 1) {
-            en1i.hidden = true
+            en1i.isHidden = true
             en1u = false
         }
         else {
-            en1i.hidden = false
+            en1i.isHidden = false
             en1u = true
         }
         while (pieces > 0) {
@@ -971,7 +971,7 @@ class Gameplay: UIViewController {
         loadSprites()
     }
     
-    @IBAction func debug(sender: AnyObject) {
+    @IBAction func debug(_ sender: AnyObject) {
         print("moveEnabled: ", moveEnabled)
     }
     
@@ -5775,14 +5775,14 @@ class Gameplay: UIViewController {
         playerHealth = playerHealth - 1
         if (playerHealth > 0) {
             let triggerTime = (Int64(NSEC_PER_SEC) * 1)
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(triggerTime) / Double(NSEC_PER_SEC), execute: { () -> Void in
                 self.revealMessage()
             })
         }
         else {
             self.player.image = UIImage(named: "body.png")
             let triggerTime = (Int64(NSEC_PER_SEC) * 1)
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(triggerTime) / Double(NSEC_PER_SEC), execute: { () -> Void in
                 self.revealEnd()
             })
         }
@@ -5790,22 +5790,22 @@ class Gameplay: UIViewController {
     }
     
     func revealMessage() {
-        UIView.animateWithDuration(animationSpeed) {
+        UIView.animate(withDuration: animationSpeed, animations: {
             self.messageView.alpha = 1
-        }
+        }) 
     }
     
     func revealEnd() {
-        UIView.animateWithDuration(animationSpeed) {
+        UIView.animate(withDuration: animationSpeed, animations: {
             self.endView.alpha = 1
-        }
+        }) 
     }
     
     func killEnemy() {
         en1h = 0
-        UIView.animateWithDuration(animationSpeed) {
+        UIView.animate(withDuration: animationSpeed, animations: {
             self.en1i.alpha = 0
-        }
+        }) 
     }
     
     func checkEnemyConstraints() {
@@ -6764,25 +6764,25 @@ class Gameplay: UIViewController {
         }
     }
     
-    @IBAction func swipeUp(sender: AnyObject) {
+    @IBAction func swipeUp(_ sender: AnyObject) {
         if (moveEnabled == true) {
             moveUp()
         }
     }
     
-    @IBAction func swipeDown(sender: AnyObject) {
+    @IBAction func swipeDown(_ sender: AnyObject) {
         if (moveEnabled == true) {
             moveDown()
         }
     }
     
-    @IBAction func swipeLeft(sender: AnyObject) {
+    @IBAction func swipeLeft(_ sender: AnyObject) {
         if (moveEnabled == true) {
             moveLeft()
         }
     }
     
-    @IBAction func swipeRight(sender: AnyObject) {
+    @IBAction func swipeRight(_ sender: AnyObject) {
         if (moveEnabled == true) {
             moveRight()
         }
@@ -6792,9 +6792,9 @@ class Gameplay: UIViewController {
         checkConstraints()
         if (playerY < boundsY && canMoveDown == true) {
             playerY += 1
-            UIView.animateWithDuration(animationSpeed) {
+            UIView.animate(withDuration: animationSpeed, animations: {
                 self.player.center = CGPoint(x: self.player.center.x, y: self.player.center.y + 48)
-            }
+            }) 
             
             endTurn()
         }
@@ -6804,9 +6804,9 @@ class Gameplay: UIViewController {
         checkConstraints()
         if (playerY > 1 && canMoveUp == true) {
             playerY -= 1
-            UIView.animateWithDuration(animationSpeed) {
+            UIView.animate(withDuration: animationSpeed, animations: {
                 self.player.center = CGPoint(x: self.player.center.x, y: self.player.center.y - 48)
-            }
+            }) 
             
             endTurn()
         }
@@ -6816,9 +6816,9 @@ class Gameplay: UIViewController {
         checkConstraints()
         if (playerX > 1 && canMoveLeft == true) {
             playerX -= 1
-            UIView.animateWithDuration(animationSpeed) {
+            UIView.animate(withDuration: animationSpeed, animations: {
                 self.player.center = CGPoint(x: self.player.center.x - 32, y: self.player.center.y)
-            }
+            }) 
             
             endTurn()
         }
@@ -6828,9 +6828,9 @@ class Gameplay: UIViewController {
         checkConstraints()
         if (playerX < boundsX && canMoveRight == true) {
             playerX += 1
-            UIView.animateWithDuration(animationSpeed) {
+            UIView.animate(withDuration: animationSpeed, animations: {
                 self.player.center = CGPoint(x: self.player.center.x + 32, y: self.player.center.y)
-            }
+            }) 
             
             endTurn()
         }
@@ -6839,30 +6839,30 @@ class Gameplay: UIViewController {
     func moveEnemy() {
         if (enemyPriorityUp == true && en1y > 1 && enemyCanMoveUp == true) {
             en1y -= 1
-            UIView.animateWithDuration(animationSpeed) {
+            UIView.animate(withDuration: animationSpeed, animations: {
                 self.en1i.center = CGPoint(x: self.en1i.center.x, y: self.en1i.center.y - 48)
-            }
+            }) 
             temp = temp - 1
         }
         else if (enemyPriorityDown == true && en1y < boundsY && enemyCanMoveDown == true) {
             en1y += 1
-            UIView.animateWithDuration(animationSpeed) {
+            UIView.animate(withDuration: animationSpeed, animations: {
                 self.en1i.center = CGPoint(x: self.en1i.center.x, y: self.en1i.center.y + 48)
-            }
+            }) 
             temp = temp - 1
         }
         else if (enemyPriorityLeft == true && en1x > 1 && enemyCanMoveLeft == true) {
             en1x -= 1
-            UIView.animateWithDuration(animationSpeed) {
+            UIView.animate(withDuration: animationSpeed, animations: {
                 self.en1i.center = CGPoint(x: self.en1i.center.x - 32, y: self.en1i.center.y)
-            }
+            }) 
             temp = temp - 1
         }
         else if (enemyPriorityRight == true && en1x < boundsX && enemyCanMoveRight == true) {
             en1x += 1
-            UIView.animateWithDuration(animationSpeed) {
+            UIView.animate(withDuration: animationSpeed, animations: {
                 self.en1i.center = CGPoint(x: self.en1i.center.x + 32, y: self.en1i.center.y)
-            }
+            }) 
             temp = temp - 1
         }
         else {
@@ -6872,36 +6872,36 @@ class Gameplay: UIViewController {
             if (tempspec == 0) {
                 if (en1y < boundsY && enemyCanMoveDown == true) {
                     en1y += 1
-                    UIView.animateWithDuration(animationSpeed) {
+                    UIView.animate(withDuration: animationSpeed, animations: {
                         self.en1i.center = CGPoint(x: self.en1i.center.x, y: self.en1i.center.y + 48)
-                    }
+                    }) 
                     temp = temp - 1
                 }
             }
             if (tempspec == 1) {
                 if (en1y > 1 && enemyCanMoveUp == true) {
                     en1y -= 1
-                    UIView.animateWithDuration(animationSpeed) {
+                    UIView.animate(withDuration: animationSpeed, animations: {
                         self.en1i.center = CGPoint(x: self.en1i.center.x, y: self.en1i.center.y - 48)
-                    }
+                    }) 
                     temp = temp - 1
                 }
             }
             if (tempspec == 2) {
                 if (en1x > 1 && enemyCanMoveLeft == true) {
                     en1x -= 1
-                    UIView.animateWithDuration(animationSpeed) {
+                    UIView.animate(withDuration: animationSpeed, animations: {
                         self.en1i.center = CGPoint(x: self.en1i.center.x - 32, y: self.en1i.center.y)
-                    }
+                    }) 
                     temp = temp - 1
                 }
             }
             if (tempspec == 3) {
                 if (en1x < boundsX && enemyCanMoveRight == true) {
                     en1x += 1
-                    UIView.animateWithDuration(animationSpeed) {
+                    UIView.animate(withDuration: animationSpeed, animations: {
                         self.en1i.center = CGPoint(x: self.en1i.center.x + 32, y: self.en1i.center.y)
-                    }
+                    }) 
                     temp = temp - 1
                 }
             }

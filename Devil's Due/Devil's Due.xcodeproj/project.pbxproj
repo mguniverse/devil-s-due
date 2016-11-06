@@ -44,9 +44,9 @@
 		D468C4301D860548008B4FA5 /* warp-tome.png in Resources */ = {isa = PBXBuildFile; fileRef = D468C4241D860548008B4FA5 /* warp-tome.png */; };
 		D468C4311D860548008B4FA5 /* wayward-beacon.png in Resources */ = {isa = PBXBuildFile; fileRef = D468C4251D860548008B4FA5 /* wayward-beacon.png */; };
 		D468C4331D860659008B4FA5 /* relic-square.png in Resources */ = {isa = PBXBuildFile; fileRef = D468C4321D860659008B4FA5 /* relic-square.png */; };
+		D46F67201DCFD4A80076CC53 /* angel-statue.png in Resources */ = {isa = PBXBuildFile; fileRef = D46F671F1DCFD4A80076CC53 /* angel-statue.png */; };
 		D47D10201CB221860023BA19 /* body.png in Resources */ = {isa = PBXBuildFile; fileRef = D47D101A1CB221860023BA19 /* body.png */; };
 		D47D10211CB221860023BA19 /* candles.png in Resources */ = {isa = PBXBuildFile; fileRef = D47D101B1CB221860023BA19 /* candles.png */; };
-		D47D10221CB221860023BA19 /* fallen-angel.png in Resources */ = {isa = PBXBuildFile; fileRef = D47D101C1CB221860023BA19 /* fallen-angel.png */; };
 		D47D10231CB221860023BA19 /* shrub.png in Resources */ = {isa = PBXBuildFile; fileRef = D47D101D1CB221860023BA19 /* shrub.png */; };
 		D47D10241CB221860023BA19 /* stockade.png in Resources */ = {isa = PBXBuildFile; fileRef = D47D101E1CB221860023BA19 /* stockade.png */; };
 		D47D10251CB221860023BA19 /* weeds.png in Resources */ = {isa = PBXBuildFile; fileRef = D47D101F1CB221860023BA19 /* weeds.png */; };
@@ -91,8 +91,6 @@
 		D4EBCE141C950EEB003C69A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE121C950EEB003C69A2 /* Main.storyboard */; };
 		D4EBCE161C950EEB003C69A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE151C950EEB003C69A2 /* Assets.xcassets */; };
 		D4EBCE191C950EEB003C69A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE171C950EEB003C69A2 /* LaunchScreen.storyboard */; };
-		D4EBCE241C950EEC003C69A2 /* Wayward_RaidersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EBCE231C950EEC003C69A2 /* Wayward_RaidersTests.swift */; };
-		D4EBCE2F1C950EEC003C69A2 /* Wayward_RaidersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EBCE2E1C950EEC003C69A2 /* Wayward_RaidersUITests.swift */; };
 		D4EBCE461C9519E1003C69A2 /* wall-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE3F1C9519E1003C69A2 /* wall-1.png */; };
 		D4EBCE471C9519E1003C69A2 /* wall-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE401C9519E1003C69A2 /* wall-2.png */; };
 		D4EBCE481C9519E1003C69A2 /* wall-3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE411C9519E1003C69A2 /* wall-3.png */; };
@@ -124,23 +122,6 @@
 		D4EBCE811C9605F1003C69A2 /* portrait-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE801C9605F1003C69A2 /* portrait-1.png */; };
 		D4EBCE831C9629DB003C69A2 /* pot.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE821C9629DB003C69A2 /* pot.png */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		D4EBCE201C950EEC003C69A2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D4EBCE031C950EEB003C69A2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D4EBCE0A1C950EEB003C69A2;
-			remoteInfo = "Wayward Raiders";
-		};
-		D4EBCE2B1C950EEC003C69A2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D4EBCE031C950EEB003C69A2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D4EBCE0A1C950EEB003C69A2;
-			remoteInfo = "Wayward Raiders";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D42B137C1D812814007B82CE /* gravedigger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gravedigger.png; sourceTree = "<group>"; };
@@ -176,9 +157,9 @@
 		D468C4241D860548008B4FA5 /* warp-tome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warp-tome.png"; sourceTree = "<group>"; };
 		D468C4251D860548008B4FA5 /* wayward-beacon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wayward-beacon.png"; sourceTree = "<group>"; };
 		D468C4321D860659008B4FA5 /* relic-square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "relic-square.png"; sourceTree = "<group>"; };
+		D46F671F1DCFD4A80076CC53 /* angel-statue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angel-statue.png"; sourceTree = "<group>"; };
 		D47D101A1CB221860023BA19 /* body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body.png; sourceTree = "<group>"; };
 		D47D101B1CB221860023BA19 /* candles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = candles.png; sourceTree = "<group>"; };
-		D47D101C1CB221860023BA19 /* fallen-angel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fallen-angel.png"; sourceTree = "<group>"; };
 		D47D101D1CB221860023BA19 /* shrub.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shrub.png; sourceTree = "<group>"; };
 		D47D101E1CB221860023BA19 /* stockade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stockade.png; sourceTree = "<group>"; };
 		D47D101F1CB221860023BA19 /* weeds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weeds.png; sourceTree = "<group>"; };
@@ -229,12 +210,6 @@
 		D4EBCE151C950EEB003C69A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4EBCE181C950EEB003C69A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4EBCE1A1C950EEB003C69A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4EBCE1F1C950EEC003C69A2 /* Devil's Due.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Devil's Due.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4EBCE231C950EEC003C69A2 /* Wayward_RaidersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wayward_RaidersTests.swift; sourceTree = "<group>"; };
-		D4EBCE251C950EEC003C69A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4EBCE2A1C950EEC003C69A2 /* Devil's Due.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Devil's Due.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4EBCE2E1C950EEC003C69A2 /* Wayward_RaidersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wayward_RaidersUITests.swift; sourceTree = "<group>"; };
-		D4EBCE301C950EEC003C69A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4EBCE3F1C9519E1003C69A2 /* wall-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wall-1.png"; sourceTree = "<group>"; };
 		D4EBCE401C9519E1003C69A2 /* wall-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wall-2.png"; sourceTree = "<group>"; };
 		D4EBCE411C9519E1003C69A2 /* wall-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wall-3.png"; sourceTree = "<group>"; };
@@ -269,20 +244,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		D4EBCE081C950EEB003C69A2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D4EBCE1C1C950EEC003C69A2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D4EBCE271C950EEC003C69A2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -339,8 +300,6 @@
 			children = (
 				D4EBCE3C1C9519E1003C69A2 /* Resources */,
 				D4EBCE0D1C950EEB003C69A2 /* Devil's Due */,
-				D4EBCE221C950EEC003C69A2 /* Devil's DueTests */,
-				D4EBCE2D1C950EEC003C69A2 /* Devil's DueUITests */,
 				D4EBCE0C1C950EEB003C69A2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -349,8 +308,6 @@
 			isa = PBXGroup;
 			children = (
 				D4EBCE0B1C950EEB003C69A2 /* Devil's Due.app */,
-				D4EBCE1F1C950EEC003C69A2 /* Devil's Due.xctest */,
-				D4EBCE2A1C950EEC003C69A2 /* Devil's Due.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -371,26 +328,6 @@
 			);
 			name = "Devil's Due";
 			path = "Wayward Raiders";
-			sourceTree = "<group>";
-		};
-		D4EBCE221C950EEC003C69A2 /* Devil's DueTests */ = {
-			isa = PBXGroup;
-			children = (
-				D4EBCE231C950EEC003C69A2 /* Wayward_RaidersTests.swift */,
-				D4EBCE251C950EEC003C69A2 /* Info.plist */,
-			);
-			name = "Devil's DueTests";
-			path = "Wayward RaidersTests";
-			sourceTree = "<group>";
-		};
-		D4EBCE2D1C950EEC003C69A2 /* Devil's DueUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D4EBCE2E1C950EEC003C69A2 /* Wayward_RaidersUITests.swift */,
-				D4EBCE301C950EEC003C69A2 /* Info.plist */,
-			);
-			name = "Devil's DueUITests";
-			path = "Wayward RaidersUITests";
 			sourceTree = "<group>";
 		};
 		D4EBCE3C1C9519E1003C69A2 /* Resources */ = {
@@ -423,9 +360,9 @@
 				D484DC0A1D7CC04200699104 /* cracked-stone.png */,
 				D47D101A1CB221860023BA19 /* body.png */,
 				D47D101B1CB221860023BA19 /* candles.png */,
-				D47D101C1CB221860023BA19 /* fallen-angel.png */,
 				D47D101D1CB221860023BA19 /* shrub.png */,
 				D47D101E1CB221860023BA19 /* stockade.png */,
+				D46F671F1DCFD4A80076CC53 /* angel-statue.png */,
 				D47D101F1CB221860023BA19 /* weeds.png */,
 				D4B0A4261C97F000002ED642 /* chest-open.png */,
 				D4B0A4271C97F000002ED642 /* chest.png */,
@@ -547,42 +484,6 @@
 			productReference = D4EBCE0B1C950EEB003C69A2 /* Devil's Due.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D4EBCE1E1C950EEC003C69A2 /* Devil's DueTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D4EBCE361C950EEC003C69A2 /* Build configuration list for PBXNativeTarget "Devil's DueTests" */;
-			buildPhases = (
-				D4EBCE1B1C950EEC003C69A2 /* Sources */,
-				D4EBCE1C1C950EEC003C69A2 /* Frameworks */,
-				D4EBCE1D1C950EEC003C69A2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D4EBCE211C950EEC003C69A2 /* PBXTargetDependency */,
-			);
-			name = "Devil's DueTests";
-			productName = "Wayward RaidersTests";
-			productReference = D4EBCE1F1C950EEC003C69A2 /* Devil's Due.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		D4EBCE291C950EEC003C69A2 /* Devil's DueUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D4EBCE391C950EEC003C69A2 /* Build configuration list for PBXNativeTarget "Devil's DueUITests" */;
-			buildPhases = (
-				D4EBCE261C950EEC003C69A2 /* Sources */,
-				D4EBCE271C950EEC003C69A2 /* Frameworks */,
-				D4EBCE281C950EEC003C69A2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D4EBCE2C1C950EEC003C69A2 /* PBXTargetDependency */,
-			);
-			name = "Devil's DueUITests";
-			productName = "Wayward RaidersUITests";
-			productReference = D4EBCE2A1C950EEC003C69A2 /* Devil's Due.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -590,20 +491,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Danny Perski";
 				TargetAttributes = {
 					D4EBCE0A1C950EEB003C69A2 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = CL35ZTCQNT;
-					};
-					D4EBCE1E1C950EEC003C69A2 = {
-						CreatedOnToolsVersion = 7.2;
-						TestTargetID = D4EBCE0A1C950EEB003C69A2;
-					};
-					D4EBCE291C950EEC003C69A2 = {
-						CreatedOnToolsVersion = 7.2;
-						TestTargetID = D4EBCE0A1C950EEB003C69A2;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -621,8 +515,6 @@
 			projectRoot = "";
 			targets = (
 				D4EBCE0A1C950EEB003C69A2 /* Devil's Due */,
-				D4EBCE1E1C950EEC003C69A2 /* Devil's DueTests */,
-				D4EBCE291C950EEC003C69A2 /* Devil's DueUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -709,6 +601,7 @@
 				D494DA911CB9BBED006938DE /* iTunesArtwork.png in Resources */,
 				D45259411D76D2E600944544 /* glider.png in Resources */,
 				D4EBCE651C952203003C69A2 /* hero-5.png in Resources */,
+				D46F67201DCFD4A80076CC53 /* angel-statue.png in Resources */,
 				D42B13811D812814007B82CE /* healer.png in Resources */,
 				D484DC0B1D7CC04200699104 /* cracked-stone-faded.png in Resources */,
 				D4EBCE691C9523A2003C69A2 /* heart.png in Resources */,
@@ -727,7 +620,6 @@
 				D45259431D76D2E600944544 /* husk-hunch.png in Resources */,
 				D468C4291D860548008B4FA5 /* hood-mask.png in Resources */,
 				D4EBCE7D1C9604D1003C69A2 /* pillar-1.png in Resources */,
-				D47D10221CB221860023BA19 /* fallen-angel.png in Resources */,
 				D484DC2A1D7D3C2900699104 /* cave-4.png in Resources */,
 				D4EBCE721C955141003C69A2 /* bricks-3.png in Resources */,
 				D4EBCE831C9629DB003C69A2 /* pot.png in Resources */,
@@ -740,20 +632,6 @@
 				D4EBCE621C952203003C69A2 /* hero-2.png in Resources */,
 				D4EBCE551C951ED2003C69A2 /* blank.png in Resources */,
 				D468C42F1D860548008B4FA5 /* transparent-robe.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D4EBCE1D1C950EEC003C69A2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D4EBCE281C950EEC003C69A2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -773,36 +651,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4EBCE1B1C950EEC003C69A2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D4EBCE241C950EEC003C69A2 /* Wayward_RaidersTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D4EBCE261C950EEC003C69A2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D4EBCE2F1C950EEC003C69A2 /* Wayward_RaidersUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D4EBCE211C950EEC003C69A2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D4EBCE0A1C950EEB003C69A2 /* Devil's Due */;
-			targetProxy = D4EBCE201C950EEC003C69A2 /* PBXContainerItemProxy */;
-		};
-		D4EBCE2C1C950EEC003C69A2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D4EBCE0A1C950EEB003C69A2 /* Devil's Due */;
-			targetProxy = D4EBCE2B1C950EEC003C69A2 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D4EBCE121C950EEB003C69A2 /* Main.storyboard */ = {
@@ -837,8 +686,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -882,8 +733,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -902,6 +755,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -916,6 +770,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mguniverse.Devil-s-Due";
 				PRODUCT_NAME = "Devil's Due";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -928,54 +783,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mguniverse.Devil-s-Due";
 				PRODUCT_NAME = "Devil's Due";
-			};
-			name = Release;
-		};
-		D4EBCE371C950EEC003C69A2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Wayward RaidersTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mguniverse.Wayward-RaidersTests";
-				PRODUCT_NAME = "Devil's Due";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Devil's Due.app/Devil's Due";
-			};
-			name = Debug;
-		};
-		D4EBCE381C950EEC003C69A2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Wayward RaidersTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mguniverse.Wayward-RaidersTests";
-				PRODUCT_NAME = "Devil's Due";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Devil's Due.app/Devil's Due";
-			};
-			name = Release;
-		};
-		D4EBCE3A1C950EEC003C69A2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "Wayward RaidersUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mguniverse.Wayward-RaidersUITests";
-				PRODUCT_NAME = "Devil's Due";
-				TEST_TARGET_NAME = "Wayward Raiders";
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		D4EBCE3B1C950EEC003C69A2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "Wayward RaidersUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mguniverse.Wayward-RaidersUITests";
-				PRODUCT_NAME = "Devil's Due";
-				TEST_TARGET_NAME = "Wayward Raiders";
-				USES_XCTRUNNER = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -996,24 +804,6 @@
 			buildConfigurations = (
 				D4EBCE341C950EEC003C69A2 /* Debug */,
 				D4EBCE351C950EEC003C69A2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D4EBCE361C950EEC003C69A2 /* Build configuration list for PBXNativeTarget "Devil's DueTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D4EBCE371C950EEC003C69A2 /* Debug */,
-				D4EBCE381C950EEC003C69A2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D4EBCE391C950EEC003C69A2 /* Build configuration list for PBXNativeTarget "Devil's DueUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D4EBCE3A1C950EEC003C69A2 /* Debug */,
-				D4EBCE3B1C950EEC003C69A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

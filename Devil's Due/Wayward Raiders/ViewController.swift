@@ -12,14 +12,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var progressView: UIProgressView!
     
     func switchView() {
-        performSegueWithIdentifier("toGameplay", sender: nil)
+        performSegue(withIdentifier: "toGameplay", sender: nil)
     }
     
     func animateProgressBar() {
         progressView.setProgress(1, animated: true)
         
         let triggerTime = (Int64(NSEC_PER_SEC) * 3)
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(triggerTime) / Double(NSEC_PER_SEC), execute: { () -> Void in
             self.switchView()
         })
     }
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         let triggerTime = (Int64(NSEC_PER_SEC) * 1)
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(triggerTime) / Double(NSEC_PER_SEC), execute: { () -> Void in
             self.animateProgressBar()
         })
     }
