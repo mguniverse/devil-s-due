@@ -41,15 +41,25 @@ class Gameplay: UIViewController {
     var playerY:Int = 7
     var playerHealth:Int = 2
     
-    //enemy coordinates
+    //enemy 1 coordinates
     var en1x:Int = 1
     var en1y:Int = 1
-    //enemy stamina
+    //enemy 1 stamina
     var en1s:Int = 10
-    //enemy stamina temp
+    //enemy 1 stamina temp
     var en1t:Int = 0
-    //enemy health, used for death status
+    //enemy 1 health, used for death status
     var en1h:Int = 1
+    
+    //enemy 2 coordinates
+    var en2x:Int = 1
+    var en2y:Int = 1
+    //enemy 2 stamina
+    var en2s:Int = 10
+    //enemy 2 stamina temp
+    var en2t:Int = 0
+    //enemy 2 health, used for death status
+    var en2h:Int = 1
     
     //generic temp value
     var temp:Int = 0
@@ -74,13 +84,17 @@ class Gameplay: UIViewController {
     var boundsX:Int = 9
     var boundsY:Int = 8
     
-    //enemy encounter boolean
+    //movement boolean
     var moveEnabled:Bool = false
     
-    //enemy encounter boolean
+    //enemy 1 encounter boolean
     var en1e:Bool = false
-    //boolean to determine in an enemy is used in this room
+    //boolean to determine if enemy 1 is used in this room
     var en1u:Bool = false
+    //enemy 2 encounter boolean
+    var en2e:Bool = false
+    //boolean to determine if enemy 2 is used in this room
+    var en2u:Bool = false
     
     //player move permissions
     var canMoveUp:Bool = true
@@ -327,6 +341,7 @@ class Gameplay: UIViewController {
     @IBOutlet weak var player: UIImageView!
     
     @IBOutlet weak var en1i: UIImageView!
+    @IBOutlet weak var en2i: UIImageView!
     
     //this is where the standard 72 tiles are defined
     @IBOutlet weak var a1i: UIImageView!
@@ -454,6 +469,7 @@ class Gameplay: UIViewController {
     }
     
     func endTurn() {
+        //please change this
         if (playerX == exitDoorX && playerY == exitDoorY) {
             room = room + 1
             generateNew()
@@ -983,42 +999,80 @@ class Gameplay: UIViewController {
         en1i.alpha = 1
         
         //this code determines what kind of enemy will spawn
-        let tempspec = arc4random() % 6
-        if (tempspec == 0) {
+        let tempspec1 = arc4random() % 6
+        if (tempspec1 == 0) {
             self.en1i.image = UIImage(named: "cobra-1.png")
         }
-        else if (tempspec == 1) {
+        else if (tempspec1 == 1) {
             self.en1i.image = UIImage(named: "skeleton.png")
         }
-        else if (tempspec == 2) {
+        else if (tempspec1 == 2) {
             self.en1i.image = UIImage(named: "flare.png")
         }
-        else if (tempspec == 3) {
+        else if (tempspec1 == 3) {
             self.en1i.image = UIImage(named: "werewolf.png")
         }
-        else if (tempspec == 4) {
+        else if (tempspec1 == 4) {
             self.en1i.image = UIImage(named: "spider.png")
         }
-        else if (tempspec == 5) {
+        else if (tempspec1 == 5) {
             self.en1i.image = UIImage(named: "leech.png")
         }
-        else if (tempspec == 6) {
+        else if (tempspec1 == 6) {
             self.en1i.image = UIImage(named: "husk.png")
         }
-        else if (tempspec == 7) {
+        else if (tempspec1 == 7) {
             self.en1i.image = UIImage(named: "wraith.png")
         }
-        else if (tempspec == 8) {
+        else if (tempspec1 == 8) {
             self.en1i.image = UIImage(named: "pyromancer.png")
         }
-        else if (tempspec == 9) {
+        else if (tempspec1 == 9) {
             self.en1i.image = UIImage(named: "sorceress.png")
         }
-        else if (tempspec == 10) {
+        else if (tempspec1 == 10) {
             self.en1i.image = UIImage(named: "giant.png")
         }
-        else if (tempspec == 11) {
+        else if (tempspec1 == 11) {
             self.en1i.image = UIImage(named: "necromancer.png")
+        }
+        
+        let tempspec2 = arc4random() % 6
+        if (tempspec2 == 0) {
+            self.en2i.image = UIImage(named: "cobra-1.png")
+        }
+        else if (tempspec2 == 1) {
+            self.en2i.image = UIImage(named: "skeleton.png")
+        }
+        else if (tempspec2 == 2) {
+            self.en2i.image = UIImage(named: "flare.png")
+        }
+        else if (tempspec2 == 3) {
+            self.en2i.image = UIImage(named: "werewolf.png")
+        }
+        else if (tempspec2 == 4) {
+            self.en2i.image = UIImage(named: "spider.png")
+        }
+        else if (tempspec2 == 5) {
+            self.en2i.image = UIImage(named: "leech.png")
+        }
+        else if (tempspec2 == 6) {
+            self.en2i.image = UIImage(named: "husk.png")
+        }
+        else if (tempspec2 == 7) {
+            self.en2i.image = UIImage(named: "wraith.png")
+        }
+        else if (tempspec2 == 8) {
+            self.en2i.image = UIImage(named: "pyromancer.png")
+        }
+        else if (tempspec2 == 9) {
+            self.en2i.image = UIImage(named: "sorceress.png")
+        }
+        else if (tempspec2 == 10) {
+            self.en2i.image = UIImage(named: "giant.png")
+        }
+        else if (tempspec2 == 11) {
+            self.en2i.image = UIImage(named: "necromancer.png")
         }
         
         //this code can use the temp values column and row used to spawn the enemy to also determine it's proprietary coordinates
@@ -5755,15 +5809,33 @@ class Gameplay: UIViewController {
     }
     
     func checkEnemyEncounter() {
+        //check if you are encountering enemy 1
         if (en1x == playerX) {
             if ((en1y - playerY) == 1 || (playerY - en1y) == 1) {
                 en1e = true
+                temp = 1
                 enemyEncounter()
             }
         }
         else if (en1y == playerY) {
             if ((en1x - playerX) == 1 || (playerX - en1x) == 1) {
                 en1e = true
+                temp = 1
+                enemyEncounter()
+            }
+        }
+        //check if you are encountering enemy 2
+        if (en2x == playerX) {
+            if ((en2y - playerY) == 1 || (playerY - en2y) == 1) {
+                en2e = true
+                temp = 2
+                enemyEncounter()
+            }
+        }
+        else if (en2y == playerY) {
+            if ((en2x - playerX) == 1 || (playerX - en2x) == 1) {
+                en2e = true
+                temp = 2
                 enemyEncounter()
             }
         }
@@ -5802,10 +5874,18 @@ class Gameplay: UIViewController {
     }
     
     func killEnemy() {
-        en1h = 0
-        UIView.animate(withDuration: animationSpeed, animations: {
-            self.en1i.alpha = 0
-        }) 
+        if (temp == 1) {
+            en1h = 0
+            UIView.animate(withDuration: animationSpeed, animations: {
+                self.en1i.alpha = 0
+            })
+        }
+        else {
+            en2h = 0
+            UIView.animate(withDuration: animationSpeed, animations: {
+                self.en2i.alpha = 0
+            })
+        }
     }
     
     func checkEnemyConstraints() {

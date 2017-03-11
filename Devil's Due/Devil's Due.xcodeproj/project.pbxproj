@@ -45,6 +45,11 @@
 		D468C4311D860548008B4FA5 /* wayward-beacon.png in Resources */ = {isa = PBXBuildFile; fileRef = D468C4251D860548008B4FA5 /* wayward-beacon.png */; };
 		D468C4331D860659008B4FA5 /* relic-square.png in Resources */ = {isa = PBXBuildFile; fileRef = D468C4321D860659008B4FA5 /* relic-square.png */; };
 		D46F67201DCFD4A80076CC53 /* angel-statue.png in Resources */ = {isa = PBXBuildFile; fileRef = D46F671F1DCFD4A80076CC53 /* angel-statue.png */; };
+		D46F67261DCFDB2E0076CC53 /* temple-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D46F67211DCFDB2E0076CC53 /* temple-1.png */; };
+		D46F67271DCFDB2E0076CC53 /* temple-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D46F67221DCFDB2E0076CC53 /* temple-2.png */; };
+		D46F67281DCFDB2E0076CC53 /* temple-3.png in Resources */ = {isa = PBXBuildFile; fileRef = D46F67231DCFDB2E0076CC53 /* temple-3.png */; };
+		D46F67291DCFDB2E0076CC53 /* temple-4.png in Resources */ = {isa = PBXBuildFile; fileRef = D46F67241DCFDB2E0076CC53 /* temple-4.png */; };
+		D46F672A1DCFDB2E0076CC53 /* temple-5.png in Resources */ = {isa = PBXBuildFile; fileRef = D46F67251DCFDB2E0076CC53 /* temple-5.png */; };
 		D47D10201CB221860023BA19 /* body.png in Resources */ = {isa = PBXBuildFile; fileRef = D47D101A1CB221860023BA19 /* body.png */; };
 		D47D10211CB221860023BA19 /* candles.png in Resources */ = {isa = PBXBuildFile; fileRef = D47D101B1CB221860023BA19 /* candles.png */; };
 		D47D10231CB221860023BA19 /* shrub.png in Resources */ = {isa = PBXBuildFile; fileRef = D47D101D1CB221860023BA19 /* shrub.png */; };
@@ -158,6 +163,11 @@
 		D468C4251D860548008B4FA5 /* wayward-beacon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wayward-beacon.png"; sourceTree = "<group>"; };
 		D468C4321D860659008B4FA5 /* relic-square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "relic-square.png"; sourceTree = "<group>"; };
 		D46F671F1DCFD4A80076CC53 /* angel-statue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angel-statue.png"; sourceTree = "<group>"; };
+		D46F67211DCFDB2E0076CC53 /* temple-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "temple-1.png"; sourceTree = "<group>"; };
+		D46F67221DCFDB2E0076CC53 /* temple-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "temple-2.png"; sourceTree = "<group>"; };
+		D46F67231DCFDB2E0076CC53 /* temple-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "temple-3.png"; sourceTree = "<group>"; };
+		D46F67241DCFDB2E0076CC53 /* temple-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "temple-4.png"; sourceTree = "<group>"; };
+		D46F67251DCFDB2E0076CC53 /* temple-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "temple-5.png"; sourceTree = "<group>"; };
 		D47D101A1CB221860023BA19 /* body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body.png; sourceTree = "<group>"; };
 		D47D101B1CB221860023BA19 /* candles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = candles.png; sourceTree = "<group>"; };
 		D47D101D1CB221860023BA19 /* shrub.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shrub.png; sourceTree = "<group>"; };
@@ -348,6 +358,11 @@
 		D4EBCE3D1C9519E1003C69A2 /* Terrain */ = {
 			isa = PBXGroup;
 			children = (
+				D46F67211DCFDB2E0076CC53 /* temple-1.png */,
+				D46F67221DCFDB2E0076CC53 /* temple-2.png */,
+				D46F67231DCFDB2E0076CC53 /* temple-3.png */,
+				D46F67241DCFDB2E0076CC53 /* temple-4.png */,
+				D46F67251DCFDB2E0076CC53 /* temple-5.png */,
 				D484DC2D1D7D5D2500699104 /* boat.png */,
 				D484DC211D7D3C2900699104 /* cave-1.png */,
 				D484DC221D7D3C2900699104 /* cave-2.png */,
@@ -537,6 +552,7 @@
 				D4EBCE581C952013003C69A2 /* web-lower-left.png in Resources */,
 				D4B0A4291C97F000002ED642 /* chest.png in Resources */,
 				D4EBCE521C951D16003C69A2 /* down-stairs.png in Resources */,
+				D46F67261DCFDB2E0076CC53 /* temple-1.png in Resources */,
 				D45259401D76D2E600944544 /* fallen-angel.png in Resources */,
 				D468C4281D860548008B4FA5 /* dead-mans-skull.png in Resources */,
 				D47ED11C1CE017EF00956779 /* alert-window.png in Resources */,
@@ -552,6 +568,7 @@
 				D468C42E1D860548008B4FA5 /* staff.png in Resources */,
 				D45259461D76D2E600944544 /* werewolf.png in Resources */,
 				D4EBCE481C9519E1003C69A2 /* wall-3.png in Resources */,
+				D46F67271DCFDB2E0076CC53 /* temple-2.png in Resources */,
 				D47D10231CB221860023BA19 /* shrub.png in Resources */,
 				D468C42D1D860548008B4FA5 /* sharp-shield.png in Resources */,
 				D4EBCE141C950EEB003C69A2 /* Main.storyboard in Resources */,
@@ -569,6 +586,7 @@
 				D484DC1F1D7D35BC00699104 /* pyromancer.png in Resources */,
 				D43726831D737E0E0044E9E3 /* kharon.ttf in Resources */,
 				D42B13801D812814007B82CE /* gravedigger.png in Resources */,
+				D46F67281DCFDB2E0076CC53 /* temple-3.png in Resources */,
 				D484DC1D1D7D35BC00699104 /* giant.png in Resources */,
 				D47D10241CB221860023BA19 /* stockade.png in Resources */,
 				D484DC281D7D3C2900699104 /* cave-2.png in Resources */,
@@ -576,6 +594,7 @@
 				D468C4301D860548008B4FA5 /* warp-tome.png in Resources */,
 				D45259441D76D2E600944544 /* husk.png in Resources */,
 				D484DC0C1D7CC04200699104 /* cracked-stone.png in Resources */,
+				D46F67291DCFDB2E0076CC53 /* temple-4.png in Resources */,
 				D4EBCE4A1C9519E1003C69A2 /* wall-5.png in Resources */,
 				D4B0A4281C97F000002ED642 /* chest-open.png in Resources */,
 				D468C42C1D860548008B4FA5 /* sharp-helm.png in Resources */,
@@ -613,6 +632,7 @@
 				D4EBCE661C952203003C69A2 /* hero-6.png in Resources */,
 				D47ED1251CE024B200956779 /* crown.png in Resources */,
 				D45F9F5B1D7FE39900C385AF /* wraith.png in Resources */,
+				D46F672A1DCFDB2E0076CC53 /* temple-5.png in Resources */,
 				D4EBCE511C951D16003C69A2 /* door-open.png in Resources */,
 				D487D4891D7E2B45006FA6B6 /* hero-hover.png in Resources */,
 				D484DC2C1D7D3C2900699104 /* cave-door.png in Resources */,
