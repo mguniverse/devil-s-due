@@ -477,28 +477,29 @@ class Gameplay: UIViewController {
         else {
             //only check this code
             if (en1h > 0) {
+                en1e = false
                 checkEnemyConstraints()
                 checkEnemyEncounter()
                 
+                //needs work
                 //checks if you are encountering the enemy or not
                 if (en1e == false && en1u == true) {
                     temp = 1
                     en1t = en1t + 1
-                    if (en1t <= en1s) {
+                    //if (en1t <= en1s) {
+                    if (en1t == en1t) {
                         while (temp > 0) {
+                            print("Up:", enemyPriorityUp, "Down:", enemyPriorityDown, "Left:", enemyPriorityLeft, "Right:", enemyPriorityRight)
                             moveEnemy()
+                            //print("Is there an enemy encounter?", en1e)
                         }
                     }
                     else {
                         en1t = 0
                     }
                 }
-                
-                en1e = false
             }
         }
-        
-        checkEnemyPriority()
     }
     
     func restart() {
@@ -507,10 +508,7 @@ class Gameplay: UIViewController {
         room = 0
         pieces = 0
         
-        enemyPriorityUp = false
-        enemyPriorityDown = false
-        enemyPriorityLeft = false
-        enemyPriorityRight = false
+        resetEnemyPriority()
         
         generateNew()
     }
@@ -519,6 +517,9 @@ class Gameplay: UIViewController {
         reset()
         
         if (room == 0) {
+            en1h = 0
+            en2h = 0
+            
             a1p = 1
             a2p = 1
             a3p = 1
@@ -2070,6 +2071,79 @@ class Gameplay: UIViewController {
         
         tileImage = UIImage(named: "empty.png")
         
+        a1i.stopAnimating()
+        a2i.stopAnimating()
+        a3i.stopAnimating()
+        a4i.stopAnimating()
+        a5i.stopAnimating()
+        a6i.stopAnimating()
+        a7i.stopAnimating()
+        a8i.stopAnimating()
+        a9i.stopAnimating()
+        b1i.stopAnimating()
+        b2i.stopAnimating()
+        b3i.stopAnimating()
+        b4i.stopAnimating()
+        b5i.stopAnimating()
+        b6i.stopAnimating()
+        b7i.stopAnimating()
+        b8i.stopAnimating()
+        b9i.stopAnimating()
+        c1i.stopAnimating()
+        c2i.stopAnimating()
+        c3i.stopAnimating()
+        c4i.stopAnimating()
+        c5i.stopAnimating()
+        c6i.stopAnimating()
+        c7i.stopAnimating()
+        c8i.stopAnimating()
+        c9i.stopAnimating()
+        d1i.stopAnimating()
+        d2i.stopAnimating()
+        d3i.stopAnimating()
+        d4i.stopAnimating()
+        d5i.stopAnimating()
+        d6i.stopAnimating()
+        d7i.stopAnimating()
+        d8i.stopAnimating()
+        d9i.stopAnimating()
+        e1i.stopAnimating()
+        e2i.stopAnimating()
+        e3i.stopAnimating()
+        e4i.stopAnimating()
+        e5i.stopAnimating()
+        e6i.stopAnimating()
+        e7i.stopAnimating()
+        e8i.stopAnimating()
+        e9i.stopAnimating()
+        f1i.stopAnimating()
+        f2i.stopAnimating()
+        f3i.stopAnimating()
+        f4i.stopAnimating()
+        f5i.stopAnimating()
+        f6i.stopAnimating()
+        f7i.stopAnimating()
+        f8i.stopAnimating()
+        f9i.stopAnimating()
+        g1i.stopAnimating()
+        g2i.stopAnimating()
+        g3i.stopAnimating()
+        g4i.stopAnimating()
+        g5i.stopAnimating()
+        g6i.stopAnimating()
+        g7i.stopAnimating()
+        g8i.stopAnimating()
+        g9i.stopAnimating()
+        h1i.stopAnimating()
+        h2i.stopAnimating()
+        h3i.stopAnimating()
+        h4i.stopAnimating()
+        h5i.stopAnimating()
+        h6i.stopAnimating()
+        h7i.stopAnimating()
+        h8i.stopAnimating()
+        h9i.stopAnimating()
+        
         self.a1i.image = tileImage
         self.a2i.image = tileImage
         self.a3i.image = tileImage
@@ -2592,7 +2666,7 @@ class Gameplay: UIViewController {
             self.a1i.image = UIImage(named: "down-stairs.png")
         }
         else if (a1p == 7) {
-            self.a1i.image = UIImage(named: "water.png")
+            self.a1i.image = animateWater()
         }
         else if (a1p == 9) {
             self.a1i.image = UIImage(named: "candles.png")
@@ -2616,7 +2690,7 @@ class Gameplay: UIViewController {
             self.a2i.image = UIImage(named: "down-stairs.png")
         }
         else if (a2p == 7) {
-            self.a2i.image = UIImage(named: "water.png")
+            self.a2i.image = animateWater()
         }
         else if (a2p == 9) {
             self.a2i.image = UIImage(named: "candles.png")
@@ -2640,7 +2714,7 @@ class Gameplay: UIViewController {
             self.a3i.image = UIImage(named: "down-stairs.png")
         }
         else if (a3p == 7) {
-            self.a3i.image = UIImage(named: "water.png")
+            self.a3i.image = animateWater()
         }
         else if (a3p == 9) {
             self.a3i.image = UIImage(named: "candles.png")
@@ -2664,7 +2738,7 @@ class Gameplay: UIViewController {
             self.a4i.image = UIImage(named: "down-stairs.png")
         }
         else if (a4p == 7) {
-            self.a4i.image = UIImage(named: "water.png")
+            self.a4i.image = animateWater()
         }
         else if (a4p == 9) {
             self.a4i.image = UIImage(named: "candles.png")
@@ -2688,7 +2762,7 @@ class Gameplay: UIViewController {
             self.a5i.image = UIImage(named: "down-stairs.png")
         }
         else if (a5p == 7) {
-            self.a5i.image = UIImage(named: "water.png")
+            self.a5i.image = animateWater()
         }
         else if (a5p == 9) {
             self.a5i.image = UIImage(named: "candles.png")
@@ -2712,7 +2786,7 @@ class Gameplay: UIViewController {
             self.a6i.image = UIImage(named: "down-stairs.png")
         }
         else if (a6p == 7) {
-            self.a6i.image = UIImage(named: "water.png")
+            self.a6i.image = animateWater()
         }
         else if (a6p == 9) {
             self.a6i.image = UIImage(named: "candles.png")
@@ -2736,7 +2810,7 @@ class Gameplay: UIViewController {
             self.a7i.image = UIImage(named: "down-stairs.png")
         }
         else if (a7p == 7) {
-            self.a7i.image = UIImage(named: "water.png")
+            self.a7i.image = animateWater()
         }
         else if (a7p == 9) {
             self.a7i.image = UIImage(named: "candles.png")
@@ -2760,7 +2834,7 @@ class Gameplay: UIViewController {
             self.a8i.image = UIImage(named: "down-stairs.png")
         }
         else if (a8p == 7) {
-            self.a8i.image = UIImage(named: "water.png")
+            self.a8i.image = animateWater()
         }
         else if (a8p == 9) {
             self.a8i.image = UIImage(named: "candles.png")
@@ -2784,7 +2858,7 @@ class Gameplay: UIViewController {
             self.a9i.image = UIImage(named: "down-stairs.png")
         }
         else if (a9p == 7) {
-            self.a9i.image = UIImage(named: "water.png")
+            self.a9i.image = animateWater()
         }
         else if (a9p == 9) {
             self.a9i.image = UIImage(named: "candles.png")
@@ -2809,7 +2883,7 @@ class Gameplay: UIViewController {
             self.b1i.image = UIImage(named: "down-stairs.png")
         }
         else if (b1p == 7) {
-            self.b1i.image = UIImage(named: "water.png")
+            self.b1i.image = animateWater()
         }
         else if (b1p == 9) {
             self.b1i.image = UIImage(named: "candles.png")
@@ -2836,7 +2910,7 @@ class Gameplay: UIViewController {
             self.b2i.image = UIImage(named: "web-upper-left.png")
         }
         else if (b2p == 7) {
-            self.b2i.image = UIImage(named: "water.png")
+            self.b2i.image = animateWater()
         }
         else if (b2p == 9) {
             self.b2i.image = UIImage(named: "candles.png")
@@ -2860,7 +2934,7 @@ class Gameplay: UIViewController {
             self.b3i.image = UIImage(named: "down-stairs.png")
         }
         else if (b3p == 7) {
-            self.b3i.image = UIImage(named: "water.png")
+            self.b3i.image = animateWater()
         }
         else if (b3p == 9) {
             self.b3i.image = UIImage(named: "candles.png")
@@ -2884,7 +2958,7 @@ class Gameplay: UIViewController {
             self.b4i.image = UIImage(named: "down-stairs.png")
         }
         else if (b4p == 7) {
-            self.b4i.image = UIImage(named: "water.png")
+            self.b4i.image = animateWater()
         }
         else if (b4p == 9) {
             self.b4i.image = UIImage(named: "candles.png")
@@ -2908,7 +2982,7 @@ class Gameplay: UIViewController {
             self.b5i.image = UIImage(named: "down-stairs.png")
         }
         else if (b5p == 7) {
-            self.b5i.image = UIImage(named: "water.png")
+            self.b5i.image = animateWater()
         }
         else if (b5p == 9) {
             self.b5i.image = UIImage(named: "candles.png")
@@ -2932,7 +3006,7 @@ class Gameplay: UIViewController {
             self.b6i.image = UIImage(named: "down-stairs.png")
         }
         else if (b6p == 7) {
-            self.b6i.image = UIImage(named: "water.png")
+            self.b6i.image = animateWater()
         }
         else if (b6p == 9) {
             self.b6i.image = UIImage(named: "candles.png")
@@ -2956,7 +3030,7 @@ class Gameplay: UIViewController {
             self.b7i.image = UIImage(named: "down-stairs.png")
         }
         else if (b7p == 7) {
-            self.b7i.image = UIImage(named: "water.png")
+            self.b7i.image = animateWater()
         }
         else if (b7p == 9) {
             self.b7i.image = UIImage(named: "candles.png")
@@ -2983,7 +3057,7 @@ class Gameplay: UIViewController {
             self.b8i.image = UIImage(named: "web-upper-right.png")
         }
         else if (b8p == 7) {
-            self.b8i.image = UIImage(named: "water.png")
+            self.b8i.image = animateWater()
         }
         else if (b8p == 9) {
             self.b8i.image = UIImage(named: "candles.png")
@@ -3007,7 +3081,7 @@ class Gameplay: UIViewController {
             self.b9i.image = UIImage(named: "down-stairs.png")
         }
         else if (b9p == 7) {
-            self.b9i.image = UIImage(named: "water.png")
+            self.b9i.image = animateWater()
         }
         else if (b9p == 9) {
             self.b9i.image = UIImage(named: "candles.png")
@@ -3032,7 +3106,7 @@ class Gameplay: UIViewController {
             self.c1i.image = UIImage(named: "down-stairs.png")
         }
         else if (c1p == 7) {
-            self.c1i.image = UIImage(named: "water.png")
+            self.c1i.image = animateWater()
         }
         else if (c1p == 9) {
             self.c1i.image = UIImage(named: "candles.png")
@@ -3059,7 +3133,7 @@ class Gameplay: UIViewController {
             self.c2i.image = UIImage(named: "web-upper-left.png")
         }
         else if (c2p == 7) {
-            self.c2i.image = UIImage(named: "water.png")
+            self.c2i.image = animateWater()
         }
         else if (c2p == 9) {
             self.c2i.image = UIImage(named: "candles.png")
@@ -3083,7 +3157,7 @@ class Gameplay: UIViewController {
             self.c3i.image = UIImage(named: "down-stairs.png")
         }
         else if (c3p == 7) {
-            self.c3i.image = UIImage(named: "water.png")
+            self.c3i.image = animateWater()
         }
         else if (c3p == 9) {
             self.c3i.image = UIImage(named: "candles.png")
@@ -3107,7 +3181,7 @@ class Gameplay: UIViewController {
             self.c4i.image = UIImage(named: "down-stairs.png")
         }
         else if (c4p == 7) {
-            self.c4i.image = UIImage(named: "water.png")
+            self.c4i.image = animateWater()
         }
         else if (c4p == 9) {
             self.c4i.image = UIImage(named: "candles.png")
@@ -3131,7 +3205,7 @@ class Gameplay: UIViewController {
             self.c5i.image = UIImage(named: "down-stairs.png")
         }
         else if (c5p == 7) {
-            self.c5i.image = UIImage(named: "water.png")
+            self.c5i.image = animateWater()
         }
         else if (c5p == 9) {
             self.c5i.image = UIImage(named: "candles.png")
@@ -3155,7 +3229,7 @@ class Gameplay: UIViewController {
             self.c6i.image = UIImage(named: "down-stairs.png")
         }
         else if (c6p == 7) {
-            self.c6i.image = UIImage(named: "water.png")
+            self.c6i.image = animateWater()
         }
         else if (c6p == 9) {
             self.c6i.image = UIImage(named: "candles.png")
@@ -3179,7 +3253,7 @@ class Gameplay: UIViewController {
             self.c7i.image = UIImage(named: "down-stairs.png")
         }
         else if (c7p == 7) {
-            self.c7i.image = UIImage(named: "water.png")
+            self.c7i.image = animateWater()
         }
         else if (c7p == 9) {
             self.c7i.image = UIImage(named: "candles.png")
@@ -3206,7 +3280,7 @@ class Gameplay: UIViewController {
             self.c8i.image = UIImage(named: "web-upper-right.png")
         }
         else if (c8p == 7) {
-            self.c8i.image = UIImage(named: "water.png")
+            self.c8i.image = animateWater()
         }
         else if (c8p == 9) {
             self.c8i.image = UIImage(named: "candles.png")
@@ -3230,7 +3304,7 @@ class Gameplay: UIViewController {
             self.c9i.image = UIImage(named: "down-stairs.png")
         }
         else if (c9p == 7) {
-            self.c9i.image = UIImage(named: "water.png")
+            self.c9i.image = animateWater()
         }
         else if (c9p == 9) {
             self.c9i.image = UIImage(named: "candles.png")
@@ -3255,7 +3329,7 @@ class Gameplay: UIViewController {
             self.d1i.image = UIImage(named: "down-stairs.png")
         }
         else if (d1p == 7) {
-            self.d1i.image = UIImage(named: "water.png")
+            self.d1i.image = animateWater()
         }
         else if (d1p == 9) {
             self.d1i.image = UIImage(named: "candles.png")
@@ -3282,7 +3356,7 @@ class Gameplay: UIViewController {
             self.d2i.image = UIImage(named: "web-upper-left.png")
         }
         else if (d2p == 7) {
-            self.d2i.image = UIImage(named: "water.png")
+            self.d2i.image = animateWater()
         }
         else if (d2p == 9) {
             self.d2i.image = UIImage(named: "candles.png")
@@ -3306,7 +3380,7 @@ class Gameplay: UIViewController {
             self.d3i.image = UIImage(named: "down-stairs.png")
         }
         else if (d3p == 7) {
-            self.d3i.image = UIImage(named: "water.png")
+            self.d3i.image = animateWater()
         }
         else if (d3p == 9) {
             self.d3i.image = UIImage(named: "candles.png")
@@ -3330,7 +3404,7 @@ class Gameplay: UIViewController {
             self.d4i.image = UIImage(named: "down-stairs.png")
         }
         else if (d4p == 7) {
-            self.d4i.image = UIImage(named: "water.png")
+            self.d4i.image = animateWater()
         }
         else if (d4p == 9) {
             self.d4i.image = UIImage(named: "candles.png")
@@ -3354,7 +3428,7 @@ class Gameplay: UIViewController {
             self.d5i.image = UIImage(named: "down-stairs.png")
         }
         else if (d5p == 7) {
-            self.d5i.image = UIImage(named: "water.png")
+            self.d5i.image = animateWater()
         }
         else if (d5p == 9) {
             self.d5i.image = UIImage(named: "candles.png")
@@ -3378,7 +3452,7 @@ class Gameplay: UIViewController {
             self.d6i.image = UIImage(named: "down-stairs.png")
         }
         else if (d6p == 7) {
-            self.d6i.image = UIImage(named: "water.png")
+            self.d6i.image = animateWater()
         }
         else if (d6p == 9) {
             self.d6i.image = UIImage(named: "candles.png")
@@ -3402,7 +3476,7 @@ class Gameplay: UIViewController {
             self.d7i.image = UIImage(named: "down-stairs.png")
         }
         else if (d7p == 7) {
-            self.d7i.image = UIImage(named: "water.png")
+            self.d7i.image = animateWater()
         }
         else if (d7p == 9) {
             self.d7i.image = UIImage(named: "candles.png")
@@ -3429,7 +3503,7 @@ class Gameplay: UIViewController {
             self.d8i.image = UIImage(named: "web-upper-right.png")
         }
         else if (d8p == 7) {
-            self.d8i.image = UIImage(named: "water.png")
+            self.d8i.image = animateWater()
         }
         else if (d8p == 9) {
             self.d8i.image = UIImage(named: "candles.png")
@@ -3453,7 +3527,7 @@ class Gameplay: UIViewController {
             self.d9i.image = UIImage(named: "down-stairs.png")
         }
         else if (d9p == 7) {
-            self.d9i.image = UIImage(named: "water.png")
+            self.d9i.image = animateWater()
         }
         else if (d9p == 9) {
             self.d9i.image = UIImage(named: "candles.png")
@@ -3478,7 +3552,7 @@ class Gameplay: UIViewController {
             self.e1i.image = UIImage(named: "down-stairs.png")
         }
         else if (e1p == 7) {
-            self.e1i.image = UIImage(named: "water.png")
+            self.e1i.image = animateWater()
         }
         else if (e1p == 9) {
             self.e1i.image = UIImage(named: "candles.png")
@@ -3505,7 +3579,7 @@ class Gameplay: UIViewController {
             self.e2i.image = UIImage(named: "web-upper-left.png")
         }
         else if (e2p == 7) {
-            self.e2i.image = UIImage(named: "water.png")
+            self.e2i.image = animateWater()
         }
         else if (e2p == 9) {
             self.e2i.image = UIImage(named: "candles.png")
@@ -3529,7 +3603,7 @@ class Gameplay: UIViewController {
             self.e3i.image = UIImage(named: "down-stairs.png")
         }
         else if (e3p == 7) {
-            self.e3i.image = UIImage(named: "water.png")
+            self.e3i.image = animateWater()
         }
         else if (e3p == 9) {
             self.e3i.image = UIImage(named: "candles.png")
@@ -3553,7 +3627,7 @@ class Gameplay: UIViewController {
             self.e4i.image = UIImage(named: "down-stairs.png")
         }
         else if (e4p == 7) {
-            self.e4i.image = UIImage(named: "water.png")
+            self.e4i.image = animateWater()
         }
         else if (e4p == 9) {
             self.e4i.image = UIImage(named: "candles.png")
@@ -3577,7 +3651,7 @@ class Gameplay: UIViewController {
             self.e5i.image = UIImage(named: "down-stairs.png")
         }
         else if (e5p == 7) {
-            self.e5i.image = UIImage(named: "water.png")
+            self.e5i.image = animateWater()
         }
         else if (e5p == 9) {
             self.e5i.image = UIImage(named: "candles.png")
@@ -3601,7 +3675,7 @@ class Gameplay: UIViewController {
             self.e6i.image = UIImage(named: "down-stairs.png")
         }
         else if (e6p == 7) {
-            self.e6i.image = UIImage(named: "water.png")
+            self.e6i.image = animateWater()
         }
         else if (e6p == 9) {
             self.e6i.image = UIImage(named: "candles.png")
@@ -3625,7 +3699,7 @@ class Gameplay: UIViewController {
             self.e7i.image = UIImage(named: "down-stairs.png")
         }
         else if (e7p == 7) {
-            self.e7i.image = UIImage(named: "water.png")
+            self.e7i.image = animateWater()
         }
         else if (e7p == 9) {
             self.e7i.image = UIImage(named: "candles.png")
@@ -3652,7 +3726,7 @@ class Gameplay: UIViewController {
             self.e8i.image = UIImage(named: "web-upper-right.png")
         }
         else if (e8p == 7) {
-            self.e8i.image = UIImage(named: "water.png")
+            self.e8i.image = animateWater()
         }
         else if (e8p == 9) {
             self.e8i.image = UIImage(named: "candles.png")
@@ -3676,7 +3750,7 @@ class Gameplay: UIViewController {
             self.e9i.image = UIImage(named: "down-stairs.png")
         }
         else if (e9p == 7) {
-            self.e9i.image = UIImage(named: "water.png")
+            self.e9i.image = animateWater()
         }
         else if (e9p == 9) {
             self.e9i.image = UIImage(named: "candles.png")
@@ -3701,7 +3775,7 @@ class Gameplay: UIViewController {
             self.f1i.image = UIImage(named: "down-stairs.png")
         }
         else if (f1p == 7) {
-            self.f1i.image = UIImage(named: "water.png")
+            self.f1i.image = animateWater()
         }
         else if (f1p == 9) {
             self.f1i.image = UIImage(named: "candles.png")
@@ -3728,7 +3802,7 @@ class Gameplay: UIViewController {
             self.f2i.image = UIImage(named: "web-upper-left.png")
         }
         else if (f2p == 7) {
-            self.f2i.image = UIImage(named: "water.png")
+            self.f2i.image = animateWater()
         }
         else if (f2p == 9) {
             self.f2i.image = UIImage(named: "candles.png")
@@ -3752,7 +3826,7 @@ class Gameplay: UIViewController {
             self.f3i.image = UIImage(named: "down-stairs.png")
         }
         else if (f3p == 7) {
-            self.f3i.image = UIImage(named: "water.png")
+            self.f3i.image = animateWater()
         }
         else if (f3p == 9) {
             self.f3i.image = UIImage(named: "candles.png")
@@ -3776,7 +3850,7 @@ class Gameplay: UIViewController {
             self.f4i.image = UIImage(named: "down-stairs.png")
         }
         else if (f4p == 7) {
-            self.f4i.image = UIImage(named: "water.png")
+            self.f4i.image = animateWater()
         }
         else if (f4p == 9) {
             self.f4i.image = UIImage(named: "candles.png")
@@ -3800,7 +3874,7 @@ class Gameplay: UIViewController {
             self.f5i.image = UIImage(named: "down-stairs.png")
         }
         else if (f5p == 7) {
-            self.f5i.image = UIImage(named: "water.png")
+            self.f5i.image = animateWater()
         }
         else if (f5p == 9) {
             self.f5i.image = UIImage(named: "candles.png")
@@ -3824,7 +3898,7 @@ class Gameplay: UIViewController {
             self.f6i.image = UIImage(named: "down-stairs.png")
         }
         else if (f6p == 7) {
-            self.f6i.image = UIImage(named: "water.png")
+            self.f6i.image = animateWater()
         }
         else if (f6p == 9) {
             self.f6i.image = UIImage(named: "candles.png")
@@ -3848,7 +3922,7 @@ class Gameplay: UIViewController {
             self.f7i.image = UIImage(named: "down-stairs.png")
         }
         else if (f7p == 7) {
-            self.f7i.image = UIImage(named: "water.png")
+            self.f7i.image = animateWater()
         }
         else if (f7p == 9) {
             self.f7i.image = UIImage(named: "candles.png")
@@ -3875,7 +3949,7 @@ class Gameplay: UIViewController {
             self.f8i.image = UIImage(named: "web-upper-right.png")
         }
         else if (f8p == 7) {
-            self.f8i.image = UIImage(named: "water.png")
+            self.f8i.image = animateWater()
         }
         else if (f8p == 9) {
             self.f8i.image = UIImage(named: "candles.png")
@@ -3899,7 +3973,7 @@ class Gameplay: UIViewController {
             self.f9i.image = UIImage(named: "down-stairs.png")
         }
         else if (f9p == 7) {
-            self.f9i.image = UIImage(named: "water.png")
+            self.f9i.image = animateWater()
         }
         else if (f9p == 9) {
             self.f9i.image = UIImage(named: "candles.png")
@@ -3924,7 +3998,7 @@ class Gameplay: UIViewController {
             self.g1i.image = UIImage(named: "down-stairs.png")
         }
         else if (g1p == 7) {
-            self.g1i.image = UIImage(named: "water.png")
+            self.g1i.image = animateWater()
         }
         else if (g1p == 9) {
             self.g1i.image = UIImage(named: "candles.png")
@@ -3951,7 +4025,7 @@ class Gameplay: UIViewController {
             self.g2i.image = UIImage(named: "web-lower-left.png")
         }
         else if (g2p == 7) {
-            self.g2i.image = UIImage(named: "water.png")
+            self.g2i.image = animateWater()
         }
         else if (g2p == 9) {
             self.g2i.image = UIImage(named: "candles.png")
@@ -3975,7 +4049,7 @@ class Gameplay: UIViewController {
             self.g3i.image = UIImage(named: "down-stairs.png")
         }
         else if (g3p == 7) {
-            self.g3i.image = UIImage(named: "water.png")
+            self.g3i.image = animateWater()
         }
         else if (g3p == 9) {
             self.g3i.image = UIImage(named: "candles.png")
@@ -3999,7 +4073,7 @@ class Gameplay: UIViewController {
             self.g4i.image = UIImage(named: "down-stairs.png")
         }
         else if (g4p == 7) {
-            self.g4i.image = UIImage(named: "water.png")
+            self.g4i.image = animateWater()
         }
         else if (g4p == 9) {
             self.g4i.image = UIImage(named: "candles.png")
@@ -4023,7 +4097,7 @@ class Gameplay: UIViewController {
             self.g5i.image = UIImage(named: "down-stairs.png")
         }
         else if (g5p == 7) {
-            self.g5i.image = UIImage(named: "water.png")
+            self.g5i.image = animateWater()
         }
         else if (g5p == 9) {
             self.g5i.image = UIImage(named: "candles.png")
@@ -4047,7 +4121,7 @@ class Gameplay: UIViewController {
             self.g6i.image = UIImage(named: "down-stairs.png")
         }
         else if (g6p == 7) {
-            self.g6i.image = UIImage(named: "water.png")
+            self.g6i.image = animateWater()
         }
         else if (g6p == 9) {
             self.g6i.image = UIImage(named: "candles.png")
@@ -4071,7 +4145,7 @@ class Gameplay: UIViewController {
             self.g7i.image = UIImage(named: "down-stairs.png")
         }
         else if (g7p == 7) {
-            self.g7i.image = UIImage(named: "water.png")
+            self.g7i.image = animateWater()
         }
         else if (g7p == 9) {
             self.g7i.image = UIImage(named: "candles.png")
@@ -4098,7 +4172,7 @@ class Gameplay: UIViewController {
             self.g8i.image = UIImage(named: "web-lower-right.png")
         }
         else if (g8p == 7) {
-            self.g8i.image = UIImage(named: "water.png")
+            self.g8i.image = animateWater()
         }
         else if (g8p == 9) {
             self.g8i.image = UIImage(named: "candles.png")
@@ -4122,7 +4196,7 @@ class Gameplay: UIViewController {
             self.g9i.image = UIImage(named: "down-stairs.png")
         }
         else if (g9p == 7) {
-            self.g9i.image = UIImage(named: "water.png")
+            self.g9i.image = animateWater()
         }
         else if (g9p == 9) {
             self.g9i.image = UIImage(named: "candles.png")
@@ -4147,7 +4221,8 @@ class Gameplay: UIViewController {
             self.h1i.image = UIImage(named: "down-stairs.png")
         }
         else if (h1p == 7) {
-            self.h1i.image = UIImage(named: "water.png")
+            //self.h1i.image = animateWater()
+            self.h1i.image = animateWater()
         }
         else if (h1p == 9) {
             self.h1i.image = UIImage(named: "candles.png")
@@ -4174,7 +4249,7 @@ class Gameplay: UIViewController {
             self.h2i.image = UIImage(named: "web-lower-left.png")
         }
         else if (h2p == 7) {
-            self.h2i.image = UIImage(named: "water.png")
+            self.h2i.image = animateWater()
         }
         else if (h2p == 9) {
             self.h2i.image = UIImage(named: "candles.png")
@@ -4198,7 +4273,7 @@ class Gameplay: UIViewController {
             self.h3i.image = UIImage(named: "down-stairs.png")
         }
         else if (h3p == 7) {
-            self.h3i.image = UIImage(named: "water.png")
+            self.h3i.image = animateWater()
         }
         else if (h3p == 9) {
             self.h3i.image = UIImage(named: "candles.png")
@@ -4222,7 +4297,7 @@ class Gameplay: UIViewController {
             self.h4i.image = UIImage(named: "down-stairs.png")
         }
         else if (h4p == 7) {
-            self.h4i.image = UIImage(named: "water.png")
+            self.h4i.image = animateWater()
         }
         else if (h4p == 9) {
             self.h4i.image = UIImage(named: "candles.png")
@@ -4246,7 +4321,7 @@ class Gameplay: UIViewController {
             self.h5i.image = UIImage(named: "down-stairs.png")
         }
         else if (h5p == 7) {
-            self.h5i.image = UIImage(named: "water.png")
+            self.h5i.image = animateWater()
         }
         else if (h5p == 9) {
             self.h5i.image = UIImage(named: "candles.png")
@@ -4270,7 +4345,7 @@ class Gameplay: UIViewController {
             self.h6i.image = UIImage(named: "down-stairs.png")
         }
         else if (h6p == 7) {
-            self.h6i.image = UIImage(named: "water.png")
+            self.h6i.image = animateWater()
         }
         else if (h6p == 9) {
             self.h6i.image = UIImage(named: "candles.png")
@@ -4294,7 +4369,7 @@ class Gameplay: UIViewController {
             self.h7i.image = UIImage(named: "down-stairs.png")
         }
         else if (h7p == 7) {
-            self.h7i.image = UIImage(named: "water.png")
+            self.h7i.image = animateWater()
         }
         else if (h7p == 9) {
             self.h7i.image = UIImage(named: "candles.png")
@@ -4321,7 +4396,7 @@ class Gameplay: UIViewController {
             self.h8i.image = UIImage(named: "web-lower-right.png")
         }
         else if (h8p == 7) {
-            self.h8i.image = UIImage(named: "water.png")
+            self.h8i.image = animateWater()
         }
         else if (h8p == 9) {
             self.h8i.image = UIImage(named: "candles.png")
@@ -4345,7 +4420,7 @@ class Gameplay: UIViewController {
             self.h9i.image = UIImage(named: "down-stairs.png")
         }
         else if (h9p == 7) {
-            self.h9i.image = UIImage(named: "water.png")
+            self.h9i.image = animateWater()
         }
         else if (h9p == 9) {
             self.h9i.image = UIImage(named: "candles.png")
@@ -5842,10 +5917,11 @@ class Gameplay: UIViewController {
     }
     
     func enemyEncounter() {
-        self.gridView.shake()
+        self.player.shake()
         moveEnabled = false
         playerHealth = playerHealth - 1
         if (playerHealth > 0) {
+            killEnemy()
             let triggerTime = (Int64(NSEC_PER_SEC) * 1)
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(triggerTime) / Double(NSEC_PER_SEC), execute: { () -> Void in
                 self.revealMessage()
@@ -5858,7 +5934,6 @@ class Gameplay: UIViewController {
                 self.revealEnd()
             })
         }
-        killEnemy()
     }
     
     func revealMessage() {
@@ -6820,26 +6895,48 @@ class Gameplay: UIViewController {
         }
     }
     
-    func checkEnemyPriority() {
+    func resetEnemyPriority() {
         enemyPriorityUp = false
         enemyPriorityDown = false
         enemyPriorityLeft = false
         enemyPriorityRight = false
+    }
+    
+    func checkEnemyPriority() {
+        //basic enemy pathing
         
         if (en1y == playerY) {
             if (en1x > playerX && enemyCanMoveLeft == true) {
+                resetEnemyPriority()
                 enemyPriorityLeft = true
             }
             else if (en1x < playerX && enemyCanMoveRight == true) {
+                resetEnemyPriority()
                 enemyPriorityRight = true
             }
         }
         else if (en1x == playerX) {
             if (en1y < playerY && enemyCanMoveDown == true) {
+                resetEnemyPriority()
                 enemyPriorityDown = true
             }
             else if (en1y > playerY && enemyCanMoveUp == true) {
+                resetEnemyPriority()
                 enemyPriorityUp = true
+            }
+        }
+        else {
+            if (enemyPriorityLeft == true && enemyCanMoveLeft == false) {
+                resetEnemyPriority()
+            }
+            else if (enemyPriorityRight == true && enemyCanMoveRight == false) {
+                resetEnemyPriority()
+            }
+            else if (enemyPriorityDown == true && enemyCanMoveDown == false) {
+                resetEnemyPriority()
+            }
+            else if (enemyPriorityUp == true && enemyCanMoveUp == false) {
+                resetEnemyPriority()
             }
         }
     }
@@ -6870,50 +6967,50 @@ class Gameplay: UIViewController {
     
     func moveDown() {
         checkConstraints()
+        checkEnemyPriority()
         if (playerY < boundsY && canMoveDown == true) {
             playerY += 1
             UIView.animate(withDuration: animationSpeed, animations: {
                 self.player.center = CGPoint(x: self.player.center.x, y: self.player.center.y + 48)
-            }) 
-            
-            endTurn()
+            })
         }
+        endTurn()
     }
     
     func moveUp() {
         checkConstraints()
+        checkEnemyPriority()
         if (playerY > 1 && canMoveUp == true) {
             playerY -= 1
             UIView.animate(withDuration: animationSpeed, animations: {
                 self.player.center = CGPoint(x: self.player.center.x, y: self.player.center.y - 48)
-            }) 
-            
-            endTurn()
+            })
         }
+        endTurn()
     }
     
     func moveLeft() {
         checkConstraints()
+        checkEnemyPriority()
         if (playerX > 1 && canMoveLeft == true) {
             playerX -= 1
             UIView.animate(withDuration: animationSpeed, animations: {
                 self.player.center = CGPoint(x: self.player.center.x - 32, y: self.player.center.y)
-            }) 
-            
-            endTurn()
+            })
         }
+        endTurn()
     }
     
     func moveRight() {
         checkConstraints()
+        checkEnemyPriority()
         if (playerX < boundsX && canMoveRight == true) {
             playerX += 1
             UIView.animate(withDuration: animationSpeed, animations: {
                 self.player.center = CGPoint(x: self.player.center.x + 32, y: self.player.center.y)
-            }) 
-            
-            endTurn()
+            })
         }
+        endTurn()
     }
     
     func moveEnemy() {

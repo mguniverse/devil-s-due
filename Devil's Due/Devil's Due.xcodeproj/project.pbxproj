@@ -91,6 +91,8 @@
 		D4B0A4251C97DBD6002ED642 /* web-upper-right.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B0A4231C97DBD6002ED642 /* web-upper-right.png */; };
 		D4B0A4281C97F000002ED642 /* chest-open.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B0A4261C97F000002ED642 /* chest-open.png */; };
 		D4B0A4291C97F000002ED642 /* chest.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B0A4271C97F000002ED642 /* chest.png */; };
+		D4CDB65B2048C1DA006201E7 /* water-animated.png in Resources */ = {isa = PBXBuildFile; fileRef = D4CDB65A2048C1DA006201E7 /* water-animated.png */; };
+		D4CDB65D2048C958006201E7 /* AnimateWater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDB65C2048C958006201E7 /* AnimateWater.swift */; };
 		D4EBCE0F1C950EEB003C69A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EBCE0E1C950EEB003C69A2 /* AppDelegate.swift */; };
 		D4EBCE111C950EEB003C69A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EBCE101C950EEB003C69A2 /* ViewController.swift */; };
 		D4EBCE141C950EEB003C69A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4EBCE121C950EEB003C69A2 /* Main.storyboard */; };
@@ -210,6 +212,8 @@
 		D4B0A4231C97DBD6002ED642 /* web-upper-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web-upper-right.png"; sourceTree = "<group>"; };
 		D4B0A4261C97F000002ED642 /* chest-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chest-open.png"; sourceTree = "<group>"; };
 		D4B0A4271C97F000002ED642 /* chest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chest.png; sourceTree = "<group>"; };
+		D4CDB65A2048C1DA006201E7 /* water-animated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "water-animated.png"; sourceTree = "<group>"; };
+		D4CDB65C2048C958006201E7 /* AnimateWater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateWater.swift; sourceTree = "<group>"; };
 		D4CF98441D6E9DE50010BFB9 /* Blokus.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Blokus.otf; sourceTree = "<group>"; };
 		D4CF98451D6E9E5F0010BFB9 /* KHARB___.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KHARB___.TTF"; sourceTree = "<group>"; };
 		D4CF98461D6E9E5F0010BFB9 /* kharon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = kharon.ttf; sourceTree = "<group>"; };
@@ -328,6 +332,7 @@
 				D42B13841D8128B3007B82CE /* Gameplay.swift */,
 				D4EBCE0E1C950EEB003C69A2 /* AppDelegate.swift */,
 				D4EBCE101C950EEB003C69A2 /* ViewController.swift */,
+				D4CDB65C2048C958006201E7 /* AnimateWater.swift */,
 				D484DC051D7C0A7900699104 /* RandomWalls.swift */,
 				D484DC071D7C12F600699104 /* RandomEdges.swift */,
 				D484DC311D7E06BD00699104 /* ScreenShake.swift */,
@@ -371,6 +376,7 @@
 				D484DC251D7D3C2900699104 /* cave-door-closed.png */,
 				D484DC261D7D3C2900699104 /* cave-door.png */,
 				D484DC151D7D021C00699104 /* water.png */,
+				D4CDB65A2048C1DA006201E7 /* water-animated.png */,
 				D484DC091D7CC04200699104 /* cracked-stone-faded.png */,
 				D484DC0A1D7CC04200699104 /* cracked-stone.png */,
 				D47D101A1CB221860023BA19 /* body.png */,
@@ -506,13 +512,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Danny Perski";
 				TargetAttributes = {
 					D4EBCE0A1C950EEB003C69A2 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = CL35ZTCQNT;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0920;
 					};
 				};
 			};
@@ -639,6 +645,7 @@
 				D4EBCE531C951D16003C69A2 /* stones.png in Resources */,
 				D45259431D76D2E600944544 /* husk-hunch.png in Resources */,
 				D468C4291D860548008B4FA5 /* hood-mask.png in Resources */,
+				D4CDB65B2048C1DA006201E7 /* water-animated.png in Resources */,
 				D4EBCE7D1C9604D1003C69A2 /* pillar-1.png in Resources */,
 				D484DC2A1D7D3C2900699104 /* cave-4.png in Resources */,
 				D4EBCE721C955141003C69A2 /* bricks-3.png in Resources */,
@@ -663,6 +670,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D484DC321D7E06BD00699104 /* ScreenShake.swift in Sources */,
+				D4CDB65D2048C958006201E7 /* AnimateWater.swift in Sources */,
 				D42B13851D8128B3007B82CE /* Gameplay.swift in Sources */,
 				D484DC061D7C0A7900699104 /* RandomWalls.swift in Sources */,
 				D484DC081D7C12F600699104 /* RandomEdges.swift in Sources */,
@@ -701,14 +709,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -748,14 +762,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -790,7 +810,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mguniverse.Devil-s-Due";
 				PRODUCT_NAME = "Devil's Due";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -803,7 +824,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mguniverse.Devil-s-Due";
 				PRODUCT_NAME = "Devil's Due";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
