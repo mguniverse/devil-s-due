@@ -506,6 +506,7 @@
                             <outletCollection property="gestureRecognizers" destination="V45-Yh-Mh9" appends="YES" id="kaV-xH-BjQ"/>
                             <outletCollection property="gestureRecognizers" destination="RpA-6J-Cu1" appends="YES" id="wwV-Zf-DfH"/>
                             <outletCollection property="gestureRecognizers" destination="xLN-Ao-YfR" appends="YES" id="WLc-iO-uyL"/>
+                            <outletCollection property="gestureRecognizers" destination="S0R-U5-8Qk" appends="YES" id="1wa-et-ttN"/>
                         </connections>
                     </view>
                     <connections>
@@ -626,6 +627,11 @@
                         <action selector="debug:" destination="Moh-1P-SHW" id="ohN-cB-Zmt"/>
                     </connections>
                 </tapGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="1" id="S0R-U5-8Qk">
+                    <connections>
+                        <action selector="longPress:" destination="Moh-1P-SHW" id="rVn-Bt-wxs"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="421.5" y="404.5"/>
         </scene>

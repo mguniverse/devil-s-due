@@ -101,6 +101,7 @@ class Gameplay: UIViewController {
     var canMoveDown:Bool = true
     var canMoveLeft:Bool = true
     var canMoveRight:Bool = true
+    var canSkipTurn:Bool = true
     
     //enemy move permissions
     var enemyCanMoveUp:Bool = true
@@ -480,6 +481,7 @@ class Gameplay: UIViewController {
                 en1e = false
                 checkEnemyConstraints()
                 checkEnemyEncounter()
+                print("Enemy encounter? ", en1e)
                 
                 //needs work
                 //checks if you are encountering the enemy or not
@@ -487,9 +489,11 @@ class Gameplay: UIViewController {
                     temp = 1
                     en1t = en1t + 1
                     //if (en1t <= en1s) {
+                    //not sure I want to use this enemy stamina feature
                     if (en1t == en1t) {
                         while (temp > 0) {
-                            print("Up:", enemyPriorityUp, "Down:", enemyPriorityDown, "Left:", enemyPriorityLeft, "Right:", enemyPriorityRight)
+                            checkEnemyPriority()
+                            //print("Up:", enemyPriorityUp, "Down:", enemyPriorityDown, "Left:", enemyPriorityLeft, "Right:", enemyPriorityRight)
                             moveEnemy()
                             //print("Is there an enemy encounter?", en1e)
                         }
@@ -5885,18 +5889,19 @@ class Gameplay: UIViewController {
     
     func checkEnemyEncounter() {
         //check if you are encountering enemy 1
+        en1e = false
         if (en1x == playerX) {
             if ((en1y - playerY) == 1 || (playerY - en1y) == 1) {
                 en1e = true
                 temp = 1
-                enemyEncounter()
+                //enemyEncounter()
             }
         }
         else if (en1y == playerY) {
             if ((en1x - playerX) == 1 || (playerX - en1x) == 1) {
                 en1e = true
                 temp = 1
-                enemyEncounter()
+                //enemyEncounter()
             }
         }
         //check if you are encountering enemy 2
@@ -5904,14 +5909,14 @@ class Gameplay: UIViewController {
             if ((en2y - playerY) == 1 || (playerY - en2y) == 1) {
                 en2e = true
                 temp = 2
-                enemyEncounter()
+                //enemyEncounter()
             }
         }
         else if (en2y == playerY) {
             if ((en2x - playerX) == 1 || (playerX - en2x) == 1) {
                 en2e = true
                 temp = 2
-                enemyEncounter()
+                //enemyEncounter()
             }
         }
     }
@@ -6944,24 +6949,35 @@ class Gameplay: UIViewController {
     @IBAction func swipeUp(_ sender: AnyObject) {
         if (moveEnabled == true) {
             moveUp()
+            canSkipTurn = true
         }
     }
     
     @IBAction func swipeDown(_ sender: AnyObject) {
         if (moveEnabled == true) {
             moveDown()
+            canSkipTurn = true
         }
     }
     
     @IBAction func swipeLeft(_ sender: AnyObject) {
         if (moveEnabled == true) {
             moveLeft()
+            canSkipTurn = true
         }
     }
     
     @IBAction func swipeRight(_ sender: AnyObject) {
         if (moveEnabled == true) {
             moveRight()
+            canSkipTurn = true
+        }
+    }
+    
+    @IBAction func longPress(_ sender: AnyObject) {
+        if (moveEnabled == true && canSkipTurn == true) {
+            canSkipTurn = false
+            skipTurn()
         }
     }
     
@@ -7013,78 +7029,88 @@ class Gameplay: UIViewController {
         endTurn()
     }
     
+    func skipTurn() {
+        self.player.image = animatePlayerVeil()
+        //player.stopAnimating()
+        //self.player.image = UIImage(named: "hero-1.png")
+        checkEnemyPriority()
+        endTurn()
+    }
+    
     func moveEnemy() {
-        if (enemyPriorityUp == true && en1y > 1 && enemyCanMoveUp == true) {
-            en1y -= 1
-            UIView.animate(withDuration: animationSpeed, animations: {
-                self.en1i.center = CGPoint(x: self.en1i.center.x, y: self.en1i.center.y - 48)
-            }) 
-            temp = temp - 1
-        }
-        else if (enemyPriorityDown == true && en1y < boundsY && enemyCanMoveDown == true) {
-            en1y += 1
-            UIView.animate(withDuration: animationSpeed, animations: {
-                self.en1i.center = CGPoint(x: self.en1i.center.x, y: self.en1i.center.y + 48)
-            }) 
-            temp = temp - 1
-        }
-        else if (enemyPriorityLeft == true && en1x > 1 && enemyCanMoveLeft == true) {
-            en1x -= 1
-            UIView.animate(withDuration: animationSpeed, animations: {
-                self.en1i.center = CGPoint(x: self.en1i.center.x - 32, y: self.en1i.center.y)
-            }) 
-            temp = temp - 1
-        }
-        else if (enemyPriorityRight == true && en1x < boundsX && enemyCanMoveRight == true) {
-            en1x += 1
-            UIView.animate(withDuration: animationSpeed, animations: {
-                self.en1i.center = CGPoint(x: self.en1i.center.x + 32, y: self.en1i.center.y)
-            }) 
-            temp = temp - 1
-        }
-        else {
-            //at this point if the enemy has no priority randomize the movement
-            let tempspec = arc4random() % 4
-            
-            if (tempspec == 0) {
-                if (en1y < boundsY && enemyCanMoveDown == true) {
-                    en1y += 1
-                    UIView.animate(withDuration: animationSpeed, animations: {
-                        self.en1i.center = CGPoint(x: self.en1i.center.x, y: self.en1i.center.y + 48)
-                    }) 
-                    temp = temp - 1
-                }
-            }
-            if (tempspec == 1) {
-                if (en1y > 1 && enemyCanMoveUp == true) {
-                    en1y -= 1
-                    UIView.animate(withDuration: animationSpeed, animations: {
-                        self.en1i.center = CGPoint(x: self.en1i.center.x, y: self.en1i.center.y - 48)
-                    }) 
-                    temp = temp - 1
-                }
-            }
-            if (tempspec == 2) {
-                if (en1x > 1 && enemyCanMoveLeft == true) {
-                    en1x -= 1
-                    UIView.animate(withDuration: animationSpeed, animations: {
-                        self.en1i.center = CGPoint(x: self.en1i.center.x - 32, y: self.en1i.center.y)
-                    }) 
-                    temp = temp - 1
-                }
-            }
-            if (tempspec == 3) {
-                if (en1x < boundsX && enemyCanMoveRight == true) {
-                    en1x += 1
-                    UIView.animate(withDuration: animationSpeed, animations: {
-                        self.en1i.center = CGPoint(x: self.en1i.center.x + 32, y: self.en1i.center.y)
-                    }) 
-                    temp = temp - 1
-                }
-            }
-        }
-        
         checkEnemyEncounter()
+        if (en1e == false) {
+            temp = 1
+            if (enemyPriorityUp == true && en1y > 1 && enemyCanMoveUp == true && temp > 0) {
+                en1y -= 1
+                UIView.animate(withDuration: animationSpeed, animations: {
+                    self.en1i.center = CGPoint(x: self.en1i.center.x, y: self.en1i.center.y - 48)
+                })
+                temp = temp - 1
+            }
+            else if (enemyPriorityDown == true && en1y < boundsY && enemyCanMoveDown == true && temp > 0) {
+                en1y += 1
+                UIView.animate(withDuration: animationSpeed, animations: {
+                    self.en1i.center = CGPoint(x: self.en1i.center.x, y: self.en1i.center.y + 48)
+                })
+                temp = temp - 1
+            }
+            else if (enemyPriorityLeft == true && en1x > 1 && enemyCanMoveLeft == true && temp > 0) {
+                en1x -= 1
+                UIView.animate(withDuration: animationSpeed, animations: {
+                    self.en1i.center = CGPoint(x: self.en1i.center.x - 32, y: self.en1i.center.y)
+                })
+                temp = temp - 1
+            }
+            else if (enemyPriorityRight == true && en1x < boundsX && enemyCanMoveRight == true && temp > 0) {
+                en1x += 1
+                UIView.animate(withDuration: animationSpeed, animations: {
+                    self.en1i.center = CGPoint(x: self.en1i.center.x + 32, y: self.en1i.center.y)
+                })
+                temp = temp - 1
+            }
+            else {
+                //at this point if the enemy has no priority randomize the movement
+                let tempspec = arc4random() % 4
+                
+                if (tempspec == 0) {
+                    if (en1y < boundsY && enemyCanMoveDown == true && temp > 0) {
+                        en1y += 1
+                        UIView.animate(withDuration: animationSpeed, animations: {
+                            self.en1i.center = CGPoint(x: self.en1i.center.x, y: self.en1i.center.y + 48)
+                        })
+                        temp = temp - 1
+                    }
+                }
+                if (tempspec == 1) {
+                    if (en1y > 1 && enemyCanMoveUp == true && temp > 0) {
+                        en1y -= 1
+                        UIView.animate(withDuration: animationSpeed, animations: {
+                            self.en1i.center = CGPoint(x: self.en1i.center.x, y: self.en1i.center.y - 48)
+                        })
+                        temp = temp - 1
+                    }
+                }
+                if (tempspec == 2) {
+                    if (en1x > 1 && enemyCanMoveLeft == true && temp > 0) {
+                        en1x -= 1
+                        UIView.animate(withDuration: animationSpeed, animations: {
+                            self.en1i.center = CGPoint(x: self.en1i.center.x - 32, y: self.en1i.center.y)
+                        })
+                        temp = temp - 1
+                    }
+                }
+                if (tempspec == 3) {
+                    if (en1x < boundsX && enemyCanMoveRight == true && temp > 0) {
+                        en1x += 1
+                        UIView.animate(withDuration: animationSpeed, animations: {
+                            self.en1i.center = CGPoint(x: self.en1i.center.x + 32, y: self.en1i.center.y)
+                        })
+                        temp = temp - 1
+                    }
+                }
+            }
+        }
     }
     
     override func viewDidLoad() {
